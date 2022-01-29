@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0b9ef5b1898dd4195c6a5854b0dcc8, type: 3}
+  m_Name: ChestChargeUpInfo
+  m_EditorClassIdentifier: 
+  enterChestTime: 0.27
+  enterChestTimePerCoin: 0.0005
+  payingCoinEndScalePercent: 0.7
+  chestMoveTime: 0.15
+  chestScaleMin: 0.3
+  chestScaleMax: 1
+  chestExpandTimeMin: 0.13
+  chestExpandTimeMax: 0.04
+  chestExpandScaleMin: 0.06
+  chestExpandScaleMax: 0.35
+  chestShakeSizeMin: 0.0015
+  chestShakeSizeMax: 0.003
+  chestPivotLengthMin: 2
+  chestPivotLengthMax: 12
+  chestPivotTimeMin: 0.15
+  chestPivotTimeMax: 0.018
+  chestExplodeTime: 0.4
+  chestExplodeScale: 10
+  chestFadeOutTime: 0.6
+  backgroundFadeTimeIn: 0.15
+  backgroundFadeTimeOut: 0.25
+  backgroundTransparency: 0.7
+  previewCoinEnlargeTime: 0.6
+  previewCoinEnlargeSize: 1.6
+  previewCoinPivotTime: 0.7
+  previewCoinPivotAmount: 360
+  previewCoinMoveTime: 0.3
+  previewCoinShrinkTime: 0.2
+  previewCoinMoveDelay: 0.5
+  collectionButtonBounceTimeOut: 0.13
+  collectionButtonBounceTimeIn: 0.25
+  collectionButtonBounceSize: 0.2
+  duplicateScreenEnlargeTime: 0.15
+  duplicateScreenDelay: 0.25

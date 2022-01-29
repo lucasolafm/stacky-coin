@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a027b2df848770545a5b35c3c91b7ee7
+timeCreated: 1536179572
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - gemMatLvl1: {instanceID: 0}
+  - gemMatlvl2: {instanceID: 0}
+  - gemMatlvl3: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

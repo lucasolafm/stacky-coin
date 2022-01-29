@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: a96542e57d3883f4999110571f27ea7f
+timeCreated: 1535732134
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: COIN_PIRATE3
+    100004: crossed_swords
+    100006: crossed_swords 1
+    100008: crossed_swords1
+    100010: pCube19
+    100012: pPlane1
+    100014: transform1
+    100016: transform2
+    100018: transform7
+    100020: transform8
+    100022: COIN_PIRATE_3
+    100024: polySurface1
+    100026: polySurface1 1
+    100028: polySurface10
+    100030: polySurface10 1
+    100032: polySurface11
+    100034: polySurface2
+    100036: polySurface3
+    100038: polySurface4
+    100040: polySurface5
+    100042: polySurface5 1
+    100044: polySurface6
+    100046: polySurface7
+    100048: polySurface8
+    100050: polySurface9
+    100052: polySurface9 1
+    100054: transform10
+    100056: transform11
+    100058: transform12
+    100060: transform13
+    100062: transform14
+    100064: transform15
+    100066: transform16
+    100068: transform17
+    100070: transform18
+    100072: transform19
+    100074: transform20
+    100076: transform21
+    100078: transform22
+    100080: transform23
+    100082: transform24
+    100084: transform9
+    100086: COIN_PIRATE_2
+    100088: OUTERCOIN
+    100090: transform26
+    100092: transform27
+    100094: COIN_BASIC
+    100096: COIN_PIRATE_4
+    100098: transform28
+    100100: transform29
+    100102: COIN_PIRATE_5
+    100104: group
+    100106: pasted__COIN_BASIC
+    400000: //RootNode
+    400002: COIN_PIRATE3
+    400004: crossed_swords
+    400006: crossed_swords 1
+    400008: crossed_swords1
+    400010: pCube19
+    400012: pPlane1
+    400014: transform1
+    400016: transform2
+    400018: transform7
+    400020: transform8
+    400022: COIN_PIRATE_3
+    400024: polySurface1
+    400026: polySurface1 1
+    400028: polySurface10
+    400030: polySurface10 1
+    400032: polySurface11
+    400034: polySurface2
+    400036: polySurface3
+    400038: polySurface4
+    400040: polySurface5
+    400042: polySurface5 1
+    400044: polySurface6
+    400046: polySurface7
+    400048: polySurface8
+    400050: polySurface9
+    400052: polySurface9 1
+    400054: transform10
+    400056: transform11
+    400058: transform12
+    400060: transform13
+    400062: transform14
+    400064: transform15
+    400066: transform16
+    400068: transform17
+    400070: transform18
+    400072: transform19
+    400074: transform20
+    400076: transform21
+    400078: transform22
+    400080: transform23
+    400082: transform24
+    400084: transform9
+    400086: COIN_PIRATE_2
+    400088: OUTERCOIN
+    400090: transform26
+    400092: transform27
+    400094: COIN_BASIC
+    400096: COIN_PIRATE_4
+    400098: transform28
+    400100: transform29
+    400102: COIN_PIRATE_5
+    400104: group
+    400106: pasted__COIN_BASIC
+    2100000: lambert3
+    2100002: lambert2
+    2100004: lambert1
+    2100006: lambert4
+    2100008: lambert5
+    2100010: lambert6
+    2100012: pasted__lambert2
+    2300000: COIN_PIRATE3
+    2300002: COIN_PIRATE_3
+    2300004: COIN_PIRATE_4
+    2300006: //RootNode
+    2300008: COIN_PIRATE_5
+    3300000: COIN_PIRATE3
+    3300002: COIN_PIRATE_3
+    3300004: COIN_PIRATE_4
+    3300006: //RootNode
+    3300008: COIN_PIRATE_5
+    4300000: COIN_PIRATE3
+    4300002: COIN_PIRATE_3
+    4300004: COIN_PIRATE_4
+    4300006: COIN_PIRATE_5
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

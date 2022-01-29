@@ -1,0 +1,156 @@
+fileFormatVersion: 2
+guid: 96b5f3515b016fe4c8dec0684f9c52ab
+timeCreated: 1535724606
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: COIN_QUESTIONMARK1
+    100002: //RootNode
+    100004: COIN_RUBLE
+    100006: pPlane1
+    100008: ruble
+    100010: ruble 1
+    100012: ruble1
+    100014: transform1
+    100016: transform2
+    100018: transform3
+    100020: transform4
+    100022: COIN_RUBLE1
+    100024: OUTERCOIN
+    100026: transform5
+    100028: transform6
+    100030: COIN_BASIC
+    100032: COIN_RUBLE2
+    100034: transform7
+    100036: transform8
+    100038: COIN_RUBLE3
+    100040: group
+    100042: pasted__COIN_BASIC
+    100044: transform10
+    100046: transform9
+    400000: COIN_QUESTIONMARK1
+    400002: //RootNode
+    400004: COIN_RUBLE
+    400006: pPlane1
+    400008: ruble
+    400010: ruble 1
+    400012: ruble1
+    400014: transform1
+    400016: transform2
+    400018: transform3
+    400020: transform4
+    400022: COIN_RUBLE1
+    400024: OUTERCOIN
+    400026: transform5
+    400028: transform6
+    400030: COIN_BASIC
+    400032: COIN_RUBLE2
+    400034: transform7
+    400036: transform8
+    400038: COIN_RUBLE3
+    400040: group
+    400042: pasted__COIN_BASIC
+    400044: transform10
+    400046: transform9
+    2100000: lambert3
+    2100002: lambert1
+    2100004: lambert4
+    2100006: lambert2
+    2100008: lambert5
+    2100010: pasted__lambert2
+    2300000: COIN_RUBLE
+    2300002: COIN_RUBLE1
+    2300004: COIN_RUBLE2
+    2300006: COIN_RUBLE3
+    2300008: //RootNode
+    3300000: COIN_RUBLE
+    3300002: COIN_RUBLE1
+    3300004: COIN_RUBLE2
+    3300006: COIN_RUBLE3
+    3300008: //RootNode
+    4300000: COIN_RUBLE
+    4300002: COIN_RUBLE1
+    4300004: COIN_RUBLE2
+    4300006: COIN_RUBLE3
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

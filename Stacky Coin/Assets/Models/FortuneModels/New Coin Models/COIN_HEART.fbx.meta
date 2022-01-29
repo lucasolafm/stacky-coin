@@ -1,0 +1,263 @@
+fileFormatVersion: 2
+guid: 4577b309c0438894fa5ffa74112537cd
+timeCreated: 1535309786
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: COIN_HEART
+    100002: //RootNode
+    100004: COIN_HEART 1
+    100006: COIN_QUESTIONMARK1
+    100008: pPlane1
+    100010: transform1
+    100012: transform2
+    100014: COIN_HEART_TEST
+    100016: COIN_QUESTIONMARK3
+    100018: polySurface1
+    100020: polySurface1 1
+    100022: polySurface11
+    100024: polySurface12
+    100026: polySurface2
+    100028: polySurface3
+    100030: polySurface3 1
+    100032: polySurface4
+    100034: polySurface6
+    100036: transform10
+    100038: transform11
+    100040: transform12
+    100042: transform13
+    100044: transform14
+    100046: transform15
+    100048: transform16
+    100050: transform7
+    100052: transform8
+    100054: transform9
+    100056: polySurface14
+    100058: polySurface15
+    100060: polySurface15 1
+    100062: polySurface16
+    100064: polySurface17
+    100066: polySurface18
+    100068: polySurface19
+    100070: polySurface19 1
+    100072: polySurface20
+    100074: polySurface21
+    100076: polySurface22
+    100078: polySurface22 1
+    100080: polySurface23
+    100082: polySurface23 1
+    100084: polySurface24
+    100086: polySurface25
+    100088: transform17
+    100090: transform18
+    100092: transform19
+    100094: transform20
+    100096: transform21
+    100098: transform22
+    100100: transform23
+    100102: transform24
+    100104: transform25
+    100106: transform26
+    100108: transform27
+    100110: transform28
+    100112: transform29
+    100114: transform30
+    100116: transform31
+    100118: transform32
+    100120: transform33
+    100122: COIN_HEART1
+    100124: OUTERCOIN
+    100126: transform34
+    100128: transform35
+    100130: COIN_BASIC
+    100132: COIN_HEART2
+    100134: transform36
+    100136: transform37
+    100138: COIN_HEART3
+    100140: group
+    100142: pasted__COIN_BASIC
+    100144: transform38
+    100146: transform39
+    400000: COIN_HEART
+    400002: //RootNode
+    400004: COIN_HEART 1
+    400006: COIN_QUESTIONMARK1
+    400008: pPlane1
+    400010: transform1
+    400012: transform2
+    400014: COIN_HEART_TEST
+    400016: COIN_QUESTIONMARK3
+    400018: polySurface1
+    400020: polySurface1 1
+    400022: polySurface11
+    400024: polySurface12
+    400026: polySurface2
+    400028: polySurface3
+    400030: polySurface3 1
+    400032: polySurface4
+    400034: polySurface6
+    400036: transform10
+    400038: transform11
+    400040: transform12
+    400042: transform13
+    400044: transform14
+    400046: transform15
+    400048: transform16
+    400050: transform7
+    400052: transform8
+    400054: transform9
+    400056: polySurface14
+    400058: polySurface15
+    400060: polySurface15 1
+    400062: polySurface16
+    400064: polySurface17
+    400066: polySurface18
+    400068: polySurface19
+    400070: polySurface19 1
+    400072: polySurface20
+    400074: polySurface21
+    400076: polySurface22
+    400078: polySurface22 1
+    400080: polySurface23
+    400082: polySurface23 1
+    400084: polySurface24
+    400086: polySurface25
+    400088: transform17
+    400090: transform18
+    400092: transform19
+    400094: transform20
+    400096: transform21
+    400098: transform22
+    400100: transform23
+    400102: transform24
+    400104: transform25
+    400106: transform26
+    400108: transform27
+    400110: transform28
+    400112: transform29
+    400114: transform30
+    400116: transform31
+    400118: transform32
+    400120: transform33
+    400122: COIN_HEART1
+    400124: OUTERCOIN
+    400126: transform34
+    400128: transform35
+    400130: COIN_BASIC
+    400132: COIN_HEART2
+    400134: transform36
+    400136: transform37
+    400138: COIN_HEART3
+    400140: group
+    400142: pasted__COIN_BASIC
+    400144: transform38
+    400146: transform39
+    2100000: lambert1
+    2100002: lambert9
+    2100004: lambert10
+    2100006: lambert3
+    2100008: lambert5
+    2100010: lambert4
+    2100012: lambert2
+    2100014: lambert6
+    2100016: lambert7
+    2100018: pasted__lambert2
+    2300000: COIN_HEART
+    2300002: //RootNode
+    2300004: polySurface12
+    2300006: COIN_HEART1
+    2300008: COIN_HEART2
+    2300010: COIN_HEART3
+    3300000: COIN_HEART
+    3300002: //RootNode
+    3300004: polySurface12
+    3300006: COIN_HEART1
+    3300008: COIN_HEART2
+    3300010: COIN_HEART3
+    4300000: COIN_HEART
+    4300002: polySurface12
+    4300004: COIN_HEART1
+    4300006: COIN_HEART2
+    4300008: COIN_HEART3
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

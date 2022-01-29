@@ -1,0 +1,195 @@
+fileFormatVersion: 2
+guid: 44bc858020a743344be015cc7b0f36f1
+timeCreated: 1535816024
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: COIN_HEARTEYES
+    100004: COIN_QUESTIONMARK1
+    100006: heart_eyes
+    100008: polySurface1
+    100010: polySurface2
+    100012: polySurface3
+    100014: polySurface3 1
+    100016: polySurface4
+    100018: polySurface5
+    100020: pPlane1
+    100022: transform1
+    100024: transform2
+    100026: transform3
+    100028: transform4
+    100030: transform5
+    100032: transform6
+    100034: transform7
+    100036: transform8
+    100038: COIN_HEARTEYES1
+    100040: COIN_QUESTIONMARK3
+    100042: polySurface6
+    100044: polySurface6 1
+    100046: polySurface7
+    100048: transform10
+    100050: transform11
+    100052: transform12
+    100054: transform13
+    100056: transform9
+    100058: COIN_HEARTEYES2
+    100060: OUTERCOIN
+    100062: transform14
+    100064: transform15
+    100066: COIN_BASIC
+    100068: COIN_HEARTEYES3
+    100070: transform16
+    100072: transform17
+    100074: COIN_HEARTEYES4
+    100076: group
+    100078: pasted__COIN_BASIC
+    100080: transform18
+    100082: transform19
+    400000: //RootNode
+    400002: COIN_HEARTEYES
+    400004: COIN_QUESTIONMARK1
+    400006: heart_eyes
+    400008: polySurface1
+    400010: polySurface2
+    400012: polySurface3
+    400014: polySurface3 1
+    400016: polySurface4
+    400018: polySurface5
+    400020: pPlane1
+    400022: transform1
+    400024: transform2
+    400026: transform3
+    400028: transform4
+    400030: transform5
+    400032: transform6
+    400034: transform7
+    400036: transform8
+    400038: COIN_HEARTEYES1
+    400040: COIN_QUESTIONMARK3
+    400042: polySurface6
+    400044: polySurface6 1
+    400046: polySurface7
+    400048: transform10
+    400050: transform11
+    400052: transform12
+    400054: transform13
+    400056: transform9
+    400058: COIN_HEARTEYES2
+    400060: OUTERCOIN
+    400062: transform14
+    400064: transform15
+    400066: COIN_BASIC
+    400068: COIN_HEARTEYES3
+    400070: transform16
+    400072: transform17
+    400074: COIN_HEARTEYES4
+    400076: group
+    400078: pasted__COIN_BASIC
+    400080: transform18
+    400082: transform19
+    2100000: lambert3
+    2100002: lambert1
+    2100004: lambert2
+    2100006: lambert4
+    2100008: lambert5
+    2100010: pasted__lambert2
+    2300000: COIN_HEARTEYES
+    2300002: COIN_HEARTEYES1
+    2300004: COIN_HEARTEYES2
+    2300006: COIN_HEARTEYES3
+    2300008: COIN_HEARTEYES4
+    2300010: //RootNode
+    3300000: COIN_HEARTEYES
+    3300002: COIN_HEARTEYES1
+    3300004: COIN_HEARTEYES2
+    3300006: COIN_HEARTEYES3
+    3300008: COIN_HEARTEYES4
+    3300010: //RootNode
+    4300000: COIN_HEARTEYES
+    4300002: COIN_HEARTEYES1
+    4300004: COIN_HEARTEYES2
+    4300006: COIN_HEARTEYES3
+    4300008: COIN_HEARTEYES4
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

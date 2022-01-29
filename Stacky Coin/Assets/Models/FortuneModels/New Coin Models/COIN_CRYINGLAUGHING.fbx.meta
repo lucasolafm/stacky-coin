@@ -1,0 +1,196 @@
+fileFormatVersion: 2
+guid: f7bcdd1b6d4205f43ac126e91e043ef3
+timeCreated: 1534628904
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: CRYINGLAUGHING
+    100004: CryingLaughing
+    100006: CryingLaughing 1
+    100008: CryingLaughing1
+    100010: group1
+    100012: pCylinder1
+    100014: pPlane1
+    100016: transform1
+    100018: transform2
+    100020: transform3
+    100022: transform4
+    100024: CryingLaughing2
+    100026: CryingLaughing3
+    100028: CryingLaughing4
+    100030: CryingLaughing5
+    100032: CryingLaughing6
+    100034: transform5
+    100036: transform6
+    100038: COIN_S_CRYINGLAUGHING
+    100040: COIN_S_CRYINGLAUGHING1
+    100042: COIN_S_CRYINGLAUGHING4
+    100044: pCylinder2
+    100046: pCylinder3
+    100048: pCylinder4
+    100050: pPipe1
+    100052: pPipe2
+    100054: transform10
+    100056: transform11
+    100058: transform12
+    100060: transform13
+    100062: transform7
+    100064: transform8
+    100066: transform9
+    100068: COIN_CRYINGLAUGHING
+    100070: polySurface1
+    100072: polySurface1 1
+    100074: polySurface2
+    100076: polySurface3
+    100078: transform14
+    100080: transform15
+    100082: transform16
+    100084: transform17
+    100086: transform18
+    400000: //RootNode
+    400002: CRYINGLAUGHING
+    400004: CryingLaughing
+    400006: CryingLaughing 1
+    400008: CryingLaughing1
+    400010: group1
+    400012: pCylinder1
+    400014: pPlane1
+    400016: transform1
+    400018: transform2
+    400020: transform3
+    400022: transform4
+    400024: CryingLaughing2
+    400026: CryingLaughing3
+    400028: CryingLaughing4
+    400030: CryingLaughing5
+    400032: CryingLaughing6
+    400034: transform5
+    400036: transform6
+    400038: COIN_S_CRYINGLAUGHING
+    400040: COIN_S_CRYINGLAUGHING1
+    400042: COIN_S_CRYINGLAUGHING4
+    400044: pCylinder2
+    400046: pCylinder3
+    400048: pCylinder4
+    400050: pPipe1
+    400052: pPipe2
+    400054: transform10
+    400056: transform11
+    400058: transform12
+    400060: transform13
+    400062: transform7
+    400064: transform8
+    400066: transform9
+    400068: COIN_CRYINGLAUGHING
+    400070: polySurface1
+    400072: polySurface1 1
+    400074: polySurface2
+    400076: polySurface3
+    400078: transform14
+    400080: transform15
+    400082: transform16
+    400084: transform17
+    400086: transform18
+    2100000: lambert1
+    2100002: lambert2
+    2100004: lambert3
+    2300000: CRYINGLAUGHING
+    2300002: pPlane1
+    2300004: COIN_S_CRYINGLAUGHING
+    2300006: COIN_S_CRYINGLAUGHING4
+    2300008: COIN_CRYINGLAUGHING
+    2300010: //RootNode
+    3300000: CRYINGLAUGHING
+    3300002: pPlane1
+    3300004: COIN_S_CRYINGLAUGHING
+    3300006: COIN_S_CRYINGLAUGHING4
+    3300008: COIN_CRYINGLAUGHING
+    3300010: //RootNode
+    4300000: pPlane1
+    4300002: CRYINGLAUGHING
+    4300004: COIN_S_CRYINGLAUGHING
+    4300006: COIN_S_CRYINGLAUGHING4
+    4300008: COIN_CRYINGLAUGHING
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

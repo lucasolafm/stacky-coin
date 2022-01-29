@@ -1,0 +1,198 @@
+fileFormatVersion: 2
+guid: fa50c3755736b90418b98a492d548d56
+timeCreated: 1535463305
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: COIN_MARIOCOIN
+    100004: COIN_QUESTIONMARK1
+    100006: COIN_QUESTIONMARK2
+    100008: pCube1
+    100010: pCube2
+    100012: transform1
+    100014: transform2
+    100016: transform3
+    100018: transform4
+    100020: COIN_MARIOCOIN1
+    100022: polySurface3
+    100024: polySurface4
+    100026: polySurface5
+    100028: polySurface6
+    100030: polySurface6 1
+    100032: transform5
+    100034: transform6
+    100036: COIN_MARIOCOIN2
+    100038: polySurface10
+    100040: polySurface7
+    100042: polySurface8
+    100044: polySurface9
+    100046: polySurface9 1
+    100048: transform10
+    100050: transform11
+    100052: transform12
+    100054: transform7
+    100056: transform8
+    100058: transform9
+    100060: COIN_QUESTIONMARK3
+    100062: COIN_QUESTIONMARK4
+    100064: OUTERCOIN
+    100066: OUTERCOIN1
+    100068: pCube3
+    100070: pCube4
+    100072: transform13
+    100074: transform14
+    100076: COIN_BASIC
+    100078: transform15
+    100080: transform16
+    100082: group
+    100084: pasted__COIN_BASIC
+    100086: transform17
+    100088: transform18
+    400000: //RootNode
+    400002: COIN_MARIOCOIN
+    400004: COIN_QUESTIONMARK1
+    400006: COIN_QUESTIONMARK2
+    400008: pCube1
+    400010: pCube2
+    400012: transform1
+    400014: transform2
+    400016: transform3
+    400018: transform4
+    400020: COIN_MARIOCOIN1
+    400022: polySurface3
+    400024: polySurface4
+    400026: polySurface5
+    400028: polySurface6
+    400030: polySurface6 1
+    400032: transform5
+    400034: transform6
+    400036: COIN_MARIOCOIN2
+    400038: polySurface10
+    400040: polySurface7
+    400042: polySurface8
+    400044: polySurface9
+    400046: polySurface9 1
+    400048: transform10
+    400050: transform11
+    400052: transform12
+    400054: transform7
+    400056: transform8
+    400058: transform9
+    400060: COIN_QUESTIONMARK3
+    400062: COIN_QUESTIONMARK4
+    400064: OUTERCOIN
+    400066: OUTERCOIN1
+    400068: pCube3
+    400070: pCube4
+    400072: transform13
+    400074: transform14
+    400076: COIN_BASIC
+    400078: transform15
+    400080: transform16
+    400082: group
+    400084: pasted__COIN_BASIC
+    400086: transform17
+    400088: transform18
+    2100000: lambert1
+    2100002: lambert3
+    2100004: lambert2
+    2100006: lambert4
+    2100008: lambert5
+    2100010: pasted__lambert2
+    2300000: COIN_MARIOCOIN
+    2300002: //RootNode
+    2300004: COIN_MARIOCOIN1
+    2300006: COIN_MARIOCOIN2
+    2300008: OUTERCOIN1
+    3300000: COIN_MARIOCOIN
+    3300002: //RootNode
+    3300004: COIN_MARIOCOIN1
+    3300006: COIN_MARIOCOIN2
+    3300008: OUTERCOIN1
+    4300000: COIN_MARIOCOIN
+    4300002: COIN_MARIOCOIN1
+    4300004: COIN_MARIOCOIN2
+    4300006: OUTERCOIN1
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Coin
+  - Platform1
+  - MainScript
+  - FlipSoundSource
+  - InvisWall
+  - BehindPileZone
+  - MiniCoin
+  - Scroller
+  - Chest
+  - CollectionBackButton
+  - Skin
+  - SpawnedObjects
+  - Tickbox
+  - TreasurePile
+  - PerfectHit
+  - PlayReferences
+  - ChestManager
+  - ChestPointer
+  - References
+  - Hand
+  - FallOffArea
+  - Trail
+  - Platform2
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Coins
+  - Background
+  - Bonus Coins Effect
+  - 
+  - 
+  - UI Background
+  - UI Objects
+  - UI Outlines
+  - Glow
+  - 
+  - 
+  - CoinTube
+  - CoinTube In Front
+  - 
+  - UI Collection
+  - UI Collection Infront
+  - Key
+  - Triple Reward Effect
+  - PlayAgainCoin
+  - Unlocking Dark Screen
+  - Unlocking
+  - SkinUnlockBG
+  - SkinUnlock
+  - SkinUnlockOutline
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: 
+    uniqueID: 518978671
+    locked: 0
