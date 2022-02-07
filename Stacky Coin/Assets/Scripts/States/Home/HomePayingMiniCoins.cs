@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using UnityEngine;
 using System.Linq;
 
@@ -9,7 +10,7 @@ public class HomePayingMiniCoins : HomeState
     private int totalPaidCount, newPaidCount;
     private float leftOverTime;
     private int payCurrentFrameAmount;
-    private int newCoinsCount, oldCoinsCount;
+    private int newCoinsCount;
     private int[] originalMiniCoins;
     private int firstCoinOnScreenIndex;
     private int coinsToSpawnAmount;
@@ -17,12 +18,13 @@ public class HomePayingMiniCoins : HomeState
     private float percentageOfPaidThisFrame;
 
     private float cameraStartPosition;
-    private float cameraMinPosition;
     private float coinFloorPosition = -5.314369f;
     private MiniCoin miniCoin;
     private bool topMiniCoinInCenter;
     private float moveDownToCenterDistance;
     private float cameraMoveToCenterProgress;
+
+    private float timeUntilClipClimax = 1.9f;
 
     public HomePayingMiniCoins(HomeManager homeManager, Chest chest) : base(homeManager) 
     {
@@ -33,13 +35,20 @@ public class HomePayingMiniCoins : HomeState
     {
         base.Enter();
 
+        float totalTime = 0;
+        for (int i = 0; i < chest.price; i++)
+        {
+            totalTime += Mathf.Max(manager.miniCoinManager.payTime - manager.miniCoinManager.payTimePerCoin * i,
+                    manager.miniCoinManager.payTimeMin);
+        }
+        totalTime += 0.27f - 0.0005f * chest.price;
+        manager.StartCoroutine(PlayClipBeforeChestOpens(totalTime));
+
         newCoinsCount = manager.newMiniCoins.Count;
-        oldCoinsCount = manager.oldMiniCoins.Count;
         originalMiniCoins = Data.miniCoins;
 
         cameraStartPosition = manager.coinTubeManager.cameraTransform.position.y;
-        cameraMinPosition = manager.coinTubeManager.bottomOfCoinTube.y + (manager.coinTubeManager.topOfScreen.y - manager.coinTubeManager.bottomRightOfScreen.y) / 2;
-
+        
         Data.RemoveMiniCoins(chest.price);
 
         EventManager.PaidForChest.Invoke(chest);
@@ -69,7 +78,6 @@ public class HomePayingMiniCoins : HomeState
 
             while (manager.coinTubeManager.bottomRightOfScreen.y < GetHeightByIndexInTube(manager.miniCoinManager.indexFirstOldCoinInTube))
             {
-                Debug.Log("placing at bottom");
                 PlaceCoinAtBottomOfScreen();   
             }    
 
@@ -156,16 +164,12 @@ public class HomePayingMiniCoins : HomeState
 
     private Material GetMaterial(int indexInTube)
     {
-        //Debug.Log("array count: "+ originalMiniCoins.Length);
-        Debug.Log("index: "+indexInTube);
         if (originalMiniCoins[indexInTube] == 0)
         {
             return manager.miniCoinManager.coinMaterial;
         }
-        else
-        {
-            return manager.miniCoinManager.gemMaterials[originalMiniCoins[indexInTube] - GameManager.I.coinSkinAmount];
-        }
+        
+        return manager.miniCoinManager.gemMaterials[originalMiniCoins[indexInTube] - GameManager.I.coinSkinAmount];
     }
 
     private void MoveCameraDown()
@@ -179,35 +183,6 @@ public class HomePayingMiniCoins : HomeState
             Mathf.Max(manager.coinTubeManager.cameraTransform.localPosition.y, 0), manager.coinTubeManager.cameraTransform.localPosition.z);
 
         EventManager.CoinTubeCameraRepositioned.Invoke();
-    }
-
-    private void PlaceCoinsOnNewScreenBelow()
-    {
-        // Spawn new old coins on the screen below
-        firstCoinOnScreenIndex = manager.coinTubeManager.GetFirstCoinOnScreenIndex(manager.coinTubeManager.bottomRightOfScreen.y - 
-                                                            (manager.coinTubeManager.topOfScreen.y - manager.coinTubeManager.bottomRightOfScreen.y) * 
-                                                            manager.coinTubeManager.cameraMoveScreenPercent); 
-                                
-        coinsToSpawnAmount = manager.startOriginalMiniCoins.Length - manager.totalOldCoinsPaidCount - firstCoinOnScreenIndex;
-
-        manager.visibleOldCoinsAmount = coinsToSpawnAmount;
-        manager.oldCoinsPaidCurrentScreen = 0;
-
-        // Add gems
-        manager.miniCoinManager.AddMiniGemsToScreen();
-        oldCoinsCount = manager.oldMiniCoins.Count;
-
-        // Place the coins on the screen below
-        for (int z = 0; z < coinsToSpawnAmount; z++)
-        {
-            manager.oldMiniCoins[oldCoinsCount - coinsToSpawnAmount + z].transform.position = 
-                                                    new Vector3(manager.coinTubeManager.bottomRightOfScreen.x - manager.offSetSideCoinTube, 
-                                                    manager.coinTubeManager.bottomOfCoinTube.y + manager.offSetBottomCoinTube + 
-                                                    (firstCoinOnScreenIndex + z) * manager.miniCoinManager.inTubeSpacing, 
-                                                    10 + (firstCoinOnScreenIndex + z) * -0.001f);
-
-            manager.oldMiniCoins[oldCoinsCount - coinsToSpawnAmount + z].SetState(new MiniCoinInTube(manager.oldMiniCoins[oldCoinsCount - coinsToSpawnAmount + z]));
-        }
     }
 
     private void PayNewCoin(MiniCoin miniCoin, int index)
@@ -232,6 +207,27 @@ public class HomePayingMiniCoins : HomeState
         manager.totalOldCoinsPaidCount++;
     }
 
+    private IEnumerator PlayClipBeforeChestOpens(float totalTime)
+    {
+        AudioSettings.GetDSPBufferSize(out int bufferLength, out int numBuffers);
+        float latency = (float) bufferLength / AudioSettings.outputSampleRate;
+
+        manager.chestOpenAudioSource.clip = manager.chestOpenClip;
+        manager.chestOpenAudioSource.time = -Mathf.Min(totalTime - (timeUntilClipClimax + latency), 0);
+        manager.chestOpenAudioSource.volume = 0.8f;
+
+        manager.unlockAudioSource.clip = manager.unlockClip;
+        manager.unlockAudioSource.time = -Mathf.Min(totalTime - (timeUntilClipClimax + latency), 0);
+        manager.unlockAudioSource.volume = 0.2f;
+
+        HomeManager.timeUntilUnlockClip = totalTime - (timeUntilClipClimax + latency);
+
+        yield return new WaitForSeconds(totalTime - (timeUntilClipClimax + latency));
+
+        manager.chestOpenAudioSource.Play();
+        manager.unlockAudioSource.Play();
+    }
+    
     private float GetHeightByIndexInTube(int index)
     {
         return manager.coinTubeManager.bottomOfCoinTube.y + manager.offSetBottomCoinTube + index * manager.miniCoinManager.inTubeSpacing;

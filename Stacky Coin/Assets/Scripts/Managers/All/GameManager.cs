@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    public static GameManager I { get { return instance; } }
+    public static GameManager I => instance;
 
     public bool testEnableAllSkins;
+    public AudioSource audioSource;
     [SerializeField] private int FPSCap;
     [SerializeField] private float delayAfterGameOver;
     [SerializeField] private float delayBeforePlayingAgain;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public List<int> scoredCoins = new List<int>();
     [HideInInspector] public bool newHighScore;
     [HideInInspector] public float timePlayedLastPlay;
+    [HideInInspector] public bool isGameOver;
 
     private int miniCoinsCount;
     private int[] chestsInData;
@@ -43,7 +45,7 @@ public class GameManager : MonoBehaviour
         // Singleton pattern
         if (instance != null && instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             return;
         } 
 
@@ -103,14 +105,13 @@ public class GameManager : MonoBehaviour
         }
 
         timeStartedPlay = Time.time;
+        isGameOver = false;
     }
 
     private void OnHomeSceneLoaded()
     {
         if (IsFirstTimeInHome())
         {
-            print("First time in home");
-
             EventManager.FirstTimeInHome.Invoke();
             
             Data.firstTimeInHome = 0;

@@ -9,6 +9,7 @@ public class AdBonusCoins : Ad
 {
     [SerializeField] private BonusCoinsController bonusCoinsController;
     [SerializeField] private Button bonusCoinsButton;
+    [SerializeField] private AudioClip coinExplosionClip;
     [SerializeField] private List<int> bonusCoins = new List<int>();
     [SerializeField] private float chanceToPassConditionAnyways;
     [SerializeField] private int particleAmount;
@@ -90,6 +91,8 @@ public class AdBonusCoins : Ad
     private void OnFinishAd()
     {
         StartCoroutine(bonusCoinsController.ButtonPressedAnimation(bonusCoinsButton.transform, particleAmount));
+        
+        GameManager.I.audioSource.PlayOneShot(coinExplosionClip, 1);
 
         homeManager.State.DropMiniCoins(bonusCoins);
     }

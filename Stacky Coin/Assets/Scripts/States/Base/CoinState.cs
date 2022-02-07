@@ -21,7 +21,7 @@ public class CoinState : State
 
     public virtual void OnCollideWithHand() {}
 
-    public virtual void OnCollideWithCoin() {}
+    public virtual void OnCollideWithCoin(Collision collision) {}
 
     public virtual void OnCollideWithFallOffZone() {}
 

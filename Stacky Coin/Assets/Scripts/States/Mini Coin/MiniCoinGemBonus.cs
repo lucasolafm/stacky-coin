@@ -25,14 +25,5 @@ public class MiniCoinGemBonus : MiniCoinState
         base.Exit();
 
         miniCoin.gameObject.SetActive(true);
-
-        PlaySpawnEffect();
-    }
-
-    private void PlaySpawnEffect()
-    {
-        //miniCoin.homeManager.effectGemBonusCoin.transform.position = miniCoin.transform.position + new Vector3(0, -0.0326f, 0);
-
-        //miniCoin.homeManager.effectGemBonusCoin.Play();
     }
 }

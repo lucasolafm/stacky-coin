@@ -15,9 +15,33 @@ public class PlayGameOver : PlayState
     {
         base.Enter();
 
+        GameManager.I.isGameOver = true;
+        
+        EventManager.CoinLandsOnFloor.AddListener(OnCoinLandsOnFloor);
+
         EventManager.GoingGameOver.Invoke();
 
         EventManager.GoneGameOver.Invoke(manualGameOver);
+    }
+
+    private void OnCoinLandsOnFloor()
+    {
+        EventManager.CoinLandsOnFloor.RemoveListener(OnCoinLandsOnFloor);
+
+        if (!GameManager.I.isGameOver || manualGameOver) return;
+        
+        if (GameManager.I.scoredCoins.Count <= manager.pileCollapseSizes[0])
+        {
+            GameManager.I.audioSource.PlayOneShot(manager.pileCollapseClips[0]);
+        }
+        else if (GameManager.I.scoredCoins.Count <= manager.pileCollapseSizes[1])
+        {
+            GameManager.I.audioSource.PlayOneShot(manager.pileCollapseClips[1]);
+        }
+        else
+        {
+            GameManager.I.audioSource.PlayOneShot(manager.pileCollapseClips[2]);
+        }
     }
 
     public override void OnApplicationQuit()

@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class ChestManager : MonoBehaviour
 {
+    [SerializeField] private bool testGetLvl1Chest;
+    [SerializeField] private bool testGetLvl2Chest;
+    [SerializeField] private bool testGetLvl3Chest;
+    
     [SerializeField] private HomeManager homeManager;
     [SerializeField] private CoinTubeManager coinTubeManager;
     [SerializeField] private MiniCoinManager miniCoinManager;
@@ -65,12 +69,23 @@ public class ChestManager : MonoBehaviour
             }
         }
 
-        //AddNewChest(3, 250, 0);
-        //EnableChest(0);
-        //AddNewChest(2, 150, 1);
-        //EnableChest(1);
-        //AddNewChest(1, 50, 2);
-        //EnableChest(2);
+        if (testGetLvl3Chest)
+        {
+            AddNewChest(3, 250, 0);
+            EnableChest(0);
+        }
+
+        if (testGetLvl2Chest)
+        {
+            AddNewChest(2, 150, 1);
+            EnableChest(1);
+        }
+
+        if (testGetLvl1Chest)
+        {
+            AddNewChest(1, 50, 2);
+            EnableChest(2);
+        }
     }
 
     private void PressChest(int position)
@@ -112,7 +127,7 @@ public class ChestManager : MonoBehaviour
     public void AddNewChest(int level, int price, int position)
     {
         PrepareChest(chests[position], level, price, position);
-        
+
         chests[position].SetState(new ChestLocked(chests[position]));
     }
 
@@ -157,44 +172,14 @@ public class ChestManager : MonoBehaviour
         }
     }
 
-    private IEnumerator ExpandOutline(int index)
-    {
-        chests[index].outline.enabled = true;
-        float t = 0;
-        float progress;
-
-        while (t < 1)
-        {
-            t = Mathf.Min(t + Time.deltaTime / outlineTime, 1);
-
-            progress = 1 - Mathf.Pow(1 - t, 3);
-
-            chests[index].outline.startWidth = outlineSize * progress;
-            chests[index].outline.endWidth = outlineSize * progress;
-
-            chests[index].outline.material.color = new Color(
-                chests[index].outline.material.color.r, chests[index].outline.material.color.g, chests[index].outline.material.color.b, 1 - t);
-
-            yield return null;
-        }
-
-        chests[index].outline.enabled = false;
-    }
-
     public int GetChestLevel(int price)
     {
         if (price <= priceMinimums[0] + priceRange)
         {
             return 1;
         }
-        else if (price <= priceMinimums[1] + priceRange)
-        {
-            return 2;
-        }
-        else
-        {   
-            return 3;
-        }
+        
+        return price <= priceMinimums[1] + priceRange ? 2 : 3;
     }
 
     public int GetRandomChestPrice(int level)

@@ -25,6 +25,7 @@ public static class EventManager
 	public static CoinEvent CoinSpawns = new CoinEvent();
 	public static CoinEvent CoinDespawns = new CoinEvent();
 	public static CoinEvent CoinLandsOnHand = new CoinEvent();
+	public static UnityEvent CoinLandsOnFloor = new UnityEvent();
 	public static CoinEvent HandCharges = new CoinEvent();
 	public static UnityEvent HandStopsCharge = new UnityEvent();
 	public static CoinFloatEvent CoinFlipping = new CoinFloatEvent();
@@ -49,7 +50,6 @@ public static class EventManager
 	public static UnityEvent EnterDefaultHome = new UnityEvent();
 	public static UnityEvent NewHighScore = new UnityEvent();
 	public static UnityEvent PlayingAgain = new UnityEvent();
-	public static IntEvent CoinTubeChanges = new IntEvent();
 	public static UnityEvent SpawningNewMiniCoins = new UnityEvent();
 	public static UnityEvent MiniCoinAddedToTube = new UnityEvent();
 	public static MiniCoinIntFloatEvent MiniCoinRemovedFromTube = new MiniCoinIntFloatEvent();

@@ -27,6 +27,7 @@ TagManager:
   - FallOffArea
   - Trail
   - Platform2
+  - Floor
   layers:
   - Default
   - TransparentFX

@@ -45,9 +45,13 @@ public class Coin : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag(Utilities.coinTag))
         {
-            State.OnCollideWithCoin();
+            State.OnCollideWithCoin(collision);
+        }
+        else if (collision.gameObject.CompareTag(Utilities.floorTag))
+        {
+            State.OnCollideWithCoin(collision);
 
-            EventManager.CoinCollides.Invoke(this, collision.relativeVelocity.sqrMagnitude);
+            EventManager.CoinLandsOnFloor.Invoke();
         }
     }
 

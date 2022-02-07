@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 28360018}
   m_Layer: 0
   m_Name: Collider 3
-  m_TagString: Coin
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1106,7 +1106,7 @@ GameObject:
   - component: {fileID: 200040988}
   m_Layer: 0
   m_Name: Collider 1
-  m_TagString: Coin
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1847,7 +1847,7 @@ GameObject:
   - component: {fileID: 349396576}
   m_Layer: 0
   m_Name: Collider 4
-  m_TagString: Coin
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2191,7 +2191,7 @@ GameObject:
   - component: {fileID: 414253526}
   m_Layer: 0
   m_Name: Collider 2
-  m_TagString: Coin
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -9505,6 +9505,13 @@ MonoBehaviour:
   reloadButtonYes: {fileID: 151726201}
   reloadButtonNo: {fileID: 721030645}
   reloadPanel: {fileID: 1154698892}
+  pileCollapseClips:
+  - {fileID: 8300000, guid: 90b8648ed83035347928dd635709fa64, type: 3}
+  - {fileID: 8300000, guid: 4383a052ba8819c4eb136cf819a52d44, type: 3}
+  - {fileID: 8300000, guid: ea931cda9b9ad1649939ea523e0aee32, type: 3}
+  pileCollapseSizes:
+  - 15
+  - 30
   timeToAscendToNextStage: 0.3
   score: 0
   nextStageTarget: 0
@@ -16493,8 +16500,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1292058909}
   - component: {fileID: 1292058911}
-  - component: {fileID: 1292058910}
   - component: {fileID: 1292058912}
+  - component: {fileID: 1292058910}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -16535,7 +16542,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -16625,18 +16632,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundSource: {fileID: 1292058910}
-  coinFlipSound: {fileID: 8300000, guid: 51c4c5ae5ed0fb8488a20eda20c91203, type: 3}
-  getCoinSound: {fileID: 8300000, guid: ec399a32294cd85419de96f7f947a443, type: 3}
-  coinCollisionSound: {fileID: 8300000, guid: cb6af4b8a3dd4f440baf57b25d238c83, type: 3}
-  gemCollisionSound: {fileID: 8300000, guid: cb6af4b8a3dd4f440baf57b25d238c83, type: 3}
-  keyCollisionSound: {fileID: 8300000, guid: cb6af4b8a3dd4f440baf57b25d238c83, type: 3}
-  coinPerfectHitSound: {fileID: 8300000, guid: 6eb9a2c69d646424eae8312f466a04b5, type: 3}
-  payCoinSound: {fileID: 8300000, guid: 07c6d57e8fa41c241af5c22007df250a, type: 3}
+  keyFlipClip: {fileID: 8300000, guid: 78d6a8ace2b17f34f8c3fa7fd950366b, type: 3}
+  keyCollisionClip: {fileID: 8300000, guid: 072f7e09455ecc94cb15cdec5956b097, type: 3}
+  coinPerfectHitClip: {fileID: 0}
   coinCollisionMinVelocity: 3
   coinFlipVolumeMult: 0.4
   coinFlipPitchMult: 0.01
   coinCollisionVolumeMult: 0.4
   coinCollisionPitchMult: 0.01
+  coinCollisionClips:
+  - {fileID: 8300000, guid: 7f39ef1d887d7904f9b23590fe3c883e, type: 3}
+  - {fileID: 8300000, guid: 92f3c455d3c4621499ad72a019dafd4b, type: 3}
+  - {fileID: 8300000, guid: 88e2143a95285774da8294aa292bff96, type: 3}
+  gemCollisionClips:
+  - {fileID: 8300000, guid: 7cba2db8afd75534f82cbd27d551cf61, type: 3}
+  - {fileID: 8300000, guid: a32e04f29b41ffd41b6fc6e6cbc9424b, type: 3}
+  - {fileID: 8300000, guid: b34fc0b04516d1046a96c92559d8887a, type: 3}
+  coinFlipClips:
+  - {fileID: 8300000, guid: e8ad33150797616408f6b48b7b895cf8, type: 3}
+  - {fileID: 8300000, guid: 8383ac5968e853f4dacd76a348fce369, type: 3}
+  - {fileID: 8300000, guid: 7d40b601130654749834e2e1acd1187d, type: 3}
+  gemFlipClips:
+  - {fileID: 8300000, guid: 66daca100e75fd744a1ecc2f38c0ffce, type: 3}
+  - {fileID: 8300000, guid: 5a56af9197cfe4d4aa46fcb8225bcff1, type: 3}
 --- !u!81 &1292058912
 AudioListener:
   m_ObjectHideFlags: 0
@@ -16657,7 +16675,7 @@ GameObject:
   - component: {fileID: 1293161187}
   m_Layer: 0
   m_Name: Collider 6
-  m_TagString: Coin
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -18863,7 +18881,7 @@ GameObject:
   - component: {fileID: 1867360191}
   m_Layer: 0
   m_Name: Collider 5
-  m_TagString: Coin
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -19477,7 +19495,7 @@ GameObject:
   - component: {fileID: 2031627712}
   m_Layer: 0
   m_Name: Collider 7
-  m_TagString: Coin
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

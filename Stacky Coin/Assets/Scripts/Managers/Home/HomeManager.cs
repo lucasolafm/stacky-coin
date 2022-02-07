@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HomeManager : MonoBehaviour
 {
+    [SerializeField] private bool testGetCoins;
+    
     public InstantiationManagerHome instantiationManager;
     public MiniCoinManager miniCoinManager;
     public CoinTubeManager coinTubeManager;
@@ -13,6 +15,17 @@ public class HomeManager : MonoBehaviour
     public GameObject homeHolder;
     public new Camera camera;
     public ParticleSystem effectGemBonusCoinPrefab;
+    public AudioSource tubeFillLoopAudioSource;
+    public AudioSource chestOpenAudioSource;
+    public AudioSource unlockAudioSource;
+    public AudioClip tubeFillClip;
+    public AudioClip tubeFillStartClip;
+    public AudioClip tubeFillEndClip;
+    public AudioClip tubeGemBonusClip;
+    public AudioClip tubeKeyDropClip;
+    public AudioClip chestOpenClip;
+    public AudioClip unlockClip;
+    public static float timeUntilUnlockClip;
 
     [SerializeField] private Button playAgainButton, collectionButton, bonusCoinsButton;
 
@@ -46,7 +59,10 @@ public class HomeManager : MonoBehaviour
 
         //GameManager.I.scoredCoins = new List<int>(new int[50] { 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0,} /*new int[10000]*/);
 
-        //GameManager.I.scoredCoins = new List<int>(new int[100]);
+        if (testGetCoins)
+        {
+            GameManager.I.scoredCoins = new List<int>(new int[9900]);
+        }
 
         screenWorldWidth = (camera.ScreenToWorldPoint(Vector3.zero) - camera.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0))).magnitude;
 
@@ -78,7 +94,7 @@ public class HomeManager : MonoBehaviour
 
     private void OnEnterDefaultHome()
     {
-        if (GameManager.I.scoredCoins.Count == 0) return;
+        if (GameManager.I.scoredCoins.Count == 0 || GameManager.I.previousScene == -1) return;
 
         GameManager.I.AddMiniCoinGhosts();
         GameManager.I.AddGemBonusMiniCoins();

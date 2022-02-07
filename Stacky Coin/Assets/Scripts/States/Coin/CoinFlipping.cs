@@ -40,9 +40,11 @@ public class CoinFlips : CoinState
         flipNow = false;
     }
 
-    public override void OnCollideWithCoin()
+    public override void OnCollideWithCoin(Collision collision)
     {
-        base.OnCollideWithCoin();
+        base.OnCollideWithCoin(collision);
+        
+        EventManager.CoinCollides.Invoke(coin, collision.relativeVelocity.sqrMagnitude);
 
         coin.SetState(new CoinTouchingPile(coin));
     }

@@ -7,14 +7,20 @@ using GoogleMobileAds.Api;
 
 public class AdTripleReward : Ad
 {
-    [SerializeField] private GameObject darkScreen;
+    [SerializeField] private Renderer darkScreen;
     [SerializeField] private GameObject tripleAdRewardPopup;
     [SerializeField] private Button watchButton;
     [SerializeField] private Button cancelButton;
     [SerializeField] private ParticleSystem rewardEffect;
+    [SerializeField] private AudioClip coinExplosionClip;
     [SerializeField] private Transform playAgainCoin;
     [SerializeField] private int minimumScoredCoins;
     [SerializeField] private float chanceToPassConditionAnyways;
+    [SerializeField] private float darkScreenFadeInTime;
+    [SerializeField] private float darkScreenFadeOutTime;
+    [SerializeField] private float popupEntertime;
+    [SerializeField] private float popupExitTime;
+    [SerializeField] private float popupEnterDelay;
 
     private RewardedAd ad;
 
@@ -38,17 +44,23 @@ public class AdTripleReward : Ad
 
     public override void Initialize()
     {
-        watchButton.onClick.AddListener(PressWatchButton);
-        cancelButton.onClick.AddListener(PressCancelButton);
-
+        EventManager.LoadingScreenSlidOut.AddListener(OnLoadingScreenSlidOut);
+        
         homeManager.SetState(new HomeTripleReward(homeManager));
-
-        darkScreen.SetActive(true);
-        tripleAdRewardPopup.SetActive(true);
-
+        
         ad = new RewardedAd(adPlayer.adMobTestId);
         AdRequest request = new AdRequest.Builder().Build();
         ad.LoadAd(request);
+    }
+
+    private void OnLoadingScreenSlidOut()
+    {
+        StartCoroutine(FadeDarkScreenIn());
+        StartCoroutine(PanelEnterAnimation(() =>
+        {
+            watchButton.onClick.AddListener(PressWatchButton);
+            cancelButton.onClick.AddListener(PressCancelButton);
+        }));
     }
 
     public override void Tick()
@@ -109,9 +121,84 @@ public class AdTripleReward : Ad
 
     private void PressCancelButton()
     {
-        Complete();
+        ResetTimer();
 
         ReturnToDefaultHome();
+        
+        watchButton.onClick.RemoveAllListeners();
+        cancelButton.onClick.RemoveAllListeners();
+        StartCoroutine(FadeDarkScreenOut());
+        StartCoroutine(PanelExitAnimation());
+    }
+
+    private IEnumerator FadeDarkScreenIn()
+    {
+        darkScreen.gameObject.SetActive(true);
+        float targetAlpha = darkScreen.material.color.a;
+        float t = 0;
+
+        while (t < 1)
+        {
+            t = Mathf.Min(t + Time.deltaTime / darkScreenFadeInTime, 1);
+            
+            darkScreen.material.color = new Color(0, 0, 0, Utilities.EaseOutSine(t) * targetAlpha);
+
+            yield return null;
+        }
+    }
+    
+    private IEnumerator FadeDarkScreenOut()
+    {
+        float currentAlpha = darkScreen.material.color.a;
+        float t = 0;
+
+        while (t < 1)
+        {
+            t = Mathf.Min(t + Time.deltaTime / darkScreenFadeOutTime, 1);
+            
+            darkScreen.material.color = new Color(0, 0, 0, (1 - Utilities.EaseOutSine(t)) * currentAlpha);
+
+            yield return null;
+        }
+        
+        darkScreen.gameObject.SetActive(false);
+    }
+
+    private IEnumerator PanelEnterAnimation(Action completed)
+    {
+        Vector3 targetScale = tripleAdRewardPopup.transform.localScale;
+        float t = 0;
+
+        yield return new WaitForSeconds(popupEnterDelay);
+        tripleAdRewardPopup.SetActive(true);
+
+        while (t < 1)
+        {
+            t = Mathf.Min(t + Time.deltaTime / popupEntertime, 1);
+
+            tripleAdRewardPopup.transform.localScale = Utilities.EaseOutBack(t) * targetScale;
+
+            yield return null;
+        }
+
+        completed();
+    }
+
+    private IEnumerator PanelExitAnimation()
+    {
+        Vector3 currentScale = tripleAdRewardPopup.transform.localScale;
+        float t = 0;
+
+        while (t < 1)
+        {
+            t = Math.Min(t + Time.deltaTime / popupExitTime, 1);
+            
+            tripleAdRewardPopup.transform.localScale = (1 - Utilities.EaseOutSine(t)) * currentScale;
+
+            yield return null;
+        }
+        
+        tripleAdRewardPopup.SetActive(false);
     }
 
     private void TripleScoredCoins()
@@ -133,13 +220,15 @@ public class AdTripleReward : Ad
     {
         rewardEffect.transform.position = playAgainCoin.position;
         rewardEffect.Play();
+        
+        GameManager.I.audioSource.PlayOneShot(coinExplosionClip);
     }
 
     private void Complete()
     {
-        darkScreen.SetActive(false);
-        tripleAdRewardPopup.SetActive(false);
-
+        darkScreen.gameObject.SetActive(false);
+        tripleAdRewardPopup.gameObject.SetActive(false);
+        
         ResetTimer();
     }
 

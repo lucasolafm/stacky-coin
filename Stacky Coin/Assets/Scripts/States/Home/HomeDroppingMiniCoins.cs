@@ -17,6 +17,8 @@ public class HomeDroppingMiniCoins : HomeState
     private int nextGemIndex = -1;
     private Vector3 spawnPos;
     private float inTubeHeight;
+    private MiniCoin firstCoinToFall;
+    private MiniCoin lastRealMiniCoinToFall;
 
     public HomeDroppingMiniCoins(HomeManager manager, List<int> identifiers, bool saveToData, int forceOriginalMiniCoinsCount = -1) : base(manager) 
     {
@@ -135,11 +137,29 @@ public class HomeDroppingMiniCoins : HomeState
 
             manager.miniCoinsToWaitForBeforeDropping.Add(miniCoin);
 
+            while (!firstCoinToFall.State.GetHasLanded())
+            {
+                yield return null;
+            }
+
+            manager.tubeFillLoopAudioSource.clip = manager.tubeFillClip;
+            manager.tubeFillLoopAudioSource.volume = 0.4f;
+            manager.tubeFillLoopAudioSource.Play();
+            GameManager.I.audioSource.PlayOneShot(manager.tubeFillEndClip, 0.3f);
+
+            while (!lastRealMiniCoinToFall.State.GetHasLanded())
+            {
+                yield return null;
+            }
+
+            GameManager.I.audioSource.PlayOneShot(manager.tubeFillStartClip, 0.3f);
+            manager.tubeFillLoopAudioSource.Stop();
+            
             // Wait for the last coin to finish dropping
             while (!miniCoin.State.GetIsFinishedDropping())
             {
                 yield return null;
-            }                    
+            }
 
             // Wait for all processes to finish
             yield return new WaitForEndOfFrame();
@@ -169,8 +189,6 @@ public class HomeDroppingMiniCoins : HomeState
 
     private void SaveCoinsToData(List<int> newIdentifiers)
     {
-        Debug.Log("save to data");
-
         // Save mini coin identifiers to the data without the keys and ghost coins
         identifiersToSave = new List<int>(newIdentifiers);
         GameManager.I.RemoveMiniKeysAndGhostCoins(identifiersToSave);
@@ -181,7 +199,17 @@ public class HomeDroppingMiniCoins : HomeState
     {
         miniCoin = manager.instantiationManager.InstantiateMiniObject(coinIdentifiers[i][z]);     
         miniCoin.indexInList = newMiniCoinsCount + z;           
-        manager.newMiniCoins.Add(miniCoin);     
+        manager.newMiniCoins.Add(miniCoin);
+
+        if (z == 0)
+        {
+            firstCoinToFall = miniCoin;
+        }
+        
+        if (coinIdentifiers[i][z] != -1)
+        {
+            lastRealMiniCoinToFall = miniCoin;
+        }
     }
 
     private void GetNextGemIndex(int i, int z)

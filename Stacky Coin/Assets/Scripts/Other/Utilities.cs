@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class Utilities
 {
-    public static string coinTag = "Coin", handTag = "Hand", fallOffAreaTag = "FallOffArea", perfectHitTag = "PerfectHit";
+    public static string coinTag = "Coin", handTag = "Hand", floorTag = "Floor", fallOffAreaTag = "FallOffArea", perfectHitTag = "PerfectHit";
 
     public static float EaseOutSine(float x)
     {
@@ -25,5 +25,10 @@ public static class Utilities
     public static float EaseInOutQuad(float x)
     {
         return (x < 0.5 ? 2 * x * x : 1 - Mathf.Pow(-2 * x + 2, 2) / 2);
+    }
+
+    public static float EaseOutBack(float x)
+    {
+        return 1 + 2.70158f * Mathf.Pow(x - 1, 3) + 1.70158f * Mathf.Pow(x - 1, 2);
     }
 }

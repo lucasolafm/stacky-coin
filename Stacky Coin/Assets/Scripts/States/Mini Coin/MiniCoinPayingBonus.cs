@@ -51,6 +51,11 @@ public class MiniCoinPayingBonus : MiniCoinState
             coinsLandedCount++;
             if (coinsLandedCount < GameManager.I.gemBonusCoinDelay) continue;
 
+            if (coinsLandedCount == GameManager.I.gemBonusCoinDelay)
+            {
+                GameManager.I.audioSource.PlayOneShot(miniCoin.homeManager.tubeGemBonusClip, 0.15f);
+            }
+
             bonusMiniCoin = miniCoin.homeManager.newMiniCoins[miniCoin.indexInList - GameManager.I.gemBonusAmount + coinsLandedCount - GameManager.I.gemBonusCoinDelay];
 
             // Enable the next bonus coin

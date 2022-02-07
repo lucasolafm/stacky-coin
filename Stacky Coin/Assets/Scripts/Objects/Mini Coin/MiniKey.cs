@@ -53,6 +53,8 @@ public class MiniKey : MiniCoin
     public override void Land()
     {
         base.Land();
+        
+        GameManager.I.audioSource.PlayOneShot(homeManager.tubeKeyDropClip);
 
         SetState(new MiniCoinInTube(this));
 
@@ -166,6 +168,8 @@ public class MiniKey : MiniCoin
 
             yield return null;
         }
+        
+        GameManager.I.audioSource.PlayOneShot(homeManager.tubeGemBonusClip, 0.4f);
 
         // Enable the chest
         miniCoinManager.chestManager.EnableChest(chestPosition);

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e5d02c75d046a7aa763da243647ed8, type: 3}
   m_Name: Button Shake Settings
   m_EditorClassIdentifier: 
-  AngleValue: 30
+  AngleValue: 25
   Time: 0.2
   ShakeAmount: 6
-  Delay: 2.5
+  Delay: 3

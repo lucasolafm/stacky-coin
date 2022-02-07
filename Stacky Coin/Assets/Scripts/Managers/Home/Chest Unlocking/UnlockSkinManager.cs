@@ -95,6 +95,8 @@ public class UnlockSkinManager : MonoBehaviour
 
         if (!isChargingChest)
         {
+            StartCoroutine(PlayCoinPayClip());
+            
             StartCoroutine(ChargeToOpenChest());
         }
     }
@@ -299,6 +301,17 @@ public class UnlockSkinManager : MonoBehaviour
             payingCoins[i].renderer.enabled = true;
             payingCoins[i].gameObject.layer = 28;
         }
+    }
+
+    private IEnumerator PlayCoinPayClip()
+    {
+        homeManager.tubeFillLoopAudioSource.clip = homeManager.tubeFillClip;
+        homeManager.tubeFillLoopAudioSource.volume = 0.2f;
+        homeManager.tubeFillLoopAudioSource.Play();
+        
+        yield return new WaitForSeconds(HomeManager.timeUntilUnlockClip);
+        
+        homeManager.tubeFillLoopAudioSource.Stop();
     }
 
     private int GetRandomSkin(int chestLevel)

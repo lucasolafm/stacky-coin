@@ -9,6 +9,7 @@ public class BonusCoinsController : MonoBehaviour
     [SerializeField] private Button bonusCoinsButton;
     [SerializeField] private Transform mainCamera, coinTubeCamera;
     [SerializeField] private ParticleSystem coinsEffect;
+    [SerializeField] private AudioClip coinsGetClip;
     [SerializeField] private List<int> bonusCoins = new List<int>();
     [SerializeField] private float timerTime;
     [SerializeField] private float pressAnimationTime;
@@ -39,6 +40,8 @@ public class BonusCoinsController : MonoBehaviour
         bonusCoinsButton.interactable = false;
 
         StartCoroutine(ButtonPressedAnimation(bonusCoinsButton.transform, particleAmount));
+        
+        GameManager.I.audioSource.PlayOneShot(coinsGetClip, 1);
 
         ResetTimer();
     }

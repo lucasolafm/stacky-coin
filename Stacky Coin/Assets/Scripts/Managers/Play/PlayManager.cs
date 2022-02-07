@@ -14,7 +14,9 @@ public class PlayManager : MonoBehaviour
     [SerializeField] private Transform fallOffArea;
     [SerializeField] private Button reloadButton, resetButton, reloadButtonYes, reloadButtonNo;
     public GameObject reloadPanel;
+    public AudioClip[] pileCollapseClips;
 
+    public float[] pileCollapseSizes;
     public float timeToAscendToNextStage = 0.3f;
 
     [HideInInspector] public PlayState State;

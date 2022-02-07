@@ -19,7 +19,6 @@ public class HandManager : MonoBehaviour
     public float flipMovementMin, flipMovementMax, FlipMovementTimeUp, FlipMovementTimePause, FlipMovementTimeDown;
     [SerializeField] private float shakeOverTime;
 
-    private float startTime;
     private float elapsedTime;
     private Vector3 handVisualsPosition;
 
@@ -41,8 +40,6 @@ public class HandManager : MonoBehaviour
         EventManager.CoinFlips.AddListener(OnCoinFlips);
         EventManager.ReachesNextStageTarget.AddListener(OnReachesNextStageTarget);
         EventManager.GoneGameOver.AddListener(OnGoneGameOver);
-
-        startTime = Time.time;
     }
 
     void Update()

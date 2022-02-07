@@ -6,6 +6,7 @@ public class PlayAgainCoinController : MonoBehaviour
 {
     [SerializeField] private HomeManager homeManager;
     [SerializeField] private Transform playAgainCoin;
+    [SerializeField] private AudioClip playAgainClip;
 
     private Vector3 startPosition;
     private float shiftProgress, shiftAmount;
@@ -28,6 +29,8 @@ public class PlayAgainCoinController : MonoBehaviour
     private void OnPlayingAgain()
     {
         StartCoroutine(ExitAnimation());
+        
+        GameManager.I.audioSource.PlayOneShot(playAgainClip, 0.5f);
     }
 
     private void OnEnteringCollection()
