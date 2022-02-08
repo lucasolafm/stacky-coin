@@ -24,8 +24,6 @@ public class HomePayingMiniCoins : HomeState
     private float moveDownToCenterDistance;
     private float cameraMoveToCenterProgress;
 
-    private float timeUntilClipClimax = 1.9f;
-
     public HomePayingMiniCoins(HomeManager homeManager, Chest chest) : base(homeManager) 
     {
         this.chest = chest;
@@ -42,7 +40,7 @@ public class HomePayingMiniCoins : HomeState
                     manager.miniCoinManager.payTimeMin);
         }
         totalTime += 0.27f - 0.0005f * chest.price;
-        manager.StartCoroutine(PlayClipBeforeChestOpens(totalTime));
+        HomeManager.chestUnlockTime = totalTime;
 
         newCoinsCount = manager.newMiniCoins.Count;
         originalMiniCoins = Data.miniCoins;
@@ -207,27 +205,6 @@ public class HomePayingMiniCoins : HomeState
         manager.totalOldCoinsPaidCount++;
     }
 
-    private IEnumerator PlayClipBeforeChestOpens(float totalTime)
-    {
-        AudioSettings.GetDSPBufferSize(out int bufferLength, out int numBuffers);
-        float latency = (float) bufferLength / AudioSettings.outputSampleRate;
-
-        manager.chestOpenAudioSource.clip = manager.chestOpenClip;
-        manager.chestOpenAudioSource.time = -Mathf.Min(totalTime - (timeUntilClipClimax + latency), 0);
-        manager.chestOpenAudioSource.volume = 0.8f;
-
-        manager.unlockAudioSource.clip = manager.unlockClip;
-        manager.unlockAudioSource.time = -Mathf.Min(totalTime - (timeUntilClipClimax + latency), 0);
-        manager.unlockAudioSource.volume = 0.2f;
-
-        HomeManager.timeUntilUnlockClip = totalTime - (timeUntilClipClimax + latency);
-
-        yield return new WaitForSeconds(totalTime - (timeUntilClipClimax + latency));
-
-        manager.chestOpenAudioSource.Play();
-        manager.unlockAudioSource.Play();
-    }
-    
     private float GetHeightByIndexInTube(int index)
     {
         return manager.coinTubeManager.bottomOfCoinTube.y + manager.offSetBottomCoinTube + index * manager.miniCoinManager.inTubeSpacing;

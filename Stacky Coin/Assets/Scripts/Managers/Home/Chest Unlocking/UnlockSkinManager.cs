@@ -45,6 +45,7 @@ public class UnlockSkinManager : MonoBehaviour
     [HideInInspector] public Skin previewSkinCoin; 
     private int unlockedSkinId;
     private bool isDuplicateSkin;
+    private float timeUntilClipClimax = 2.313f;
 
     void Start()
     {
@@ -95,7 +96,7 @@ public class UnlockSkinManager : MonoBehaviour
 
         if (!isChargingChest)
         {
-            StartCoroutine(PlayCoinPayClip());
+            StartCoroutine(PlayOpenChestClips());
             
             StartCoroutine(ChargeToOpenChest());
         }
@@ -303,15 +304,53 @@ public class UnlockSkinManager : MonoBehaviour
         }
     }
 
-    private IEnumerator PlayCoinPayClip()
+    private IEnumerator PlayOpenChestClips()
     {
+        AudioSettings.GetDSPBufferSize(out int bufferLength, out int numBuffers);
+        float latency = (float) bufferLength / AudioSettings.outputSampleRate;
+
+        float clipStartTime = Mathf.Max(-Mathf.Min(HomeManager.chestUnlockTime - (timeUntilClipClimax + latency), 0), 0);
+        
+        homeManager.chestOpenAudioSource.Stop();
+        homeManager.chestOpenAudioSource.clip = homeManager.chestOpenClip;
+        homeManager.chestOpenAudioSource.time = clipStartTime;
+        homeManager.chestOpenAudioSource.volume = 0.8f;
+
+        homeManager.unlockAudioSource.Stop();
+        homeManager.unlockAudioSource.clip = homeManager.unlockClip;
+        homeManager.unlockAudioSource.time = clipStartTime;
+        homeManager.unlockAudioSource.volume = 0.2f;
+
+        homeManager.tubeFillLoopAudioSource.Stop();
         homeManager.tubeFillLoopAudioSource.clip = homeManager.tubeFillClip;
         homeManager.tubeFillLoopAudioSource.volume = 0.2f;
         homeManager.tubeFillLoopAudioSource.Play();
-        
-        yield return new WaitForSeconds(HomeManager.timeUntilUnlockClip);
+
+        yield return new WaitForSeconds(HomeManager.chestUnlockTime - (timeUntilClipClimax + latency));
+
+        if (clipStartTime > 0)
+        {
+            StartCoroutine(IncreaseOpenChestClipVolumeGradually());
+        }
         
         homeManager.tubeFillLoopAudioSource.Stop();
+        homeManager.chestOpenAudioSource.Play();
+        homeManager.unlockAudioSource.Play();
+    }
+
+    private IEnumerator IncreaseOpenChestClipVolumeGradually()
+    {
+        float t = 0;
+        while (t < 1)
+        {
+            t = Mathf.Min(t + Time.deltaTime / 0.5f, 1);
+
+            homeManager.chestOpenAudioSource.volume = 0.8f * t;
+            
+            print(homeManager.chestOpenAudioSource.volume);
+
+            yield return null;
+        }
     }
 
     private int GetRandomSkin(int chestLevel)

@@ -95,13 +95,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Play/PlayGameOver.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Mini Coin/MiniCoinPayingBonus.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Mini Coin/MiniCoinEnteringChest.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/States/Home/HomePayingMiniCoins.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Chest Unlocking/UnlockSkinManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/ChestManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Mini Coin/MiniKey.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/All/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/States/Home/HomeDroppingMiniCoins.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/HomeManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/States/Home/HomePayingMiniCoins.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Chest Unlocking/UnlockSkinManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/States/Home/HomeDroppingMiniCoins.cs" />
       </list>
     </option>
   </component>
@@ -166,6 +166,7 @@
       <workItem from="1643547679946" duration="4249000" />
       <workItem from="1644139769186" duration="6114000" />
       <workItem from="1644221988645" duration="27340000" />
+      <workItem from="1644324182691" duration="3434000" />
     </task>
     <servers />
   </component>

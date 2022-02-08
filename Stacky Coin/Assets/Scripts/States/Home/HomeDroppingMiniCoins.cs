@@ -142,6 +142,7 @@ public class HomeDroppingMiniCoins : HomeState
                 yield return null;
             }
 
+            manager.tubeFillLoopAudioSource.Stop();
             manager.tubeFillLoopAudioSource.clip = manager.tubeFillClip;
             manager.tubeFillLoopAudioSource.volume = 0.4f;
             manager.tubeFillLoopAudioSource.Play();

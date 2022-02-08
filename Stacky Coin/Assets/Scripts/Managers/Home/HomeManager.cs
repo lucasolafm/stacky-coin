@@ -25,7 +25,7 @@ public class HomeManager : MonoBehaviour
     public AudioClip tubeKeyDropClip;
     public AudioClip chestOpenClip;
     public AudioClip unlockClip;
-    public static float timeUntilUnlockClip;
+    public static float chestUnlockTime;
 
     [SerializeField] private Button playAgainButton, collectionButton, bonusCoinsButton;
 
