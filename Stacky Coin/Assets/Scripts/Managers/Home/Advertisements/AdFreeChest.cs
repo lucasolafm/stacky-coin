@@ -94,7 +94,7 @@ public class AdFreeChest : Ad
         ad.OnAdOpening += HandleOnAdOpening;
         ad.OnAdClosed += HandleAdClosed;
         
-        StartCoroutine(WaitUntilAdIsLoaded(ad, () =>
+        StartCoroutine(WaitUntilRewardedAdIsLoaded(ad, () =>
         {
             ad.Show();
         }));

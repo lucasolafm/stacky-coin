@@ -7,7 +7,8 @@ using UnityEngine.Events;
 
 public class Ad : MonoBehaviour
 {
-    public static UnityEvent<RewardedAd, bool> AdLoading = new UnityEvent<RewardedAd, bool>();
+    public static UnityEvent<RewardedAd, bool> RewardedAdLoading = new UnityEvent<RewardedAd, bool>();
+    public static UnityEvent<InterstitialAd> InterstitialAdLoading = new UnityEvent<InterstitialAd>();
     public static UnityEvent AdFailedToLoad = new UnityEvent();
 
     [SerializeField] protected HomeManager homeManager;
@@ -38,14 +39,6 @@ public class Ad : MonoBehaviour
 
     public virtual void Tick() {}
 
-    public virtual void OnAdStarted() {}
-
-    public virtual void OnAdEnded() {}
-
-    public virtual void OnAdFinished() {}
-
-    public virtual void OnAdError() {}
-
     protected void GetScoredCoinsValue()
     {
         foreach (int coin in GameManager.I.scoredCoins)
@@ -61,7 +54,7 @@ public class Ad : MonoBehaviour
         }
     }
 
-    public void ResetTimer()
+    protected void ResetTimer()
     {
         for (int i = 0; i < adManager.ads.Length; i++)
         {
@@ -81,11 +74,11 @@ public class Ad : MonoBehaviour
                                             (homeManager.bonusCoinsIsAvailable ? homeManager.bonusCoins.Count : 0);
     }
 
-    protected IEnumerator WaitUntilAdIsLoaded(RewardedAd ad, Action completed, bool isFinalAd = true)
+    protected IEnumerator WaitUntilRewardedAdIsLoaded(RewardedAd ad, Action completed, bool isFinalAd = true)
     {
-        AdLoading.Invoke(ad, isFinalAd);
+        RewardedAdLoading.Invoke(ad, isFinalAd);
 
-        adManager.loadingSpinnerAnimator.SetActive(true);
+        GameManager.I.loadingSpinner.SetActive(true);
 
         adLoadingTime = 0;
         while (!ad.IsLoaded())
@@ -96,7 +89,7 @@ public class Ad : MonoBehaviour
             if (adLoadingTime > adManager.maxTimeLoadingAd)
             {
                 StartCoroutine(adManager.DisplayNoInternetPopup());
-                adManager.loadingSpinnerAnimator.SetActive(false);
+                GameManager.I.loadingSpinner.SetActive(false);
 
                 AdFailedToLoad.Invoke();
 
@@ -106,11 +99,36 @@ public class Ad : MonoBehaviour
 
         completed();
     }
+    
+    protected IEnumerator WaitUntilInterstitialAdIsLoaded(InterstitialAd ad, Action<bool> completed)
+    {
+        InterstitialAdLoading.Invoke(ad);
 
-    public void OnAdClosed(bool isFinalAd)
+        GameManager.I.loadingSpinner.SetActive(true);
+
+        adLoadingTime = 0;
+        while (!ad.IsLoaded())
+        {
+            yield return null;
+            adLoadingTime += Time.unscaledDeltaTime;
+
+            if (!(adLoadingTime > adManager.maxTimeLoadingAd)) continue;
+            
+            GameManager.I.loadingSpinner.SetActive(false);
+
+            AdFailedToLoad.Invoke();
+
+            completed(false);
+            yield break;
+        }
+
+        completed(true);
+    }
+
+    private void OnAdClosed(bool isFinalAd)
     {
         if (!isFinalAd) return;
         
-        adManager.loadingSpinnerAnimator.SetActive(false);
+        GameManager.I.loadingSpinner.SetActive(false);
     }
 }

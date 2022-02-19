@@ -35,7 +35,7 @@ public class AudioManagerPlay : MonoBehaviour
                 soundSource.PlayOneShot(gemFlipClips[UnityEngine.Random.Range(0, gemFlipClips.Length)], 1/*, 1 + chargeTime * coinFlipPitchMult, 1 + chargeTime * coinFlipVolumeMult*/);
                 break;
             case CoinType.Key:
-                soundSource.PlayOneShot(keyFlipClip, 0.5f);
+                soundSource.PlayOneShot(keyFlipClip, 0.8f);
                 break;
         }
     }
@@ -48,13 +48,13 @@ public class AudioManagerPlay : MonoBehaviour
         switch(coin.type)
         {
             case CoinType.Coin:
-                soundSource.PlayOneShot(coinCollisionClips[UnityEngine.Random.Range(0, coinCollisionClips.Length)], 1/*, relativeVelocity * coinCollisionPitchMult, relativeVelocity * coinCollisionVolumeMult*/);
+                soundSource.PlayOneShot(coinCollisionClips[UnityEngine.Random.Range(0, coinCollisionClips.Length)], 1.2f/*, relativeVelocity * coinCollisionPitchMult, relativeVelocity * coinCollisionVolumeMult*/);
                 break;
             case CoinType.Gem:
-                soundSource.PlayOneShot(gemCollisionClips[UnityEngine.Random.Range(0, gemCollisionClips.Length)], 1/*, relativeVelocity * coinCollisionPitchMult, relativeVelocity * coinCollisionVolumeMult*/);
+                soundSource.PlayOneShot(gemCollisionClips[UnityEngine.Random.Range(0, gemCollisionClips.Length)], 1.2f/*, relativeVelocity * coinCollisionPitchMult, relativeVelocity * coinCollisionVolumeMult*/);
                 break;
             case CoinType.Key:
-                soundSource.PlayOneShot(keyCollisionClip, 0.6f/*, relativeVelocity * coinCollisionPitchMult, relativeVelocity * coinCollisionVolumeMult*/);
+                soundSource.PlayOneShot(keyCollisionClip, 0.8f/*, relativeVelocity * coinCollisionPitchMult, relativeVelocity * coinCollisionVolumeMult*/);
                 break;
         }
     }

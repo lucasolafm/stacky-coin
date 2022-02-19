@@ -14,7 +14,6 @@ public class Chest : MonoBehaviour
 	public RectTransform pointer;
 	public Image sprite, pointerSprite, backgroundSprite;
     public TextMeshProUGUI counterText;
-	public Renderer miniChest;
 	public PolygonCollider2D polygonCollider;
 	public LineRenderer outline;
 
@@ -27,7 +26,6 @@ public class Chest : MonoBehaviour
 	{
 		pointerOriginalPos = pointer.localPosition;
 		pointerOriginalScale = pointer.localScale;
-		miniChestOriginalScale = miniChest.transform.localScale;
 	}
 
 	void Update()
@@ -39,17 +37,6 @@ public class Chest : MonoBehaviour
 	{
 		counter = price - homeManager.startOriginalMiniCoins.Length;
 		counterText.text = counter.ToString();
-	}
-
-	public void PlaceMiniChest()
-	{
-		miniChest.gameObject.SetActive(true);
-
-		miniChest.material = chestManager.miniChestMaterials[level - 1];
-
-		miniChest.transform.position = new Vector3(coinTubeManager.bottomRightOfScreen.x - homeManager.offSetSideCoinTube, 
-													coinTubeManager.bottomOfCoinTube.y + homeManager.offSetBottomCoinTube + 
-													(price - 1) * miniCoinManager.inTubeSpacing, 1);
 	}
 
 	public void SetState(ChestState state)

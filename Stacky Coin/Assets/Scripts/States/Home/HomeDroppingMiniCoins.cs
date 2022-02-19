@@ -142,18 +142,17 @@ public class HomeDroppingMiniCoins : HomeState
                 yield return null;
             }
 
-            manager.tubeFillLoopAudioSource.Stop();
             manager.tubeFillLoopAudioSource.clip = manager.tubeFillClip;
-            manager.tubeFillLoopAudioSource.volume = 0.4f;
+            manager.tubeFillLoopAudioSource.volume = 0.9f;
             manager.tubeFillLoopAudioSource.Play();
-            GameManager.I.audioSource.PlayOneShot(manager.tubeFillEndClip, 0.3f);
+            GameManager.I.audioSource.PlayOneShot(manager.tubeFillEndClip, 0.5f);
 
             while (!lastRealMiniCoinToFall.State.GetHasLanded())
             {
                 yield return null;
             }
 
-            GameManager.I.audioSource.PlayOneShot(manager.tubeFillStartClip, 0.3f);
+            GameManager.I.audioSource.PlayOneShot(manager.tubeFillStartClip, 0.4f);
             manager.tubeFillLoopAudioSource.Stop();
             
             // Wait for the last coin to finish dropping

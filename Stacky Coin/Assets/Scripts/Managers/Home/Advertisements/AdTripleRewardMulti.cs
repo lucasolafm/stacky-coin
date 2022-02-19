@@ -206,7 +206,7 @@ public class AdTripleRewardMulti : Ad
 
     private void PlayAd()
     {
-        StartCoroutine(WaitUntilAdIsLoaded(ads[adsPlayed], () =>
+        StartCoroutine(WaitUntilRewardedAdIsLoaded(ads[adsPlayed], () =>
         {
             ads[adsPlayed].OnUserEarnedReward += HandleUserEarnedReward;
             ads[adsPlayed].OnAdClosed += HandleAdClosed;

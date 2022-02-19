@@ -15430,15 +15430,15 @@ MonoBehaviour:
     coins: []
   - text: 
     coins: []
-  - text: Gems are <b>heavy</b>! Try holding down <b>longer</b> before releasing.
+  - text: Gems are <b>heavy</b>! Try holding down <b>longer</b>.
     coins: []
   - text: Well done! Keep going.
     coins: []
   - text: 
     coins: []
-  - text: This is a key. Keys are <b>heavy</b> as well.
+  - text: Keys are <b>heavy</b> as well.
     coins: []
-  - text: Collect keys to unlock new coins & gems!
+  - text: Collect keys to <b>unlock</b> new coins & gems!
     coins: []
   - text: Stack your riches as high as you can! Good luck!
     coins: []

@@ -14,7 +14,6 @@ public class ChestManager : MonoBehaviour
     [SerializeField] private MiniCoinManager miniCoinManager;
     public Chest[] chests;
     [SerializeField] private Button[] buttons;
-    [SerializeField] private new Camera camera;
 
     public Sprite[] spritesLocked, spritesOpen;
     public Material[] miniChestMaterials;
@@ -25,7 +24,6 @@ public class ChestManager : MonoBehaviour
     public int[] priceMinimums;
     public float pointerHoverTime, pointerHoverDistance, pointerExpandTime, pointerExpandSize;
     [SerializeField] private float spawnTime, spawnSize;
-    [SerializeField] private float outlineTime, outlineSize;
 
     private int[] chestsInData;
     private Vector3 spriteStartScale, pointerStartScale;
@@ -56,8 +54,6 @@ public class ChestManager : MonoBehaviour
             }
             else
             {
-                chests[i].PlaceMiniChest();
-
                 if (chests[i].counter > 0)
                 {
                     chests[i].SetState(new ChestLocked(chests[i]));                    
@@ -137,8 +133,6 @@ public class ChestManager : MonoBehaviour
 
         StartCoroutine(ChestSpawnAnimation(chestPosition));
 
-        chests[chestPosition].PlaceMiniChest();
-
         EventManager.EnabledNewChest.Invoke(chests[chestPosition]);
     }
 
@@ -172,7 +166,7 @@ public class ChestManager : MonoBehaviour
         }
     }
 
-    public int GetChestLevel(int price)
+    private int GetChestLevel(int price)
     {
         if (price <= priceMinimums[0] + priceRange)
         {
@@ -187,7 +181,7 @@ public class ChestManager : MonoBehaviour
         return priceMinimums[level - 1] + Random.Range(0, priceRange / 10 + 1) * 10;
     }
 
-    public int GetFirstAvaialbleChestSlot()
+    public int GetFirstAvailableChestSlot()
     {
         chestsInData = Data.chests;
 

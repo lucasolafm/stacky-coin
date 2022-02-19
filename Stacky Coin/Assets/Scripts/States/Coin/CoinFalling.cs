@@ -27,8 +27,6 @@ public class CoinFalling : CoinState
     {
         base.OnCollideWithCoin(collision);
 
-        if (GameManager.I.isGameOver) return;
-        
         EventManager.CoinCollides.Invoke(coin, collision.relativeVelocity.sqrMagnitude);
     }
 }

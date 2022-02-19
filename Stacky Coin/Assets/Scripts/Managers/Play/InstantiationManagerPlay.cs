@@ -119,7 +119,6 @@ public class InstantiationManagerPlay : MonoBehaviour
 
     private Coin InstantiateKey(int forceNumber = -1)
     {
-        print(forceNumber);
         if (forceNumber != -1)
         {
             keyLevel = forceNumber;

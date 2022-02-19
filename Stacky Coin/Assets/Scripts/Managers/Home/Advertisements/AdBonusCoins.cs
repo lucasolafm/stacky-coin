@@ -59,17 +59,17 @@ public class AdBonusCoins : Ad
         adClosed = false;
     }
 
-    public void HandleUserEarnedReward(object sender, Reward args)
+    private void HandleUserEarnedReward(object sender, Reward args)
     {
         rewardEarned = true;
     }
 
-    public void HandleAdFailedToShow(object sender, AdErrorEventArgs args)
+    private void HandleAdFailedToShow(object sender, AdErrorEventArgs args)
     {
         adClosed = true;
     }
 
-    public void HandleAdClosed(object sender, EventArgs args)
+    private void HandleAdClosed(object sender, EventArgs args)
     {
         adClosed = true;
     }
@@ -82,7 +82,7 @@ public class AdBonusCoins : Ad
         ad.OnUserEarnedReward += HandleUserEarnedReward;
         ad.OnAdClosed += HandleAdClosed;
 
-        StartCoroutine(WaitUntilAdIsLoaded(ad, () =>
+        StartCoroutine(WaitUntilRewardedAdIsLoaded(ad, () =>
         {
             ad.Show();
         }));

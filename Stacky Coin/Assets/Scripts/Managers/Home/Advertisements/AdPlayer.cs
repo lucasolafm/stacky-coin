@@ -22,7 +22,8 @@ public class AdPlayer : MonoBehaviour
     
     void Awake()
     {
-        Ad.AdLoading.AddListener(OnAdLoading);
+        Ad.RewardedAdLoading.AddListener(OnRewardedAdLoading);
+        Ad.InterstitialAdLoading.AddListener(OnInterstitialAdLoading);
         Ad.AdFailedToLoad.AddListener(OnAdFailedToLoad);
 
         MobileAds.Initialize(initStatus => {});
@@ -39,10 +40,20 @@ public class AdPlayer : MonoBehaviour
         adClosed = false;
     }
 
-    private void OnAdLoading(RewardedAd ad, bool isFinalAd)
+    private void OnRewardedAdLoading(RewardedAd ad, bool isFinalAd)
     {
         this.isFinalAd = isFinalAd;
 
+        ToggleGraphicRaycasters(false);
+
+        ad.OnAdClosed += HandleAdClosed;
+        ad.OnAdFailedToShow += HandleAdFailedToShow;
+    }
+
+    private void OnInterstitialAdLoading(InterstitialAd ad)
+    {
+        isFinalAd = true;
+        
         ToggleGraphicRaycasters(false);
 
         ad.OnAdClosed += HandleAdClosed;
@@ -54,12 +65,12 @@ public class AdPlayer : MonoBehaviour
         ToggleGraphicRaycasters(true);
     }
 
-    public void HandleAdClosed(object sender, EventArgs args)
+    private void HandleAdClosed(object sender, EventArgs args)
     {
         adClosed = true;
     }
 
-    public void HandleAdFailedToShow(object sender, AdErrorEventArgs args)
+    private void HandleAdFailedToShow(object sender, AdErrorEventArgs args)
     {
         adClosed = true;
     }

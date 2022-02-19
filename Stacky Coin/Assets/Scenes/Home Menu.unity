@@ -4665,9 +4665,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2b3e17379dfa64fa57d07e42cc6a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testGetLvl1Chest: 1
-  testGetLvl2Chest: 1
-  testGetLvl3Chest: 1
+  testGetLvl1Chest: 0
+  testGetLvl2Chest: 0
+  testGetLvl3Chest: 0
   homeManager: {fileID: 1140576729}
   coinTubeManager: {fileID: 374992544}
   miniCoinManager: {fileID: 1953187665}
@@ -4679,7 +4679,6 @@ MonoBehaviour:
   - {fileID: 782677567}
   - {fileID: 220255559}
   - {fileID: 2104793331}
-  camera: {fileID: 1721218557}
   spritesLocked:
   - {fileID: 21300000, guid: 0381ecc7aa26b6c4185db4e3e3502828, type: 3}
   - {fileID: 21300000, guid: 6c338fad9c7ac4d4d939fbae1dbc9d59, type: 3}
@@ -4698,7 +4697,7 @@ MonoBehaviour:
   pointerSpriteAd: {fileID: 21300000, guid: 778dfb53ca562dc449d1b50df6c57efb, type: 3}
   backgroundColorLocked: {r: 1, g: 1, b: 1, a: 0.4117647}
   backgroundColorOpen: {r: 1, g: 1, b: 1, a: 0.4117647}
-  lockedTransparency: 0.8
+  lockedTransparency: 0.7
   priceRange: 50
   priceMinimums: 3200000096000000fa000000
   pointerHoverTime: 1
@@ -4707,8 +4706,6 @@ MonoBehaviour:
   pointerExpandSize: 0.15
   spawnTime: 0.25
   spawnSize: 0.45
-  outlineTime: 0.8
-  outlineSize: 0.06
 --- !u!1 &550250362
 GameObject:
   m_ObjectHideFlags: 0
@@ -15949,7 +15946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   homeManager: {fileID: 1140576729}
-  timerTime: 0
+  timerTime: 240
   placementId: tripleLoot
   darkScreen: {fileID: 305797325}
   tripleAdRewardPopup: {fileID: 1385629680}
@@ -16000,7 +15997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   homeManager: {fileID: 1140576729}
-  timerTime: 450
+  timerTime: 0
   placementId: interstitial
 --- !u!114 &1265742264
 MonoBehaviour:
@@ -16039,6 +16036,7 @@ MonoBehaviour:
   - {fileID: 1265742261}
   - {fileID: 1265742260}
   - {fileID: 1265742266}
+  - {fileID: 1265742263}
   maxTimeLoadingAd: 7
   timeUntilAdMin: 0
   timeUntilAdMax: 0

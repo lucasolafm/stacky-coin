@@ -17,7 +17,6 @@ public class ChestLocked : ChestState
 
         chest.sprite.sprite = chest.chestManager.spritesLocked[chest.level - 1];
         chest.sprite.color = new Color(chest.sprite.color.r, chest.sprite.color.g, chest.sprite.color.b, chest.chestManager.lockedTransparency);
-        chest.miniChest.material.color = new Color(chest.miniChest.material.color.r, chest.miniChest.material.color.g, chest.miniChest.material.color.b, chest.chestManager.lockedTransparency);
         chest.pointerSprite.sprite = chest.chestManager.pointerSpriteLocked;
         chest.pointer.localPosition = chest.pointerOriginalPos;
         chest.backgroundSprite.color = chest.chestManager.backgroundColorLocked;

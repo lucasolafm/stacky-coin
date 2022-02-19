@@ -33,7 +33,7 @@ public class MiniKey : MiniCoin
         }
 
         // Get chest values and save to data
-        chestPosition = miniCoinManager.chestManager.GetFirstAvaialbleChestSlot();
+        chestPosition = miniCoinManager.chestManager.GetFirstAvailableChestSlot();
         chestPrice = miniCoinManager.chestManager.GetRandomChestPrice(level);
         Data.SetChest(chestPrice, chestPosition);
 

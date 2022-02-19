@@ -18,7 +18,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Mini Coin/MiniCoinGemBonus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Coin.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Base/CoinState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Chest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A16F90BE-E746-47C6-9DF3-2D34D490D59E/5c/b41b8c6f/RewardedAd.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Base/HomeState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Coin/CoinFalling.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/PlayerPrefsX.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Mini Coin/MiniKey.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Mini Coin/MiniCoin.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Coin/CoinFlipping.cs" root0="FORCE_HIGHLIGHTING" />
@@ -29,19 +33,26 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/PlayAgainCoinController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/CoinTubeManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/ChestManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A16F90BE-E746-47C6-9DF3-2D34D490D59E/9c/4d08e5dd/InterstitialAd.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Home/HomePayingMiniCoins.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro.cginc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/HomeManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Home/HomeDroppingMiniCoins.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/InstantiationManagerHome.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/UIManagerHome.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Home/HomeInterstitialAd.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdTripleReward.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/Ad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdTripleRewardMulti.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Play/PlayGameOver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdInterstitial.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Chest/ChestLocked.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdBonusCoins.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Chest/ChestOpen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Chest Unlocking/UnlockMiniCoinPayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Chest/ChestInactive.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Tutorial/TutorialPause2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Chest Unlocking/UnlockSkinManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Tutorial/TutorialKey.cs" root0="FORCE_HIGHLIGHTING" />
@@ -65,8 +76,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/Ad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Other/Data.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Mini Coin/MiniCoin.cs" />
@@ -75,33 +84,40 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Tutorial/TutorialKey2.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Tutorial/TutorialPause2.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Tutorial/TutorialPause.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Play/InstantiationManagerPlay.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Play/TutorialManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Play/HandManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Base/CoinState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Coin/CoinFlipping.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Play/AudioManagerPlay.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/BonusCoinsController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdBonusCoins.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdTripleRewardMulti.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdTripleReward.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/PlayAgainCoinController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/All/EventManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Other/Utilities.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/States/Coin/CoinFalling.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Coin.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Play/PlayManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Mini Coin/MiniCoinGemBonus.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Play/PlayGameOver.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Mini Coin/MiniCoinPayingBonus.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Mini Coin/MiniCoinEnteringChest.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/ChestManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Mini Coin/MiniKey.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/All/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/HomeManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Home/HomePayingMiniCoins.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Play/InstantiationManagerPlay.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Chest Unlocking/UnlockSkinManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Home/HomeDroppingMiniCoins.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Play/AudioManagerPlay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/All/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Chest.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/States/Chest/ChestLocked.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/ChestManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/States/Chest/ChestInactive.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/States/Chest/ChestOpen.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/States/Coin/CoinFalling.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdBonusCoins.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdTripleReward.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/Ad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdInterstitial.cs" />
       </list>
     </option>
   </component>
@@ -166,7 +182,13 @@
       <workItem from="1643547679946" duration="4249000" />
       <workItem from="1644139769186" duration="6114000" />
       <workItem from="1644221988645" duration="27340000" />
-      <workItem from="1644324182691" duration="3434000" />
+      <workItem from="1644324182691" duration="4114000" />
+      <workItem from="1644338032375" duration="2094000" />
+      <workItem from="1644412974280" duration="5488000" />
+      <workItem from="1644582857184" duration="56000" />
+      <workItem from="1644582963119" duration="1060000" />
+      <workItem from="1644652031068" duration="300000" />
+      <workItem from="1644653843174" duration="1526000" />
     </task>
     <servers />
   </component>

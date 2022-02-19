@@ -314,16 +314,16 @@ public class UnlockSkinManager : MonoBehaviour
         homeManager.chestOpenAudioSource.Stop();
         homeManager.chestOpenAudioSource.clip = homeManager.chestOpenClip;
         homeManager.chestOpenAudioSource.time = clipStartTime;
-        homeManager.chestOpenAudioSource.volume = 0.8f;
+        homeManager.chestOpenAudioSource.volume = 1f;
 
         homeManager.unlockAudioSource.Stop();
         homeManager.unlockAudioSource.clip = homeManager.unlockClip;
         homeManager.unlockAudioSource.time = clipStartTime;
-        homeManager.unlockAudioSource.volume = 0.2f;
+        homeManager.unlockAudioSource.volume = 1f;
 
         homeManager.tubeFillLoopAudioSource.Stop();
         homeManager.tubeFillLoopAudioSource.clip = homeManager.tubeFillClip;
-        homeManager.tubeFillLoopAudioSource.volume = 0.2f;
+        homeManager.tubeFillLoopAudioSource.volume = 1f;
         homeManager.tubeFillLoopAudioSource.Play();
 
         yield return new WaitForSeconds(HomeManager.chestUnlockTime - (timeUntilClipClimax + latency));
@@ -346,8 +346,6 @@ public class UnlockSkinManager : MonoBehaviour
             t = Mathf.Min(t + Time.deltaTime / 0.5f, 1);
 
             homeManager.chestOpenAudioSource.volume = 0.8f * t;
-            
-            print(homeManager.chestOpenAudioSource.volume);
 
             yield return null;
         }

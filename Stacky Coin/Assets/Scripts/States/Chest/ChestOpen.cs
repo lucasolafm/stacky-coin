@@ -35,7 +35,6 @@ public class ChestOpen : ChestState
 
         chest.sprite.sprite = chest.chestManager.spritesOpen[chest.level - 1];
         chest.sprite.color = new Color(chest.sprite.color.r, chest.sprite.color.g, chest.sprite.color.b, 1);
-        chest.miniChest.material.color = new Color(chest.miniChest.material.color.r, chest.miniChest.material.color.g, chest.miniChest.material.color.b, 1);
         chest.backgroundSprite.color = chest.chestManager.backgroundColorOpen;
         SetPointer();
     }
@@ -66,8 +65,6 @@ public class ChestOpen : ChestState
             expandProgress = -(Mathf.Cos(Mathf.PI * Mathf.Min(expandTime, 1)) - 1) / 2;
 
             chest.pointer.localScale = chest.pointerOriginalScale * (1 + (inOrOut ? 1 - expandProgress : expandProgress) * chest.chestManager.pointerExpandSize);
-
-            chest.miniChest.transform.localScale = chest.miniChestOriginalScale * (1 + (inOrOut ? 1 - expandProgress : expandProgress) * chest.chestManager.pointerExpandSize);
 
             if (expandTime >= 1)
             {

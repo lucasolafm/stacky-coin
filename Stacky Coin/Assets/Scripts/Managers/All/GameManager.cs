@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public bool testEnableAllSkins;
     public AudioSource audioSource;
+    public GameObject loadingScreenCanvas;
+    public GameObject loadingSpinner;
     [SerializeField] private int FPSCap;
     [SerializeField] private float delayAfterGameOver;
     [SerializeField] private float delayBeforePlayingAgain;
