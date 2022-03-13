@@ -8,7 +8,7 @@ public class AudioManagerPlay : MonoBehaviour
 {
     [SerializeField] private AudioSource soundSource;
 
-    [SerializeField] private AudioClip keyFlipClip, keyCollisionClip, coinPerfectHitClip;
+    [SerializeField] private AudioClip keyFlipClip, keyCollisionClip;
     [SerializeField] private float coinCollisionMinVelocity;
     [SerializeField] private float coinFlipVolumeMult, coinFlipPitchMult, coinCollisionVolumeMult, coinCollisionPitchMult;
 
@@ -16,6 +16,7 @@ public class AudioManagerPlay : MonoBehaviour
     [SerializeField] private AudioClip[] gemCollisionClips;
     [SerializeField] private AudioClip[] coinFlipClips;
     [SerializeField] private AudioClip[] gemFlipClips;
+    [SerializeField] private AudioClip[] perfectHitClips;
 
     void Start()
     {
@@ -61,6 +62,6 @@ public class AudioManagerPlay : MonoBehaviour
 
     private void OnPerfectHit(Coin coin, int combo)
     {
-        soundSource.PlayOneShot(coinPerfectHitClip, 0.8f);
+        soundSource.PlayOneShot(perfectHitClips[combo - combo / perfectHitClips.Length * perfectHitClips.Length], 0.8f);
     }
 }

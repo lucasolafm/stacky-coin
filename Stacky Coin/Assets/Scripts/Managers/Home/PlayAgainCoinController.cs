@@ -6,8 +6,10 @@ public class PlayAgainCoinController : MonoBehaviour
 {
     [SerializeField] private HomeManager homeManager;
     [SerializeField] private Transform playAgainCoin;
+    [SerializeField] private AudioClip enterClip;
     [SerializeField] private AudioClip playAgainClip;
-
+    [SerializeField] private float enterClipDelay;
+    
     private Vector3 startPosition;
     private float shiftProgress, shiftAmount;
 
@@ -22,15 +24,17 @@ public class PlayAgainCoinController : MonoBehaviour
     private void OnLoadedHomeScene()
     {
         startPosition = playAgainCoin.position;
+        
+        Invoke(nameof(PlayEnterSound), enterClipDelay);
 
         StartCoroutine(EnterAnimation());
     }
 
     private void OnPlayingAgain()
     {
-        StartCoroutine(ExitAnimation());
-        
         GameManager.I.audioSource.PlayOneShot(playAgainClip, 0.5f);
+        
+        StartCoroutine(ExitAnimation());
     }
 
     private void OnEnteringCollection()
@@ -88,5 +92,10 @@ public class PlayAgainCoinController : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    private void PlayEnterSound()
+    {
+        GameManager.I.audioSource.PlayOneShot(enterClip);
     }
 }

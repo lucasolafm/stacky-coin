@@ -16634,7 +16634,6 @@ MonoBehaviour:
   soundSource: {fileID: 1292058910}
   keyFlipClip: {fileID: 8300000, guid: 78d6a8ace2b17f34f8c3fa7fd950366b, type: 3}
   keyCollisionClip: {fileID: 8300000, guid: 072f7e09455ecc94cb15cdec5956b097, type: 3}
-  coinPerfectHitClip: {fileID: 0}
   coinCollisionMinVelocity: 3
   coinFlipVolumeMult: 0.4
   coinFlipPitchMult: 0.01
@@ -16655,6 +16654,10 @@ MonoBehaviour:
   gemFlipClips:
   - {fileID: 8300000, guid: 66daca100e75fd744a1ecc2f38c0ffce, type: 3}
   - {fileID: 8300000, guid: 5a56af9197cfe4d4aa46fcb8225bcff1, type: 3}
+  perfectHitClips:
+  - {fileID: 8300000, guid: 2a9d6271dd659234dbf58a6c8bd98a07, type: 3}
+  - {fileID: 8300000, guid: fd5f54e18f59c5e4fa2a70a385f594de, type: 3}
+  - {fileID: 8300000, guid: 91d6d9217372fd242bd8cf4ad5211d11, type: 3}
 --- !u!81 &1292058912
 AudioListener:
   m_ObjectHideFlags: 0

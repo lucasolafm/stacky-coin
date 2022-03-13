@@ -15536,7 +15536,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   homeManager: {fileID: 1140576729}
   playAgainCoin: {fileID: 269389939}
+  enterClip: {fileID: 8300000, guid: 23ea05f86691ea6468809730d5f61c0a, type: 3}
   playAgainClip: {fileID: 8300000, guid: 78d6a8ace2b17f34f8c3fa7fd950366b, type: 3}
+  enterClipDelay: 0.3
 --- !u!1 &1228062208
 GameObject:
   m_ObjectHideFlags: 0

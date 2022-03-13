@@ -21,11 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a3aced87-a9ae-427c-b5ba-4972af53e9e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Stacky Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stacky Coin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Pile Collapse/Stack_Collapse_Large.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Audio/Pile Collapse/Stack_Collapse_Large.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/All/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/All/EventManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Play/InstantiationManagerPlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Play/InstantiationManagerPlay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Coin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Coin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States/Play/PlayGameOver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States/Play/PlayGameOver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Home Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Home Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Home/PlayAgainCoinController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Home/PlayAgainCoinController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Play/AudioManagerPlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Play/AudioManagerPlay.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +85,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Materials/Shaders/CoinGold.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Tutorial/TutorialEnd.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Play/EffectManagerPlay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Play/UIManagerPlay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Play/TutorialManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/Data.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Play/AudioManagerPlay.cs" root0="FORCE_HIGHLIGHTING" />
@@ -120,7 +119,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Coin/CoinFlipping.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/BonusCoinsController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdTripleRewardMulti.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/PlayAgainCoinController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Other/Utilities.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Mini Coin/MiniCoinGemBonus.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Mini Coin/MiniCoinPayingBonus.cs" />
@@ -130,7 +128,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Home/HomePayingMiniCoins.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Chest Unlocking/UnlockSkinManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Home/HomeDroppingMiniCoins.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Play/AudioManagerPlay.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Chest.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Chest/ChestLocked.cs" />
@@ -152,6 +149,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Coin.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Play/InstantiationManagerPlay.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Play/PlayGameOver.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/PlayAgainCoinController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Play/AudioManagerPlay.cs" />
       </list>
     </option>
   </component>
@@ -222,7 +221,7 @@
       <workItem from="1644652031068" duration="300000" />
       <workItem from="1644653843174" duration="1526000" />
       <workItem from="1647114079725" duration="1282000" />
-      <workItem from="1647187637024" duration="7766000" />
+      <workItem from="1647187637024" duration="9075000" />
     </task>
     <servers />
   </component>
