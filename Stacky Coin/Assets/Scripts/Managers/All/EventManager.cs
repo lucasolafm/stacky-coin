@@ -35,7 +35,7 @@ public static class EventManager
 	public static CoinEvent CoinScores = new CoinEvent();
 	public static CoinEvent CoinFalls = new CoinEvent();
 	public static UnityEvent CoinFallsWhileTouchingPile = new UnityEvent();
-	public static CoinEvent CoinFallsOffPile = new CoinEvent();
+	public static UnityEvent<Coin[]> CoinsFallOffPile = new UnityEvent<Coin[]>();
 	public static UnityEvent CoinPileFallsOver = new UnityEvent();
 	public static UnityEvent GoingGameOver = new UnityEvent();
 	public static BoolEvent GoneGameOver = new BoolEvent();

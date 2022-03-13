@@ -17110,6 +17110,9 @@ MonoBehaviour:
   - {fileID: 1628012350}
   - {fileID: 358738753}
   - {fileID: 1237441880}
+  coinToMeasure: {fileID: 23375484990535080, guid: a245ae7cdc16bd942960284fb11285cf,
+    type: 3}
+  moveDownTime: 0.3
   handBelowTopCoinDistance: 1.286576
   firstHandMovePosition: -0.912
   bobStrengthLight: 0.07

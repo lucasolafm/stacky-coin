@@ -10,7 +10,9 @@ public class HandManager : MonoBehaviour
     public Transform handVisuals;
     public Collider handCollider;
     public GameObject[] sprites;
+    [SerializeField] private Renderer coinToMeasure;
 
+    public float moveDownTime;
     public float handBelowTopCoinDistance;
     public float firstHandMovePosition;
 
@@ -39,7 +41,10 @@ public class HandManager : MonoBehaviour
         EventManager.CoinFlipping.AddListener(OnCoinFlipping);
         EventManager.CoinFlips.AddListener(OnCoinFlips);
         EventManager.ReachesNextStageTarget.AddListener(OnReachesNextStageTarget);
+        EventManager.CoinsFallOffPile.AddListener(OnCoinsFallOffPile);
         EventManager.GoneGameOver.AddListener(OnGoneGameOver);
+        
+        print(coinToMeasure.bounds.size.y);
     }
 
     void Update()
@@ -104,9 +109,7 @@ public class HandManager : MonoBehaviour
 
     private void OnHandStopsCharge()
     {
-        //StopCoroutine(chargingShakeRoutine);
-        shaking = false;
-        handVisuals.position = hand.position;
+        StopShaking();
     }
 
     private void OnReachesNextStageTarget(Coin scoredCoin, float handHeight)
@@ -116,6 +119,23 @@ public class HandManager : MonoBehaviour
                             playManager.timeToAscendToNextStage).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() => 
         {
             EventManager.HandAscendedCoinPile.Invoke();
+        });
+    }
+
+    private void OnCoinsFallOffPile(Coin[] coins)
+    {
+        if (GameManager.I.isGameOver) return;
+        
+        playManager.SetState(new PlayDescending(playManager));
+        
+        EventManager.HandStopsCharge.Invoke();
+        
+        StopBobbing();
+
+        LeanTween.moveLocalY(hand.gameObject, hand.position.y - coinToMeasure.bounds.size.y * coins.Length, 
+                moveDownTime).setEase(LeanTweenType.easeInOutSine).setOnComplete(() =>
+        {
+            playManager.SetState(new PlayDefault(playManager));
         });
     }
 
@@ -135,6 +155,12 @@ public class HandManager : MonoBehaviour
     private void StopBobbing()
     {
         bobbing = false;
+        handVisuals.position = hand.position;
+    }
+
+    private void StopShaking()
+    {
+        shaking = false;
         handVisuals.position = hand.position;
     }
 

@@ -30,7 +30,7 @@ public class PlayManager : MonoBehaviour
     {
         EventManager.CoinScores.AddListener(OnCoinScores);
         EventManager.CoinFalls.AddListener(OnCoinFalls);
-        EventManager.CoinFallsOffPile.AddListener(OnCoinFallsOffPile);
+        EventManager.CoinsFallOffPile.AddListener(OnCoinsFallOffPIle);
         EventManager.CoinPileFallsOver.AddListener(OnCoinPileFallsOver);
         EventManager.HandAscendedCoinPile.AddListener(OnHandAscendedCoinPile);
         EventManager.GoingGameOver.AddListener(OnGoingGameOver);
@@ -79,9 +79,12 @@ public class PlayManager : MonoBehaviour
         State.OnCoinFalls(coin);
     }
 
-    private void OnCoinFallsOffPile(Coin coin)
+    private void OnCoinsFallOffPIle(Coin[] coins)
     {
-        State.OnCoinFallsOffPile(coin);
+        foreach (Coin coin in coins)
+        {
+            State.OnCoinFallsOffPile(coin);
+        }
     }
 
     private void OnHandAscendedCoinPile()

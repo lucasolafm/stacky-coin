@@ -72,6 +72,7 @@ public class AdManager : MonoBehaviour
 
     private int GetAvailableAds()
     {
+        print(Data.adTimers.Length);
         for (int i = 0; i < ads.Length; i++)
         {
             if (Data.adTimers[i] > 0 || !ads[i].PassesCondition()) continue;
@@ -89,6 +90,7 @@ public class AdManager : MonoBehaviour
 
     private void InitializeTimers()
     {
+        print("initialize");
         ResetPlayAdTimer();
 
         float[] tempTimers = new float[ads.Length];

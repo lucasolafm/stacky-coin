@@ -19,7 +19,7 @@ public class CoinPileManager : MonoBehaviour
 
     private float startTime;
     private int unstableCoinsAmount;
-    private List<int> fallenCoinIndexes = new List<int>();
+    private List<Coin> fallenCoins = new List<Coin>();
     private bool coinUnstable, coinFalling;
     private bool canBeStraightened;
 
@@ -38,7 +38,7 @@ public class CoinPileManager : MonoBehaviour
         startTime += fallDetectTime;
 
         unstableCoinsAmount = 0;
-        fallenCoinIndexes.Clear();
+        fallenCoins.Clear();
         for (int i = 0; i < coinManager.spawnedCoinsCount; i++)
         {
             // Check the stability of coins on the pile
@@ -62,19 +62,21 @@ public class CoinPileManager : MonoBehaviour
             // Check if the coin should fall off
             if (coinFalling)
             {
-                fallenCoinIndexes.Add(i);
+                fallenCoins.Add(coinManager.Coins[i]);
             }
         }
 
         // Deal with fallen coins only after game over has been determined
-        foreach (int index in fallenCoinIndexes)
+        foreach (Coin fallenCoin in fallenCoins)
         {
             SetKinematic(false);
-
-            EventManager.CoinFallsOffPile.Invoke(coinManager.Coins[index]);
-
-            coinManager.Coins[index].SetState(new CoinFalling(coinManager.Coins[index]));
+            
+            fallenCoin.SetState(new CoinFalling(fallenCoin));
         }
+
+        if (fallenCoins.Count == 0) return;
+        
+        EventManager.CoinsFallOffPile.Invoke(fallenCoins.ToArray());
     }
 
     private void OnCoinTouchesPile(Coin coin)
@@ -107,7 +109,8 @@ public class CoinPileManager : MonoBehaviour
                     canBeStraightened = coinManager.Coins[i].transform.eulerAngles.z > -180 - kinematicStraighteningMaxAngle &&
                                         coinManager.Coins[i].transform.eulerAngles.z < 180 + kinematicStraighteningMaxAngle;
 
-                    coinManager.Coins[i].SetState(new CoinOnPileKinematic(coinManager.Coins[i], !coinManager.Coins[i].State.GetIsScored()));
+                    coinManager.Coins[i].SetState(new CoinOnPileKinematic(coinManager.Coins[i], canBeStraightened, 
+                        !coinManager.Coins[i].State.GetIsScored()));
                 }
                 else
                 {

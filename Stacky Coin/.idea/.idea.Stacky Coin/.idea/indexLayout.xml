@@ -3,6 +3,7 @@
   <component name="ContentModelUserStore">
     <attachedFolders />
     <explicitIncludes>
+      <Path>Assets</Path>
       <Path>Library/PackageCache/com.unity.2d.animation@4.2.5</Path>
       <Path>Library/PackageCache/com.unity.2d.common@3.0.1</Path>
       <Path>Library/PackageCache/com.unity.2d.psdimporter@3.1.5</Path>
