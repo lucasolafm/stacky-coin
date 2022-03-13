@@ -165,6 +165,8 @@ public class InstantiationManagerPlay : MonoBehaviour
             // Rotate it as if it was flipped
 			coin.transform.eulerAngles = new Vector3(0, 0, 180);
 
+            coin.isStartingStack = true;
+
             // Disable the perfect hit collider unless it's the top coin
 			if (i != coinManager.startingCoinStackAmount - 1)
             {

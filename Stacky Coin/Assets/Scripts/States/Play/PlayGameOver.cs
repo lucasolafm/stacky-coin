@@ -24,8 +24,10 @@ public class PlayGameOver : PlayState
         EventManager.GoneGameOver.Invoke(manualGameOver);
     }
 
-    private void OnCoinLandsOnFloor()
+    private void OnCoinLandsOnFloor(Coin coin)
     {
+        if (coin.isStartingStack) return;
+        
         EventManager.CoinLandsOnFloor.RemoveListener(OnCoinLandsOnFloor);
 
         if (!GameManager.I.isGameOver || manualGameOver) return;

@@ -25,7 +25,7 @@ public static class EventManager
 	public static CoinEvent CoinSpawns = new CoinEvent();
 	public static CoinEvent CoinDespawns = new CoinEvent();
 	public static CoinEvent CoinLandsOnHand = new CoinEvent();
-	public static UnityEvent CoinLandsOnFloor = new UnityEvent();
+	public static UnityEvent<Coin> CoinLandsOnFloor = new UnityEvent<Coin>();
 	public static CoinEvent HandCharges = new CoinEvent();
 	public static UnityEvent HandStopsCharge = new UnityEvent();
 	public static CoinFloatEvent CoinFlipping = new CoinFloatEvent();

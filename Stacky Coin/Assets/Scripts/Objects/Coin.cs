@@ -21,6 +21,7 @@ public class Coin : MonoBehaviour
 
     public CoinType type;
     public CoinState State;
+    public bool isStartingStack;
 
     void Start()
     {
@@ -51,7 +52,7 @@ public class Coin : MonoBehaviour
         {
             State.OnCollideWithCoin(collision);
 
-            EventManager.CoinLandsOnFloor.Invoke();
+            EventManager.CoinLandsOnFloor.Invoke(this);
         }
     }
 
