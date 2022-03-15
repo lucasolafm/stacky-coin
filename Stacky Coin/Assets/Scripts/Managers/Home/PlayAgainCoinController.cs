@@ -1,11 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayAgainCoinController : MonoBehaviour
 {
     [SerializeField] private HomeManager homeManager;
     [SerializeField] private Transform playAgainCoin;
+    [SerializeField] private Transform visual;
+    [SerializeField] private Image shadow;
     [SerializeField] private AudioClip enterClip;
     [SerializeField] private AudioClip playAgainClip;
     [SerializeField] private float enterClipDelay;
@@ -33,7 +37,7 @@ public class PlayAgainCoinController : MonoBehaviour
     private void OnPlayingAgain()
     {
         GameManager.I.audioSource.PlayOneShot(playAgainClip, 0.5f);
-        
+
         StartCoroutine(ExitAnimation());
     }
 
@@ -59,7 +63,7 @@ public class PlayAgainCoinController : MonoBehaviour
                         0.7f).setEase (LeanTweenType.easeOutBack);
 
         // Spin
-        LeanTween.rotateAroundLocal(playAgainCoin.gameObject, 
+        LeanTween.rotateAroundLocal(visual.gameObject, 
                                     Vector3.left, 720, 
                                     0.7f).setEase (LeanTweenType.easeOutQuad);
     }
@@ -67,7 +71,7 @@ public class PlayAgainCoinController : MonoBehaviour
     private IEnumerator ExitAnimation()
     {
         // Spin
-        LeanTween.rotateAroundLocal (playAgainCoin.gameObject, Vector3.left, 1000, 0.9f);
+        LeanTween.rotateAroundLocal (visual.gameObject, Vector3.left, 1000, 0.9f);
 
         // Move up
         LeanTween.moveY (playAgainCoin.gameObject, playAgainCoin.transform.position.y + 0.1f, 0.1f).setEase (LeanTweenType.easeOutQuad); 
@@ -93,6 +97,7 @@ public class PlayAgainCoinController : MonoBehaviour
             yield return null;
         }
     }
+    
 
     private void PlayEnterSound()
     {

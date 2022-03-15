@@ -18,6 +18,14 @@ public class AudioManagerPlay : MonoBehaviour
     [SerializeField] private AudioClip[] gemFlipClips;
     [SerializeField] private AudioClip[] perfectHitClips;
 
+    [SerializeField] private float coinFlipVolume;
+    [SerializeField] private float gemFlipVolume;
+    [SerializeField] private float keyFlipVolume;
+    [SerializeField] private float coinCollisionVolume;
+    [SerializeField] private float gemCollisionVolume;
+    [SerializeField] private float keyCollisionVolume;
+    [SerializeField] private float perfectHitVolume;
+
     void Start()
     {
         EventManager.CoinFlips.AddListener(OnCoinFlips);
@@ -30,13 +38,13 @@ public class AudioManagerPlay : MonoBehaviour
         switch (coin.type)
         {
             case CoinType.Coin:
-                soundSource.PlayOneShot(coinFlipClips[UnityEngine.Random.Range(0, coinFlipClips.Length)], 1/*, 1 + chargeTime * coinFlipPitchMult, 1 + chargeTime * coinFlipVolumeMult*/);
+                soundSource.PlayOneShot(coinFlipClips[UnityEngine.Random.Range(0, coinFlipClips.Length)], coinFlipVolume/*, 1 + chargeTime * coinFlipPitchMult, 1 + chargeTime * coinFlipVolumeMult*/);
                 break;
             case CoinType.Gem:
-                soundSource.PlayOneShot(gemFlipClips[UnityEngine.Random.Range(0, gemFlipClips.Length)], 1/*, 1 + chargeTime * coinFlipPitchMult, 1 + chargeTime * coinFlipVolumeMult*/);
+                soundSource.PlayOneShot(gemFlipClips[UnityEngine.Random.Range(0, gemFlipClips.Length)], gemFlipVolume/*, 1 + chargeTime * coinFlipPitchMult, 1 + chargeTime * coinFlipVolumeMult*/);
                 break;
             case CoinType.Key:
-                soundSource.PlayOneShot(keyFlipClip, 0.8f);
+                soundSource.PlayOneShot(keyFlipClip, keyFlipVolume);
                 break;
         }
     }
@@ -49,19 +57,19 @@ public class AudioManagerPlay : MonoBehaviour
         switch(coin.type)
         {
             case CoinType.Coin:
-                soundSource.PlayOneShot(coinCollisionClips[UnityEngine.Random.Range(0, coinCollisionClips.Length)], 1.2f/*, relativeVelocity * coinCollisionPitchMult, relativeVelocity * coinCollisionVolumeMult*/);
+                soundSource.PlayOneShot(coinCollisionClips[UnityEngine.Random.Range(0, coinCollisionClips.Length)], coinCollisionVolume/*, relativeVelocity * coinCollisionPitchMult, relativeVelocity * coinCollisionVolumeMult*/);
                 break;
             case CoinType.Gem:
-                soundSource.PlayOneShot(gemCollisionClips[UnityEngine.Random.Range(0, gemCollisionClips.Length)], 1.2f/*, relativeVelocity * coinCollisionPitchMult, relativeVelocity * coinCollisionVolumeMult*/);
+                soundSource.PlayOneShot(gemCollisionClips[UnityEngine.Random.Range(0, gemCollisionClips.Length)], gemCollisionVolume/*, relativeVelocity * coinCollisionPitchMult, relativeVelocity * coinCollisionVolumeMult*/);
                 break;
             case CoinType.Key:
-                soundSource.PlayOneShot(keyCollisionClip, 0.8f/*, relativeVelocity * coinCollisionPitchMult, relativeVelocity * coinCollisionVolumeMult*/);
+                soundSource.PlayOneShot(keyCollisionClip, keyCollisionVolume/*, relativeVelocity * coinCollisionPitchMult, relativeVelocity * coinCollisionVolumeMult*/);
                 break;
         }
     }
 
     private void OnPerfectHit(Coin coin, int combo)
     {
-        soundSource.PlayOneShot(perfectHitClips[combo - combo / perfectHitClips.Length * perfectHitClips.Length], 0.8f);
+        soundSource.PlayOneShot(perfectHitClips[combo - combo / perfectHitClips.Length * perfectHitClips.Length], perfectHitVolume);
     }
 }

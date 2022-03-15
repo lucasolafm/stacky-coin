@@ -20,7 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3aced87-a9ae-427c-b5ba-4972af53e9e8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Stacky Coin/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stacky Coin/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Stacky Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stacky Coin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/GoogleMobileAdsPlugin.androidlib/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/GoogleMobileAdsPlugin.androidlib/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Home Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Home Menu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Home/PlayAgainCoinController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Home/PlayAgainCoinController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Play/AudioManagerPlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Play/AudioManagerPlay.cs" afterDir="false" />
@@ -52,11 +54,13 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/CoinTubeManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/ChestManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/PlayAgainCoinController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.6/Editor/treeview/TimelineTrackGUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/BonusCoinsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/All/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Home/HomeDefault.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/All/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Coin/CoinOnPile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.6/Editor/Extensions/TrackExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Mini Coin/MiniCoin.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Coin/CoinFlipping.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Mini Coin/MiniKey.cs" root0="FORCE_HIGHLIGHTING" />
@@ -221,7 +225,8 @@
       <workItem from="1644652031068" duration="300000" />
       <workItem from="1644653843174" duration="1526000" />
       <workItem from="1647114079725" duration="1282000" />
-      <workItem from="1647187637024" duration="9075000" />
+      <workItem from="1647187637024" duration="9929000" />
+      <workItem from="1647270573508" duration="5930000" />
     </task>
     <servers />
   </component>
@@ -246,10 +251,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="461" y="165" width="678" height="530" key="find.popup" timestamp="1647195987119">
+    <state x="461" y="165" width="749" height="530" key="find.popup" timestamp="1647284475209">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="461" y="165" width="678" height="530" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1647195987119" />
+    <state x="461" y="165" width="749" height="530" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1647284475209" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

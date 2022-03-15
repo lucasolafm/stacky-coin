@@ -16652,12 +16652,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8383ac5968e853f4dacd76a348fce369, type: 3}
   - {fileID: 8300000, guid: 7d40b601130654749834e2e1acd1187d, type: 3}
   gemFlipClips:
-  - {fileID: 8300000, guid: 66daca100e75fd744a1ecc2f38c0ffce, type: 3}
-  - {fileID: 8300000, guid: 5a56af9197cfe4d4aa46fcb8225bcff1, type: 3}
+  - {fileID: 8300000, guid: 77a64745fcf6db042ae74c8db8e9f55b, type: 3}
   perfectHitClips:
   - {fileID: 8300000, guid: 2a9d6271dd659234dbf58a6c8bd98a07, type: 3}
   - {fileID: 8300000, guid: fd5f54e18f59c5e4fa2a70a385f594de, type: 3}
   - {fileID: 8300000, guid: 91d6d9217372fd242bd8cf4ad5211d11, type: 3}
+  coinFlipVolume: 1
+  gemFlipVolume: 1
+  keyFlipVolume: 0.7
+  coinCollisionVolume: 1
+  gemCollisionVolume: 1
+  keyCollisionVolume: 0.7
+  perfectHitVolume: 0.5
 --- !u!81 &1292058912
 AudioListener:
   m_ObjectHideFlags: 0
