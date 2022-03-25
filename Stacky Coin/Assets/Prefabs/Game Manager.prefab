@@ -179,6 +179,7 @@ MonoBehaviour:
   testEnableAllSkins: 0
   audioSource: {fileID: 1627822803860684590}
   loadingScreenCanvas: {fileID: 6409205591352764545}
+  backgroundShadowCanvas: {fileID: 0}
   loadingSpinner: {fileID: 6128232100168627103}
   FPSCap: 50
   delayAfterGameOver: 1.7
@@ -394,7 +395,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -150,7 +150,7 @@ public class HomePayingMiniCoins : HomeState
         }
 
         manager.oldMiniCoins[manager.miniCoinManager.indexFirstOldCoinInList].transform.position = 
-                                                    new Vector3(manager.coinTubeManager.bottomRightOfScreen.x - manager.offSetSideCoinTube, 
+                                                    new Vector3(manager.coinTubeManager.coinTubeVisual.transform.position.x, 
                                                     manager.coinTubeManager.bottomOfCoinTube.y + manager.offSetBottomCoinTube + 
                                                     manager.miniCoinManager.indexFirstOldCoinInTube * manager.miniCoinManager.inTubeSpacing, 
                                                     100 + manager.miniCoinManager.indexFirstOldCoinInTube * -0.001f);

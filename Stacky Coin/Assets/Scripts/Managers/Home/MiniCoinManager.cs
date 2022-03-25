@@ -74,7 +74,7 @@ public class MiniCoinManager : MonoBehaviour
             miniCoin = homeManager.oldMiniCoins[oldMiniCoinsCount - homeManager.visibleOldCoinsAmount + i];
 
             // Place the minicoins that will be visible on the screen
-            miniCoin.transform.position = new Vector3(coinTubeManager.bottomRightOfScreen.x - homeManager.offSetSideCoinTube, 
+            miniCoin.transform.position = new Vector3(coinTubeManager.coinTubeVisual.transform.position.x, 
                                                         coinTubeManager.bottomOfCoinTube.y + homeManager.offSetBottomCoinTube + 
                                                         (firstCoinOnScreenIndex + i) * inTubeSpacing, 
                                                         100 + (firstCoinOnScreenIndex + i) * -0.001f);

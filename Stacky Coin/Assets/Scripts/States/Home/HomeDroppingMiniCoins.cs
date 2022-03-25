@@ -244,9 +244,9 @@ public class HomeDroppingMiniCoins : HomeState
 
     private void GetSpawnPos(int z)
     {
-        spawnPos = new Vector3(manager.coinTubeManager.bottomRightOfScreen.x - manager.offSetSideCoinTube, 
+        spawnPos = new Vector3(manager.coinTubeManager.coinTubeVisual.transform.position.x, 
                                 manager.coinTubeManager.topOfScreen.y + spawnIndex * manager.miniCoinManager.dropSpacing, 
-                                100 + /*(previousCoinsInTube + z + 1)*/ manager.totalSpawnedMiniCoins * -0.001f);       
+                                100 + manager.totalSpawnedMiniCoins * -0.001f);       
     }
 
     private void GetInTubeHeight(int z)

@@ -9,6 +9,9 @@ public class CoinTubeManager : MonoBehaviour
     [SerializeField] private MiniCoinManager miniCoinManager;
 
     [SerializeField] private Transform coinTube;
+    public SpriteRenderer coinTubeVisual;
+    [SerializeField] private SpriteRenderer coinTubeFloorFront;
+    [SerializeField] private Transform coinTubeFloorBack;
     public new Camera camera;
     public Transform cameraTransform;
     [SerializeField] private Transform counterPointer;
@@ -20,17 +23,20 @@ public class CoinTubeManager : MonoBehaviour
     public float cameraDescendIncrease;
     public float cameraMoveToCenterTime;
     [HideInInspector] public Vector3 topOfScreen, bottomRightOfScreen, bottomOfCoinTube;
-    [HideInInspector] public int firstCoinOnScreenIndex;
     [SerializeField] private float counterPointerOffset;
     [SerializeField] private int coinsOnScreenStart;
 
     private CoinTubeState state;
     private float offsetTopScreen;
-    private float cameraMoveAmount;
     [HideInInspector] public Vector3 coinTubeStartPosition;
     [HideInInspector] public float cameraPositionMin;
     private float shiftProgress, shiftAmount;
     private int pointerCount;
+    private float visualMinHeight;
+    private float visualOffsetCamera;
+    private Transform visualTransform;
+    private bool visualAttachedCamera;
+    private float topOfFloor;
 
     void Start()
     {
@@ -42,13 +48,30 @@ public class CoinTubeManager : MonoBehaviour
         EventManager.EnteringCollection.AddListener(OnEnteringCollection);
         EventManager.EnteringHome.AddListener(OnEnteringHome);
 
-        coinTubeStartPosition = coinTube.position;
+        coinTubeStartPosition = coinTube.transform.position;
         cameraPositionMin = cameraTransform.position.y;
     }
 
     void Update()
     {
         state.Update();
+
+        if (visualAttachedCamera)
+        {
+            visualTransform.position = new Vector3(visualTransform.position.x,
+                camera.transform.position.y + visualOffsetCamera, visualTransform.position.z);
+        }
+        else if (bottomRightOfScreen.y > topOfFloor)
+        {
+            visualAttachedCamera = true;
+            visualOffsetCamera = visualTransform.position.y - camera.transform.position.y;
+        }
+
+        if (coinTubeVisual.transform.position.y < visualMinHeight)
+        {
+            visualTransform.position = new Vector3(visualTransform.position.x, visualMinHeight, visualTransform.position.z);
+            visualAttachedCamera = false;
+        }
     }
 
     private void OnSpawningNewMiniCoins()
@@ -64,7 +87,6 @@ public class CoinTubeManager : MonoBehaviour
     private void OnCoinTubeCameraRepositioned()
     {
         GetCameraWorldBoundaries();
-        firstCoinOnScreenIndex = GetFirstCoinOnScreenIndex(bottomRightOfScreen.y);
     }
 
     private void OnMiniCoinAddedToTube()
@@ -75,8 +97,6 @@ public class CoinTubeManager : MonoBehaviour
     private void OnMiniCoinRemovedFromTube(MiniCoin miniCoin, int paidCount, float percentageOfPaidThisFrame)
     {
         UpdateCounterPointer(-1);
-
-        //MoveCameraDown();
     }
 
     private void OnEnteringCollection()
@@ -99,8 +119,11 @@ public class CoinTubeManager : MonoBehaviour
     public void Initialize()
     {
         SetState(new CoinTubeDefault(this));
-
-        cameraMoveAmount = (topOfScreen.y - bottomRightOfScreen.y) * cameraMoveScreenPercent;
+        
+        SetCoinTubeStartPosition();
+        visualMinHeight = coinTubeVisual.transform.position.y;
+        visualTransform = coinTubeVisual.transform;
+        topOfFloor = coinTubeFloorFront.transform.position.y + coinTubeFloorFront.bounds.size.y / 2;
 
         // Get half the lenght of the counter pointer
         offsetTopScreen = (counterPointerMeshFilter.transform.TransformPoint(counterPointerMeshFilter.mesh.vertices[2]).y - 
@@ -118,24 +141,39 @@ public class CoinTubeManager : MonoBehaviour
 
             // Get the new camera boundaries
             GetCameraWorldBoundaries();
-        }              
-
-        firstCoinOnScreenIndex = GetFirstCoinOnScreenIndex(bottomRightOfScreen.y);
+        }
 
         InitializeCounterPointer();
     }
 
-    private void MoveCameraDown()
+    private void SetCoinTubeStartPosition()
     {
-        cameraTransform.position -= new Vector3(0, miniCoinManager.inTubeSpacing, 0);  
+        Vector3 tubeMin = coinTubeVisual.bounds.min;
+        Vector3 tubeMax = coinTubeVisual.bounds.max;
+ 
+        Vector3 screenMin = camera.WorldToScreenPoint(tubeMin);
+        Vector3 screenMax = camera.WorldToScreenPoint(tubeMax);
 
-        EventManager.CoinTubeCameraRepositioned.Invoke();      
+        float worldPositionX = camera.ScreenToWorldPoint(new Vector2(Screen.width - (screenMax.x - screenMin.x) / 2, 0)).x;
+        
+        Vector3 floorMin = coinTubeFloorFront.bounds.min;
+        Vector3 floorMax = coinTubeFloorFront.bounds.max;
+
+        coinTubeFloorFront.transform.position = 
+            new Vector3(worldPositionX, camera.ScreenToWorldPoint(Vector2.zero).y +
+                (floorMax.y - floorMin.y) / 2 - 0.005f, coinTubeVisual.transform.position.z);
+
+        coinTubeFloorBack.position = coinTubeFloorFront.transform.position + new Vector3(0, 0, 1);
+
+        coinTubeVisual.transform.position = new Vector3(worldPositionX, 
+            coinTubeFloorFront.transform.position.y + (floorMax.y - floorMin.y) / 2 + (tubeMax.y - tubeMin.y) / 2,
+            coinTubeVisual.transform.position.z);
     }
 
     private void InitializeCounterPointer()
     {
         // Move the counter pointer up above the top most mini coin
-        counterPointer.position = new Vector3(bottomRightOfScreen.x - homeManager.offSetSideCoinTube, 
+        counterPointer.position = new Vector3(coinTubeVisual.transform.position.x, 
                                                 bottomOfCoinTube.y + homeManager.offSetBottomCoinTube + 
                                                 (homeManager.startOriginalMiniCoins.Length) * miniCoinManager.inTubeSpacing + counterPointerOffset, 0);
                                                 
@@ -157,6 +195,8 @@ public class CoinTubeManager : MonoBehaviour
             state.MiniCoinsReachedTopOfScreen();
         }
     }
+    
+    
 
     private IEnumerator ShiftSideways(bool inOrOut)
     {
@@ -166,9 +206,9 @@ public class CoinTubeManager : MonoBehaviour
             shiftProgress = Mathf.Min(shiftProgress + Time.deltaTime / GameManager.I.collectionHomeTransitionTime, 1);
             shiftAmount = shiftProgress < 0.5 ? 2 * shiftProgress * shiftProgress : 1 - Mathf.Pow(-2 * shiftProgress + 2, 2) / 2;
 
-            coinTube.position = 
-                coinTubeStartPosition + coinTube.TransformDirection(Vector3.right * 
-                (homeManager.screenWorldWidth * (inOrOut == true ? 1 - shiftAmount : shiftAmount)));
+            coinTube.transform.position = 
+                coinTubeStartPosition + coinTube.transform.TransformDirection(Vector3.right * 
+                                                                              (homeManager.screenWorldWidth * (inOrOut == true ? 1 - shiftAmount : shiftAmount)));
 
             yield return null;
         }
