@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 28437616}
   - component: {fileID: 28437615}
   - component: {fileID: 28437613}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (80)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 46568407}
   - component: {fileID: 46568406}
   - component: {fileID: 46568405}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Renderers
   m_TagString: Coin
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ GameObject:
   - component: {fileID: 86587530}
   - component: {fileID: 86587529}
   - component: {fileID: 86587527}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (78)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 156294937}
   - component: {fileID: 156294936}
   - component: {fileID: 156294934}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (110)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1001,7 +1001,7 @@ GameObject:
   - component: {fileID: 180296247}
   - component: {fileID: 180296246}
   - component: {fileID: 180296244}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (68)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1189,7 +1189,7 @@ GameObject:
   - component: {fileID: 220142676}
   - component: {fileID: 220142675}
   - component: {fileID: 220142673}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (94)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1289,7 +1289,7 @@ GameObject:
   - component: {fileID: 225588934}
   - component: {fileID: 225588933}
   - component: {fileID: 225588931}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (65)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1508,7 +1508,7 @@ GameObject:
   - component: {fileID: 238488124}
   - component: {fileID: 238488123}
   - component: {fileID: 238488121}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (81)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1608,7 +1608,7 @@ GameObject:
   - component: {fileID: 274433958}
   - component: {fileID: 274433957}
   - component: {fileID: 274433955}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1892,7 +1892,7 @@ GameObject:
   - component: {fileID: 352358224}
   - component: {fileID: 352358223}
   - component: {fileID: 352358221}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (59)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2278,7 +2278,7 @@ GameObject:
   - component: {fileID: 468445443}
   - component: {fileID: 468445442}
   - component: {fileID: 468445440}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (70)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2499,7 +2499,7 @@ GameObject:
   - component: {fileID: 533696111}
   - component: {fileID: 533696110}
   - component: {fileID: 533696108}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (83)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2599,7 +2599,7 @@ GameObject:
   - component: {fileID: 535118933}
   - component: {fileID: 535118932}
   - component: {fileID: 535118930}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (109)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2811,7 +2811,7 @@ GameObject:
   - component: {fileID: 594111986}
   - component: {fileID: 594111985}
   - component: {fileID: 594111984}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (88)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8153,7 +8153,7 @@ GameObject:
   - component: {fileID: 637063625}
   - component: {fileID: 637063624}
   - component: {fileID: 637063622}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (49)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8253,7 +8253,7 @@ GameObject:
   - component: {fileID: 668571916}
   - component: {fileID: 668571915}
   - component: {fileID: 668571913}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (50)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8353,7 +8353,7 @@ GameObject:
   - component: {fileID: 696986704}
   - component: {fileID: 696986703}
   - component: {fileID: 696986701}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (108)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8742,7 +8742,7 @@ GameObject:
   - component: {fileID: 732578979}
   - component: {fileID: 732578978}
   - component: {fileID: 732578976}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (75)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9131,7 +9131,7 @@ GameObject:
   - component: {fileID: 786719818}
   - component: {fileID: 786719817}
   - component: {fileID: 786719815}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (58)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9260,6 +9260,7 @@ Transform:
   - {fileID: 1052016549}
   - {fileID: 1184842316}
   - {fileID: 484024035}
+  - {fileID: 1217663133}
   m_Father: {fileID: 1237592266}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9276,7 +9277,7 @@ GameObject:
   - component: {fileID: 872017066}
   - component: {fileID: 872017065}
   - component: {fileID: 872017063}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (77)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9543,7 +9544,7 @@ GameObject:
   - component: {fileID: 944378471}
   - component: {fileID: 944378470}
   - component: {fileID: 944378468}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (92)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9643,7 +9644,7 @@ GameObject:
   - component: {fileID: 953133583}
   - component: {fileID: 953133582}
   - component: {fileID: 953133580}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (101)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9743,7 +9744,7 @@ GameObject:
   - component: {fileID: 974833020}
   - component: {fileID: 974833019}
   - component: {fileID: 974833017}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (102)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14752,7 +14753,7 @@ GameObject:
   - component: {fileID: 1034263562}
   - component: {fileID: 1034263561}
   - component: {fileID: 1034263559}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (76)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15185,7 +15186,7 @@ GameObject:
   - component: {fileID: 1066389037}
   - component: {fileID: 1066389036}
   - component: {fileID: 1066389034}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (71)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15285,7 +15286,7 @@ GameObject:
   - component: {fileID: 1094382111}
   - component: {fileID: 1094382110}
   - component: {fileID: 1094382108}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (107)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15610,7 +15611,7 @@ GameObject:
   - component: {fileID: 1163974013}
   - component: {fileID: 1163974012}
   - component: {fileID: 1163974010}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (54)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15937,7 +15938,7 @@ Camera:
   field of view: 14
   orthographic: 1
   orthographic size: 1.17
-  m_Depth: -1
+  m_Depth: -2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 512
@@ -15989,6 +15990,127 @@ Transform:
   m_Father: {fileID: 169596568}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1217663132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1217663133}
+  - component: {fileID: 1217663137}
+  - component: {fileID: 1217663136}
+  - component: {fileID: 1217663135}
+  - component: {fileID: 1217663134}
+  m_Layer: 0
+  m_Name: Camera Coin Pile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1217663133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217663132}
+  m_LocalRotation: {x: 0.25116935, y: 0.36826998, z: -0.10403776, w: 0.8890823}
+  m_LocalPosition: {x: -2.2760003, y: 4.48, z: -2.4060001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 857915392}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 31.5504, y: 45, z: 0}
+--- !u!114 &1217663134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217663132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d36e9645f8af74f9858a5476296d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosBottomScreen: {x: -3.1740112, y: 3.4829712, z: -2.3737183}
+  camVerticleOffset: {x: 0, y: 0, z: 0}
+  inCollection: 0
+  isCoinTube: 0
+--- !u!114 &1217663135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217663132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec3e4e5323984f47a50d4adc9073c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneWidth: 1.317323
+  moveScript: {fileID: 1217663134}
+  scrollbar: {fileID: 0}
+--- !u!114 &1217663136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217663132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36150035529a67c44a2ffe901fc44902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 1217663137}
+--- !u!20 &1217663137
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217663132}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 3
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 14
+  orthographic: 1
+  orthographic size: 1.17
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 0
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &1220898473
 GameObject:
   m_ObjectHideFlags: 0
@@ -16001,7 +16123,7 @@ GameObject:
   - component: {fileID: 1220898477}
   - component: {fileID: 1220898476}
   - component: {fileID: 1220898475}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (95)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16104,7 +16226,7 @@ GameObject:
   - component: {fileID: 1234864921}
   - component: {fileID: 1234864920}
   - component: {fileID: 1234864918}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (66)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16403,7 +16525,7 @@ GameObject:
   - component: {fileID: 1285150556}
   - component: {fileID: 1285150555}
   - component: {fileID: 1285150553}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (60)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16729,7 +16851,7 @@ GameObject:
   - component: {fileID: 1295336128}
   - component: {fileID: 1295336127}
   - component: {fileID: 1295336125}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (82)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16829,7 +16951,7 @@ GameObject:
   - component: {fileID: 1302255425}
   - component: {fileID: 1302255424}
   - component: {fileID: 1302255422}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (63)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16929,7 +17051,7 @@ GameObject:
   - component: {fileID: 1310535003}
   - component: {fileID: 1310535002}
   - component: {fileID: 1310535000}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (106)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17191,7 +17313,7 @@ GameObject:
   - component: {fileID: 1354835893}
   - component: {fileID: 1354835892}
   - component: {fileID: 1354835890}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (62)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17291,7 +17413,7 @@ GameObject:
   - component: {fileID: 1356251182}
   - component: {fileID: 1356251181}
   - component: {fileID: 1356251179}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (87)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18032,7 +18154,7 @@ GameObject:
   - component: {fileID: 1640251583}
   - component: {fileID: 1640251582}
   - component: {fileID: 1640251580}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (85)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18132,7 +18254,7 @@ GameObject:
   - component: {fileID: 1651412718}
   - component: {fileID: 1651412717}
   - component: {fileID: 1651412715}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (79)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18476,7 +18598,7 @@ GameObject:
   - component: {fileID: 1659542436}
   - component: {fileID: 1659542435}
   - component: {fileID: 1659542433}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (90)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18576,7 +18698,7 @@ GameObject:
   - component: {fileID: 1718618907}
   - component: {fileID: 1718618906}
   - component: {fileID: 1718618904}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (48)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18676,7 +18798,7 @@ GameObject:
   - component: {fileID: 1725341652}
   - component: {fileID: 1725341651}
   - component: {fileID: 1725341649}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (86)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18776,7 +18898,7 @@ GameObject:
   - component: {fileID: 1728822403}
   - component: {fileID: 1728822402}
   - component: {fileID: 1728822400}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (72)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18982,7 +19104,7 @@ GameObject:
   - component: {fileID: 1887000770}
   - component: {fileID: 1887000769}
   - component: {fileID: 1887000767}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Top coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19196,7 +19318,7 @@ GameObject:
   - component: {fileID: 1934106964}
   - component: {fileID: 1934106963}
   - component: {fileID: 1934106961}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (67)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19296,7 +19418,7 @@ GameObject:
   - component: {fileID: 1989479139}
   - component: {fileID: 1989479138}
   - component: {fileID: 1989479136}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (42)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19396,7 +19518,7 @@ GameObject:
   - component: {fileID: 1993558455}
   - component: {fileID: 1993558454}
   - component: {fileID: 1993558452}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (91)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19552,7 +19674,7 @@ GameObject:
   - component: {fileID: 2046742265}
   - component: {fileID: 2046742264}
   - component: {fileID: 2046742262}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (84)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19652,7 +19774,7 @@ GameObject:
   - component: {fileID: 2079274758}
   - component: {fileID: 2079274757}
   - component: {fileID: 2079274755}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (105)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24663,7 +24785,7 @@ GameObject:
   - component: {fileID: 2122108388}
   - component: {fileID: 2122108387}
   - component: {fileID: 2122108385}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (51)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24763,7 +24885,7 @@ GameObject:
   - component: {fileID: 2130321463}
   - component: {fileID: 2130321462}
   - component: {fileID: 2130321460}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (46)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24863,7 +24985,7 @@ GameObject:
   - component: {fileID: 2146358236}
   - component: {fileID: 2146358235}
   - component: {fileID: 2146358233}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Coin (64)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -26,6 +26,7 @@ public class AdTripleReward : Ad
 
     public override bool PassesCondition()
     {
+        return true;
         if (GameManager.I.scoredCoins.Count < minimumScoredCoins || Data.tripleAdRewardUsed >= 2) return false;
 
         GetScoredCoinsValue();

@@ -125,7 +125,7 @@ public class CoinTubeManager : MonoBehaviour
         visualTransform = coinTubeVisual.transform;
         topOfFloor = coinTubeFloorFront.transform.position.y + coinTubeFloorFront.bounds.size.y / 2;
 
-        // Get half the lenght of the counter pointer
+        // Get half the length of the counter pointer
         offsetTopScreen = (counterPointerMeshFilter.transform.TransformPoint(counterPointerMeshFilter.mesh.vertices[2]).y - 
                             counterPointerMeshFilter.transform.TransformPoint(counterPointerMeshFilter.mesh.vertices[0]).y) / 2;
 

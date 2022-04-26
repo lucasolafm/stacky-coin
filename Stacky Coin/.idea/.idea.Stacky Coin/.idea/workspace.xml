@@ -20,17 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3aced87-a9ae-427c-b5ba-4972af53e9e8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Stacky Coin/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stacky Coin/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Stacky Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stacky Coin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/HomeBackground.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/HomeBackground.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/HomeBackground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/HomeBackground.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/HomeBackgroundStars.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/HomeBackgroundStars.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Game Manager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Game Manager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Home Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Home Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Play.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Play.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdTripleReward.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdTripleReward.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdTripleRewardMulti.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdTripleRewardMulti.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Home/ChestManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Home/ChestManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Home/CoinTubeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Home/CoinTubeManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Home/MiniCoinManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Home/MiniCoinManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States/Home/HomeDroppingMiniCoins.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States/Home/HomeDroppingMiniCoins.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States/Home/HomePayingMiniCoins.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States/Home/HomePayingMiniCoins.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +128,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Base/CoinState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Coin/CoinFlipping.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/BonusCoinsController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdTripleRewardMulti.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Other/Utilities.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Mini Coin/MiniCoinGemBonus.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Mini Coin/MiniCoinPayingBonus.cs" />
@@ -140,12 +137,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Chest.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Chest/ChestLocked.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/ChestManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Chest/ChestInactive.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Chest/ChestOpen.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States/Coin/CoinFalling.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdBonusCoins.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdTripleReward.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/Ad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdInterstitial.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdManager.cs" />
@@ -165,6 +160,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/HomeManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/All/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/CoinTubeManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdTripleRewardMulti.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdTripleReward.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Home/ChestManager.cs" />
       </list>
     </option>
   </component>
@@ -240,7 +238,9 @@
       <workItem from="1647270573508" duration="5930000" />
       <workItem from="1647361299717" duration="810000" />
       <workItem from="1648053102639" duration="6842000" />
-      <workItem from="1648203032589" duration="6470000" />
+      <workItem from="1648203032589" duration="7381000" />
+      <workItem from="1648465189230" duration="2248000" />
+      <workItem from="1650914792580" duration="679000" />
     </task>
     <servers />
   </component>
