@@ -43,8 +43,6 @@ public class HandManager : MonoBehaviour
         EventManager.ReachesNextStageTarget.AddListener(OnReachesNextStageTarget);
         EventManager.CoinsFallOffPile.AddListener(OnCoinsFallOffPile);
         EventManager.GoneGameOver.AddListener(OnGoneGameOver);
-        
-        print(coinToMeasure.bounds.size.y);
     }
 
     void Update()

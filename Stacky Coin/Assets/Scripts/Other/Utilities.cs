@@ -7,6 +7,11 @@ public static class Utilities
 {
     public static string coinTag = "Coin", handTag = "Hand", floorTag = "Floor", fallOffAreaTag = "FallOffArea", perfectHitTag = "PerfectHit";
 
+    public static float EaseInSine(float x)
+    {
+        return x * x;
+    }
+    
     public static float EaseOutSine(float x)
     {
         return Mathf.Sin(x * Mathf.PI / 2);
