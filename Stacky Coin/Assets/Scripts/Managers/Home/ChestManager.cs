@@ -65,7 +65,6 @@ public class ChestManager : MonoBehaviour
             }
         }
 
-        /*
         if (testGetLvl3Chest)
         {
             AddNewChest(3, 250, 0);
@@ -83,7 +82,6 @@ public class ChestManager : MonoBehaviour
             AddNewChest(1, 50, 2);
             EnableChest(2);
         }
-        */y
     }
 
     private void PressChest(int position)
