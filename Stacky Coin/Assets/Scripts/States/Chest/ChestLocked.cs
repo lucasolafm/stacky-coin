@@ -29,11 +29,6 @@ public class ChestLocked : ChestState
         UpdateCounter();
     }
 
-    public override void PressChest()
-    {
-        chest.StartCoroutine(chest.BounceCounterPointer());
-    }
-
     public override void OnMiniCoinAddedToTube()
     {
         chest.counter--;

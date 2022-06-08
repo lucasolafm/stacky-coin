@@ -161,7 +161,7 @@ RectTransform:
   m_GameObject: {fileID: 3893344473356484011}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 97.601}
-  m_LocalScale: {x: 0.002339296, y: 0.002339296, z: 0.002339296}
+  m_LocalScale: {x: 0.001039663, y: 0.001039663, z: 0.001039663}
   m_Children:
   - {fileID: 6249135206891117529}
   - {fileID: 859416144078775339}
@@ -203,6 +203,7 @@ MonoBehaviour:
   pointerSprite: {fileID: 3833150781310714018}
   backgroundSprite: {fileID: 0}
   counterText: {fileID: 6657955907635266932}
+  miniChest: {fileID: 0}
   polygonCollider: {fileID: 5130279235076982577}
   outline: {fileID: 3133718452926360281}
   position: 0
@@ -212,8 +213,6 @@ MonoBehaviour:
   pointerOriginalPos: {x: 0, y: 0, z: 0}
   pointerOriginalScale: {x: 0, y: 0, z: 0}
   miniChestOriginalScale: {x: 0, y: 0, z: 0}
-  pointerBounceValue: 0.09
-  pointerBounceTime: 0.3
 --- !u!1 &4065469121392803987
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00002791242, y: 43.5}
+  m_AnchoredPosition: {x: -0.00002791242, y: 39.45251}
   m_SizeDelta: {x: 38.2, y: 25.1}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &2094375281433106577
@@ -335,7 +334,7 @@ RectTransform:
   m_GameObject: {fileID: 6521489087853349631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2668943, y: 1.2668943, z: 1.1016473}
+  m_LocalScale: {x: 0.7948027, y: 0.7948027, z: 0.7948027}
   m_Children: []
   m_Father: {fileID: 7018730362404156955}
   m_RootOrder: 0
@@ -373,9 +372,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5e1f163f54e904f42b1a4b0864ef2435, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0381ecc7aa26b6c4185db4e3e3502828, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
