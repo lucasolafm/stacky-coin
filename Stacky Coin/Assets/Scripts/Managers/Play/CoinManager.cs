@@ -32,6 +32,7 @@ public class CoinManager : MonoBehaviour
     [HideInInspector] public Coroutine spawnCoinRoutine;
     [HideInInspector] public bool spawnNoMoreKeys;
 
+    private Coin flippedCoin;
     private int perfectHitCombo;
     private WaitForSeconds spawnCoinWait;
 
@@ -40,6 +41,8 @@ public class CoinManager : MonoBehaviour
         EventManager.LoadingScreenSlidOut.AddListener(OnLoadingScreenSlidOut);
         EventManager.CoinFlips.AddListener(OnCoinFlips);
         EventManager.CoinTouchesPile.AddListener(OnCoinTouchesPile);
+        EventManager.CoinScores.AddListener(OnCoinScores);
+        EventManager.CoinFalls.AddListener(OnCoinFalls);
         EventManager.StageInitialized.AddListener(OnStageInitialized);
         EventManager.GoingGameOver.AddListener(OnGoingGameOver);
         EventManager.GoneGameOver.AddListener(OnGoneGameOver);
@@ -98,21 +101,30 @@ public class CoinManager : MonoBehaviour
 
     private void OnCoinFlips(Coin coin, float chargeTime)
     {
-        // Get the next coin to spawn
+        flippedCoin = coin;
         newCoinIndex = spawnedCoinsCount;
+    }
 
-        // Check if the hand must move up on the next coin
+    private void OnCoinScores(Coin coin)
+    {
+        if (coin != flippedCoin) return;
+        
         if (playManager.score < playManager.nextStageTarget - 1)
         {
-            // Spawn new coin after delay
-            spawnCoinRoutine = StartCoroutine(SpawnCoin(spawnTime));
+            spawnCoinRoutine = StartCoroutine(SpawnCoin(0));
         }
         else
         {
-            // Wait for the tenth coin to score before spawning a new coin
             playManager.SetState(new PlayLastCoinToNextStage(playManager, coin));
         }
-    }    
+    }
+
+    private void OnCoinFalls(Coin coin)
+    {
+        if (coin != flippedCoin) return;
+        
+        spawnCoinRoutine = StartCoroutine(SpawnCoin(0));
+    }
 
     private void OnCoinTouchesPile(Coin coin)
     {

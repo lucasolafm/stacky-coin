@@ -16,6 +16,16 @@ public static class Utilities
     {
         return -(Mathf.Cos(Mathf.PI * x) - 1) / 2;
     }
+
+    public static float EaseInQuad(float x)
+    {
+        return x * x;
+    }
+    
+    public static float EaseInCubic(float x)
+    {
+        return x * x * x;
+    }
     
     public static float EaseOutQuad(float x)
     {
@@ -30,5 +40,15 @@ public static class Utilities
     public static float EaseOutBack(float x)
     {
         return 1 + 2.70158f * Mathf.Pow(x - 1, 3) + 1.70158f * Mathf.Pow(x - 1, 2);
+    }
+
+    public static float EaseInCirc(float x)
+    {
+        return 1 - Mathf.Sqrt(1 - Mathf.Pow(x, 2));
+    }
+
+    public static float EaseOutCirc(float x)
+    {
+        return Mathf.Sqrt(1 - Mathf.Pow(x - 1, 2));
     }
 }

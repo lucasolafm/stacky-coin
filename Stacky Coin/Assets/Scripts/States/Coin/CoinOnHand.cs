@@ -17,7 +17,7 @@ public class CoinOnHand : CoinState
 
         // Place coin on hand
         coin.transform.parent = coin.coinManager.handManager.handVisuals;
-        coin.transform.position = new Vector3(coin.transform.position.x, coin.coinManager.handManager.hand.position.y + 0.972397f, coin.transform.position.z);
+        //coin.transform.position = new Vector3(coin.transform.position.x, coin.coinManager.handManager.hand.position.y + 0.972397f, coin.transform.position.z);
 
         EventManager.CoinLandsOnHand.Invoke(coin);
     }

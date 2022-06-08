@@ -6,6 +6,7 @@ public class EffectManagerPlay : MonoBehaviour
 {
     [SerializeField] private ParticleSystem flipLaunchEffect, collisionEffect;
     [SerializeField] private ParticleSystem[] perfectHitEffects;
+    [SerializeField] private ParticleSystem spawnCoinEffect;
     [SerializeField] private float cloudMultiplier;
     [SerializeField] private float perfectHitRotationSpeed;
 
@@ -13,12 +14,20 @@ public class EffectManagerPlay : MonoBehaviour
 
     void Start()
     {
+        EventManager.CoinSpawns.AddListener(OnCoinSpawns);
         EventManager.CoinFlipping.AddListener(OnCoinFlipping);
         EventManager.CoinTouchesPile.AddListener(OnCoinTouchesPile);
         EventManager.PerfectHit.AddListener(OnPerfectHit);
 
         flipLaunchEffectStartScale = flipLaunchEffect.transform.localScale;
     }
+
+    private void OnCoinSpawns(Coin coin)
+    {
+        //spawnCoinEffect.transform.position = coin.transform.position;
+        //spawnCoinEffect.Play();
+    }
+
     private void OnCoinFlipping(Coin coin, float chargeTime)
     {
         flipLaunchEffect.transform.position = coin.transform.position - new Vector3(0, 0.022f, 0);
