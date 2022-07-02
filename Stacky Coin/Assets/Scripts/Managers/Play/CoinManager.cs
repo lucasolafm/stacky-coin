@@ -10,12 +10,12 @@ public class CoinManager : MonoBehaviour
     public bool testCoinsOnly, testSpawnGem, testSpawnKey;
     
     public PlayManager playManager;
+    public CoinPileManager coinPileManager;
     public InstantiationManagerPlay instantiationManager;
     public HandManager handManager;
 
     public Transform coinHolder;
     public int startingCoinStackAmount;
-    public float spawnTime;
 
     public float xForce, yForce;
     public int rotationSpeed; 
@@ -29,20 +29,18 @@ public class CoinManager : MonoBehaviour
     [HideInInspector] public int newCoinIndex;
 
     [HideInInspector] public int spawnedCoinsCount;
-    [HideInInspector] public Coroutine spawnCoinRoutine;
     [HideInInspector] public bool spawnNoMoreKeys;
 
     private Coin flippedCoin;
+    private bool flippedCoinLanded;
     private int perfectHitCombo;
-    private WaitForSeconds spawnCoinWait;
 
     void Awake()
     {
         EventManager.LoadingScreenSlidOut.AddListener(OnLoadingScreenSlidOut);
         EventManager.CoinFlips.AddListener(OnCoinFlips);
         EventManager.CoinTouchesPile.AddListener(OnCoinTouchesPile);
-        EventManager.CoinScores.AddListener(OnCoinScores);
-        EventManager.CoinFalls.AddListener(OnCoinFalls);
+        EventManager.CoinLandsOnPile.AddListener(OnCoinLandsOnPile);
         EventManager.StageInitialized.AddListener(OnStageInitialized);
         EventManager.GoingGameOver.AddListener(OnGoingGameOver);
         EventManager.GoneGameOver.AddListener(OnGoneGameOver);
@@ -50,11 +48,28 @@ public class CoinManager : MonoBehaviour
 
     void Update()
     {
+        if (flippedCoinLanded && coinPileManager.IsPileStill() && !GameManager.I.isGameOver)
+        {
+            flippedCoinLanded = false;
+            
+            EventManager.CoinScores.Invoke(flippedCoin);
+            
+            if (playManager.score < playManager.nextStageTarget)
+            {
+                SpawnCoin();
+            }
+            else
+            {
+                handManager.AscendHand(flippedCoin.transform.position, SpawnCoin);
+                playManager.SetState(new PlayInitializingNextStage(playManager));
+            }
+        }
+
         for (int i = 0; i < instantiationManager.instantiateCoinsAmount; i++)
         {
             Coins[i].State.Update();
         }
-        
+
         if (testSpawnGem)
         {
             Coin gem = instantiationManager.InstantiateObject(CoinType.Gem);
@@ -84,9 +99,7 @@ public class CoinManager : MonoBehaviour
         }
         instantiationManager.InstantiateCoins(instantiationManager.instantiateCoinsAmount);
 
-        newCoinIndex = startingCoinStackAmount;  
-
-        spawnCoinWait = new WaitForSeconds(spawnTime);
+        newCoinIndex = startingCoinStackAmount;
 
         if (GameManager.I.previousScene == -1)
         {
@@ -105,25 +118,11 @@ public class CoinManager : MonoBehaviour
         newCoinIndex = spawnedCoinsCount;
     }
 
-    private void OnCoinScores(Coin coin)
+    private void OnCoinLandsOnPile(Coin coin)
     {
         if (coin != flippedCoin) return;
-        
-        if (playManager.score < playManager.nextStageTarget - 1)
-        {
-            spawnCoinRoutine = StartCoroutine(SpawnCoin(0));
-        }
-        else
-        {
-            playManager.SetState(new PlayLastCoinToNextStage(playManager, coin));
-        }
-    }
 
-    private void OnCoinFalls(Coin coin)
-    {
-        if (coin != flippedCoin) return;
-        
-        spawnCoinRoutine = StartCoroutine(SpawnCoin(0));
+        flippedCoinLanded = true;
     }
 
     private void OnCoinTouchesPile(Coin coin)
@@ -152,12 +151,6 @@ public class CoinManager : MonoBehaviour
             }
         }
 
-        if (spawnCoinRoutine != null) 
-        {
-            // Stop the next coin from spawning
-            StopCoroutine(spawnCoinRoutine); 
-        }
-
         // Despawn the coin not yet flipped
         Coins[newCoinIndex].SetState(new CoinInactive(Coins[newCoinIndex]));
         EventManager.CoinDespawns.Invoke(Coins[newCoinIndex]);
@@ -170,32 +163,21 @@ public class CoinManager : MonoBehaviour
             ReplaceInactiveKeys();
             spawnNoMoreKeys = true;
         }
-
-        // Instantiate new coins until you have enough
+        
         instantiationManager.InstantiateCoins(Mathf.Max(20 - (Coins.Count - spawnedCoinsCount), 0));
-
-        // Spawn coin
-        StartCoroutine(SpawnCoin(0));
+        
+        SpawnCoin();
     }
 
-    public IEnumerator SpawnCoin(float delay)
+    public void SpawnCoin()
     {
         // If there are no more coins, instantiate new ones
         if (Coins.Count - spawnedCoinsCount == 0)
         {
             instantiationManager.InstantiateCoins(5);
         }
-        
-        if (delay == spawnTime)
-        {
-            yield return spawnCoinWait;
-        }
-        else
-        {
-            yield return new WaitForSeconds(delay);
-        }
 
-		spawnedCoinsCount++;
+        spawnedCoinsCount++;
 
         Coins[newCoinIndex].SetState(new CoinSpawned(Coins[newCoinIndex]));
 

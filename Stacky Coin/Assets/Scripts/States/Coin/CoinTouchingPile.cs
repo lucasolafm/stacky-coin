@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoinTouchingPile : CoinState
 {
     private float startTime;
+    private bool landed;
 
     public CoinTouchingPile(Coin coin) : base(coin) {}
 
@@ -46,13 +47,15 @@ public class CoinTouchingPile : CoinState
             coin.SetState(new CoinFalling(coin));
         }        
         // Check if it is almost still
-        else if (coin.rb.velocity.x <= coin.coinManager.minMoveToScore)
+        else if (Mathf.Abs(coin.rb.velocity.x) <= coin.coinManager.minMoveToScore)
         {
-            // Score
-            EventManager.CoinScores.Invoke(coin);
-
             coin.SetState(new CoinOnPile(coin));
         }
+
+        if (landed) return;
+        landed = true;
+
+        EventManager.CoinLandsOnPile.Invoke(coin);
     }
 
     private IEnumerator DisableTrailsAfterDelay()

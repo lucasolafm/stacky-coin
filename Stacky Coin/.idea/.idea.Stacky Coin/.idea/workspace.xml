@@ -243,6 +243,12 @@
       <workItem from="1650914792580" duration="679000" />
       <workItem from="1654685134397" duration="13448000" />
       <workItem from="1654704119680" duration="260000" />
+      <workItem from="1654853628674" duration="8195000" />
+      <workItem from="1654938196888" duration="4389000" />
+      <workItem from="1654952909835" duration="655000" />
+      <workItem from="1654961712498" duration="614000" />
+      <workItem from="1655059899443" duration="4786000" />
+      <workItem from="1655124350030" duration="17874000" />
     </task>
     <servers />
   </component>
@@ -265,12 +271,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="461" y="165" width="749" height="530" key="find.popup" timestamp="1647284475209">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="461" y="165" width="749" height="530" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1647284475209" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

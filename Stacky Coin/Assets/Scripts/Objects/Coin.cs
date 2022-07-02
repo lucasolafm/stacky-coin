@@ -40,19 +40,14 @@ public class Coin : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag(Utilities.handTag))
-        {
-            State.OnCollideWithHand();
-        }
-        else if (collision.gameObject.CompareTag(Utilities.coinTag))
+        if (collision.gameObject.CompareTag(Utilities.coinTag))
         {
             State.OnCollideWithCoin(collision);
         }
         else if (collision.gameObject.CompareTag(Utilities.floorTag))
         {
             State.OnCollideWithCoin(collision);
-
-            EventManager.CoinLandsOnFloor.Invoke(this);
+            State.OnCollideWithFloor();
         }
     }
 

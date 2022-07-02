@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class CoinSpawned : CoinState
@@ -14,7 +12,7 @@ public class CoinSpawned : CoinState
 
         coin.rb.isKinematic = true;
         coin.gameObject.SetActive(true);
-
+        
         coin.StartCoroutine(EnterAnimation(() =>
         {
             coin.SetState(new CoinOnHand(coin));
@@ -26,11 +24,11 @@ public class CoinSpawned : CoinState
         float t = 0;
         float progress;
         Vector3 endPos = coin.coinManager.handManager.hand.position + new Vector3(0, 0.972397f);
-        Vector3 startPos = new Vector3(1.386f, endPos.y + 0.5f, endPos.z);
+        Vector3 startPos = new Vector3(1.386f, endPos.y + 0.45f, endPos.z);
         
         while (t < 1)
         {
-            t = Mathf.Min(t + Time.deltaTime / 0.2f, 1);
+            t = Mathf.Min(t + Time.deltaTime / 0.15f, 1);
 
             progress = Utilities.EaseOutSine(t);
 

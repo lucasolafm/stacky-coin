@@ -32,6 +32,7 @@ public static class EventManager
 	public static CoinFloatEvent CoinFlips = new CoinFloatEvent();
 	public static CoinFloatEvent CoinCollides = new CoinFloatEvent();
 	public static CoinEvent CoinTouchesPile = new CoinEvent();
+	public static CoinEvent CoinLandsOnPile = new CoinEvent();
 	public static CoinEvent CoinScores = new CoinEvent();
 	public static CoinEvent CoinFalls = new CoinEvent();
 	public static UnityEvent CoinFallsWhileTouchingPile = new UnityEvent();

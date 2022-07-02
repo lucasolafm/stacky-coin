@@ -17,11 +17,13 @@ public class CoinState : State
 
     public virtual void GetStabilityOnPile(out bool unstable, out bool falling) { unstable = false; falling = false; }
 
+    public virtual bool GetIsStillOnPile() { return true; }
+
     public virtual void LateUpdate() {}
-
-    public virtual void OnCollideWithHand() {}
-
+    
     public virtual void OnCollideWithCoin(Collision collision) {}
+
+    public virtual void OnCollideWithFloor() {}
 
     public virtual void OnCollideWithFallOffZone() {}
 

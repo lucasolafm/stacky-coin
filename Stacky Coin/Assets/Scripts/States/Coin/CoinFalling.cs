@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class CoinFalling : CoinState
 {
+    private bool landedOnFloor;
+    
     public CoinFalling(Coin coin) : base(coin) {}
-
+    
     public override void Enter()
     {
         base.Enter();
@@ -28,5 +30,13 @@ public class CoinFalling : CoinState
         base.OnCollideWithCoin(collision);
 
         EventManager.CoinCollides.Invoke(coin, collision.relativeVelocity.sqrMagnitude);
+    }
+
+    public override void OnCollideWithFloor()
+    {
+        if (landedOnFloor) return;
+        landedOnFloor = true;
+        
+        EventManager.CoinLandsOnFloor.Invoke(coin);
     }
 }

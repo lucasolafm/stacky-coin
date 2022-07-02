@@ -14,11 +14,13 @@ public class CoinPileManager : MonoBehaviour
     [SerializeField] private float kinematicStraighteningMaxAngle;
 
     [HideInInspector] public float angleFalling;
-    public float lenghtFalling, lenghtAboutToFall, fallDetectTime;
+    public float lenghtFalling, lenghtAboutToFall;
     [SerializeField] private int unstableCoinsAmountToGameOver;
+    [SerializeField] private float timeRequirePileStillness;
 
-    private float startTime;
     private int unstableCoinsAmount;
+    private bool pileIsStill;
+    private float timePileIsStill;
     private List<Coin> fallenCoins = new List<Coin>();
     private bool coinUnstable, coinFalling;
     private bool canBeStraightened;
@@ -28,50 +30,50 @@ public class CoinPileManager : MonoBehaviour
         EventManager.CoinTouchesPile.AddListener(OnCoinTouchesPile);
         EventManager.CoinFallsWhileTouchingPile.AddListener(OnCoinFallsWhileTouchingPile);
         EventManager.GoingGameOver.AddListener(OnGoingGameOver);
-
-        startTime = Time.time;
     }
 
     void Update()
     {
-        if (Time.time - startTime < fallDetectTime) return;
-        startTime += fallDetectTime;
-
         unstableCoinsAmount = 0;
+        pileIsStill = true;
         fallenCoins.Clear();
         for (int i = 0; i < coinManager.spawnedCoinsCount; i++)
         {
-            // Check the stability of coins on the pile
+            if (!coinManager.Coins[i].State.GetIsStillOnPile())
+            {
+                pileIsStill = false;
+            }
+
             coinManager.Coins[i].State.GetStabilityOnPile(out coinUnstable, out coinFalling);
+            
+            if (!coinUnstable && !coinFalling) continue;
 
-            // Count the amount of unstable coins
-            if (coinUnstable || coinFalling)
+            unstableCoinsAmount += i > tutorialManager.tutorialObjectsSpawned ? 1 : 0;
+            if (unstableCoinsAmount >= unstableCoinsAmountToGameOver)
             {
-                if (i > tutorialManager.tutorialObjectsSpawned)
-                {
-                    unstableCoinsAmount++;
-                }
-
-                // Check if the pile is going to fall
-                if (unstableCoinsAmount >= unstableCoinsAmountToGameOver)
-                {
-                    EventManager.CoinPileFallsOver.Invoke();
-                }
+                EventManager.CoinPileFallsOver.Invoke();
+                return;
             }
-
-            // Check if the coin should fall off
-            if (coinFalling)
-            {
-                fallenCoins.Add(coinManager.Coins[i]);
-            }
+            
+            if (!coinFalling) continue;
+            
+            fallenCoins.Add(coinManager.Coins[i]);
         }
 
-        // Deal with fallen coins only after game over has been determined
         foreach (Coin fallenCoin in fallenCoins)
         {
             SetKinematic(false);
             
             fallenCoin.SetState(new CoinFalling(fallenCoin));
+        }
+
+        if (pileIsStill)
+        {
+            timePileIsStill += Time.deltaTime;
+        }
+        else
+        {
+            timePileIsStill = 0;
         }
 
         if (fallenCoins.Count == 0) return;
@@ -94,6 +96,11 @@ public class CoinPileManager : MonoBehaviour
         EnableAllCoinColliders();
     }
 
+    public bool IsPileStill()
+    {
+        return timePileIsStill > timeRequirePileStillness;
+    }
+
     private void SetKinematic(bool addOrRemove)
     {
         int onPileCount = 0;
@@ -104,7 +111,7 @@ public class CoinPileManager : MonoBehaviour
             
             if (onPileCount == kinematicAt)
             {
-                if (addOrRemove == true)
+                if (addOrRemove)
                 {
                     canBeStraightened = coinManager.Coins[i].transform.eulerAngles.z > -180 - kinematicStraighteningMaxAngle &&
                                         coinManager.Coins[i].transform.eulerAngles.z < 180 + kinematicStraighteningMaxAngle;
@@ -138,10 +145,5 @@ public class CoinPileManager : MonoBehaviour
         {
             coinManager.Coins[i].collider.enabled = true;
         }
-    }
-
-    public bool GetIsCoinTooSteep(Coin coin)
-    {
-        return coin.transform.eulerAngles.z < 180 - angleFalling || coin.transform.eulerAngles.z > 180 + angleFalling;
     }
 }

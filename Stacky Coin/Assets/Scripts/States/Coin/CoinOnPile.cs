@@ -33,6 +33,11 @@ public class CoinOnPile : CoinState
         unstable = coin.rb.velocity.x >= coin.coinPileManager.lenghtAboutToFall;
     }
 
+    public override bool GetIsStillOnPile()
+    {
+        return Mathf.Abs(coin.rb.velocity.x) <= coin.coinManager.minMoveToScore;
+    }
+
     public override void Enter()
     {
         base.Enter();

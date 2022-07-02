@@ -4755,8 +4755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2b3e17379dfa64fa57d07e42cc6a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testGetLvl1Chest: 1
-  testGetLvl2Chest: 1
+  testGetLvl1Chest: 0
+  testGetLvl2Chest: 0
   testGetLvl3Chest: 0
   homeManager: {fileID: 1140576729}
   coinTubeManager: {fileID: 374992544}
@@ -7096,7 +7096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &793184850
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16200,7 +16200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   homeManager: {fileID: 1140576729}
-  timerTime: 350
+  timerTime: 240
   placementId: tripleLoot
   darkScreen: {fileID: 305797325}
   tripleAdRewardPopup: {fileID: 1385629680}
@@ -16292,8 +16292,8 @@ MonoBehaviour:
   - {fileID: 1265742266}
   - {fileID: 1265742263}
   maxTimeLoadingAd: 7
-  timeUntilAdMin: 0
-  timeUntilAdMax: 0
+  timeUntilAdMin: 135
+  timeUntilAdMax: 195
   delayAfterClosingAd: 1
   noInternetPopupTime: 2
 --- !u!114 &1265742266
@@ -16309,7 +16309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   homeManager: {fileID: 1140576729}
-  timerTime: 999
+  timerTime: 240
   placementId: tripleLoot
   darkScreen: {fileID: 305797325}
   popup: {fileID: 1370167401}
@@ -28991,7 +28991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1649229308
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29009,7 +29009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -84.4, y: 199.7}
+  m_AnchoredPosition: {x: -84.399994, y: 199.7}
   m_SizeDelta: {x: 52.7, y: 52.699997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649229309

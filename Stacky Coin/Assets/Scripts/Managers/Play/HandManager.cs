@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class HandManager : MonoBehaviour
 {
     [SerializeField] private PlayManager playManager;
+    [SerializeField] private CameraManager cameraManager;
 
     public Transform hand;
     public Transform handVisuals;
@@ -80,7 +83,7 @@ public class HandManager : MonoBehaviour
                 shakeSize += shakeOverTime;
             }
 
-            handVisualsPosition += UnityEngine.Random.insideUnitSphere * shakeSize;
+            handVisualsPosition += Random.insideUnitSphere * shakeSize;
         }
 
         handVisuals.position = handVisualsPosition;
@@ -150,6 +153,37 @@ public class HandManager : MonoBehaviour
         LeanTween.moveX(hand.gameObject, 
                         hand.transform.position.x - 1.5f, 
                         0.6f).setEase(LeanTweenType.easeInBack);
+    }
+
+    public void AscendHand(Vector3 topCoinPos, Action completed)
+    {
+        StartCoroutine(AscendHandRoutine(topCoinPos, () =>
+        {
+            EventManager.HandAscendedCoinPile.Invoke();
+            completed();
+        }));
+    }
+
+    private IEnumerator AscendHandRoutine(Vector3 topCoinPos, Action completed)
+    {
+        float t = 0;
+        float height = playManager.nextStageTarget < 20
+            ? playManager.handManager.firstHandMovePosition
+            : topCoinPos.y - playManager.handManager.handBelowTopCoinDistance;
+        Vector3 startPos = hand.position;
+        Vector3 endPos = new Vector3(Mathf.Clamp(topCoinPos.x - 0.8f, 2.108f, 2.216f), 
+            height, hand.position.z);
+        
+        cameraManager.AscendCamera(height);
+
+        while (t < 1)
+        {
+            t = Mathf.Min(t + Time.deltaTime / playManager.timeToAscendToNextStage, 1);
+            hand.position = Vector3.Lerp(startPos, endPos, Utilities.EaseInOutSine(t));
+            yield return null;
+        }
+
+        completed();
     }
 
     private void StopBobbing()
