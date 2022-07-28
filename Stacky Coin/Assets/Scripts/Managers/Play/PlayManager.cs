@@ -141,6 +141,12 @@ public class PlayManager : MonoBehaviour
         EventManager.ScoreChanges.Invoke(score);
     }
 
+    public void SetScore(int value)
+    {
+        score = value;
+        EventManager.ScoreChanges.Invoke(score);
+    }
+
     private bool IsPointerOverGameObject()
     {
         // Check mouse

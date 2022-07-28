@@ -16,7 +16,6 @@ public class ChestManager : MonoBehaviour
     [SerializeField] private Button[] buttons;
 
     public Sprite[] spritesLocked, spritesOpen;
-    public Material[] miniChestMaterials;
     public Sprite pointerSpriteLocked, pointerSpriteOpen, pointerSpriteAd;
     public Color backgroundColorLocked, backgroundColorOpen;
     public float lockedTransparency;
@@ -37,7 +36,7 @@ public class ChestManager : MonoBehaviour
         spriteStartScale = chests[0].sprite.transform.localScale;
         pointerStartScale = chests[0].pointer.transform.localScale;
 
-        SetChestOutlines();
+        //SetChestOutlines();
 
         // Add chests from data
         chestsInData = Data.chests;
@@ -143,8 +142,6 @@ public class ChestManager : MonoBehaviour
         chest.position = position;
         chest.chestManager = this;
         chest.homeManager = homeManager;
-        chest.coinTubeManager = coinTubeManager;
-        chest.miniCoinManager = miniCoinManager;
         chest.SetCounter();
     }
 

@@ -34,9 +34,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/TrajectoryPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Play/CoinPileManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Tutorial/TutorialKey2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@4.2.5/Runtime/Triangle/RobustPredicates.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Play/PlayManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Editor/TMP_GlyphPropertyDrawer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/PerfectHit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Play/CoinManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@4.2.5/Runtime/Triangle/Voronoi/Legacy/VoronoiRegion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Tutorial/TutorialKey.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/Utilities.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Play/ChargingEffectController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -50,9 +53,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Play/EffectManagerPlay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Play/InstantiationManagerPlay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Chest/ChestLocked.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@4.2.5/Runtime/Triangle/Geometry/Contour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Chest/ChestOpen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Chest Unlocking/UnlockChestPreparer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Chest/ChestInactive.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@4.2.5/Editor/SkinningModule/Undo/DisableUndoScope.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Chest Unlocking/UnlockSkinManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Play/PlayCharging.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.6/Editor/treeview/TimelineTrackGUI.cs" root0="FORCE_HIGHLIGHTING" />
@@ -61,21 +66,25 @@
     <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro.cginc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdPlayer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Play/PlayDescending.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Play/PlayHandAdjusting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Play/PlayGameOver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/Ad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Play/PlayInitializingNextState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdInterstitial.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/Advertisements/AdBonusCoins.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@4.2.5/Runtime/Triangle/Topology/Osub.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Home/HomeInterstitialAd.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Home/HomeTripleReward.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/PlayAgainCoinController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@4.2.5/Runtime/Triangle/IO/DebugWriter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/HomeManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Home/HomeDroppingMiniCoins.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/BonusCoinsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/MiniCoinManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/InstantiationManagerHome.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Editor/TMP_SubMeshUI_Editor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Home/HomeDefault.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.purchasing@2.1.0/Runtime/managed/Purchasing/IInternalStoreListener.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/UIManagerHome.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/All/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/All/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -89,6 +98,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.6/Editor/Extensions/TrackExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Coin/CoinFlipping.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Mini Coin/MiniCoin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ads@3.7.5/Tests/Runtime/Advertisement/Utilities/UnityLifecycleManagerTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Mini Coin/MiniKey.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Base/HomeState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Chest.cs" root0="FORCE_HIGHLIGHTING" />
@@ -98,6 +108,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Mini Coin/MiniCoinEnteringChest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Mini Coin/MiniCoinGemBonus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Mini Coin/MiniCoinPayingBonus.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ads@3.7.5/Runtime/Advertisement/Platform/iOS/IosNativeObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Scriptable Objects/ButtonShakeSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Materials/Shaders/CoinGold.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/CameraSizePerScreenSize.cs" root0="FORCE_HIGHLIGHTING" />
@@ -249,6 +260,14 @@
       <workItem from="1654961712498" duration="614000" />
       <workItem from="1655059899443" duration="4786000" />
       <workItem from="1655124350030" duration="17874000" />
+      <workItem from="1657901615188" duration="4163000" />
+      <workItem from="1657991144399" duration="4837000" />
+      <workItem from="1658043091682" duration="6729000" />
+      <workItem from="1658131285867" duration="2936000" />
+      <workItem from="1658649600006" duration="8580000" />
+      <workItem from="1658926599169" duration="5878000" />
+      <workItem from="1658999523749" duration="1511000" />
+      <workItem from="1659010896559" duration="179000" />
     </task>
     <servers />
   </component>

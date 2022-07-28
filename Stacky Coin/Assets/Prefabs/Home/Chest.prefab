@@ -195,16 +195,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestManager: {fileID: 0}
   homeManager: {fileID: 0}
-  coinTubeManager: {fileID: 0}
-  miniCoinManager: {fileID: 0}
   rectTransform: {fileID: 7018730362404156955}
   pointer: {fileID: 859416144078775339}
   sprite: {fileID: 475162853560148480}
   pointerSprite: {fileID: 3833150781310714018}
   backgroundSprite: {fileID: 0}
   counterText: {fileID: 6657955907635266932}
-  miniChest: {fileID: 0}
-  polygonCollider: {fileID: 5130279235076982577}
+  polygonCollider: {fileID: 0}
   outline: {fileID: 3133718452926360281}
   position: 0
   price: 0
@@ -212,7 +209,6 @@ MonoBehaviour:
   counter: 0
   pointerOriginalPos: {x: 0, y: 0, z: 0}
   pointerOriginalScale: {x: 0, y: 0, z: 0}
-  miniChestOriginalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &4065469121392803987
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +312,6 @@ GameObject:
   - component: {fileID: 6249135206891117529}
   - component: {fileID: 6747033029910609330}
   - component: {fileID: 475162853560148480}
-  - component: {fileID: 5130279235076982577}
   - component: {fileID: 3133718452926360281}
   m_Layer: 0
   m_Name: Sprite
@@ -334,7 +329,7 @@ RectTransform:
   m_GameObject: {fileID: 6521489087853349631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7948027, y: 0.7948027, z: 0.7948027}
+  m_LocalScale: {x: 0.65968627, y: 0.65968627, z: 0.65968627}
   m_Children: []
   m_Father: {fileID: 7018730362404156955}
   m_RootOrder: 0
@@ -372,9 +367,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0381ecc7aa26b6c4185db4e3e3502828, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00b21af87f002cf4b9c1485a01e05377, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -382,43 +377,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!60 &5130279235076982577
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6521489087853349631}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 40.778076, y: 31.924063}
-      - {x: 32.869205, y: 36.591827}
-      - {x: -26.041826, y: 37.88432}
-      - {x: -38.730816, y: 33.45982}
-      - {x: -43.576305, y: 25.78838}
-      - {x: -45.062862, y: 1.8567073}
-      - {x: -40.879833, y: -31.388063}
-      - {x: -35.836178, y: -34.189705}
-      - {x: 14.3183365, y: -37.7749}
-      - {x: 42.696255, y: -26.503729}
-      - {x: 44.946533, y: -22.871103}
-      - {x: 45.771286, y: 18.885637}
 --- !u!120 &3133718452926360281
 LineRenderer:
   m_ObjectHideFlags: 0

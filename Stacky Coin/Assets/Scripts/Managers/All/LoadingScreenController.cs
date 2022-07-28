@@ -6,10 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScreenController : MonoBehaviour
 {
-    [SerializeField] private Image loadingScreen, logo;
-    [SerializeField] private Slider slider;
+    [SerializeField] private Image background;
+    [SerializeField] private Image title;
     [SerializeField] private RectTransform canvas;
-    [SerializeField] private Sprite sprite, spriteFlipped;
 
     private float progress;
     private float logoProgress;
@@ -19,6 +18,8 @@ public class LoadingScreenController : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         EventManager.LoadedHomeScene.AddListener(OnLoadedHomeScene);
         EventManager.TransitioningScenes.AddListener(OnTransitioningScenes);
+
+        SetTitleToScreenHeight();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -40,13 +41,8 @@ public class LoadingScreenController : MonoBehaviour
 
     private IEnumerator SlideLoadingScreen(bool inOrOut, bool playOrHome)
     {
-        canvas.gameObject.SetActive(true);
-
-        // Set slide direction of loading screen and logo
-        loadingScreen.sprite = playOrHome == true ? sprite : spriteFlipped;
-        loadingScreen.rectTransform.localScale = new Vector3(1, playOrHome == true ? 1 : -1, 1);
-        slider.direction = playOrHome == true ? Slider.Direction.BottomToTop : Slider.Direction.TopToBottom;
-        logo.fillOrigin = playOrHome == true ? 0 : 1;
+        background.enabled = title.enabled = true;
+        background.fillOrigin = title.fillOrigin = playOrHome ? 0 : 1;
 
         // Wait for the lag of loading the scene to pass
         if (inOrOut == false)
@@ -63,22 +59,24 @@ public class LoadingScreenController : MonoBehaviour
 
             progress = t < 0.5f ? 2 * t * t : 1 - Mathf.Pow(-2 * t + 2, 2) / 2;
 
-            slider.value = inOrOut == true ? progress : 1 - progress;
-
-            logoProgress = (Screen.height * progress - (Screen.height - (Screen.height / 2 + 
-                            logo.rectTransform.rect.height * canvas.localScale.y / 2))) / 
-                            (logo.rectTransform.rect.height * canvas.localScale.y);
-
-            logo.fillAmount = inOrOut == true ? logoProgress : 1 - logoProgress;
+            background.fillAmount = title.fillAmount = inOrOut ? progress : 1 - progress;
 
             yield return null;
         }
 
         if (inOrOut == false) 
         {
-            canvas.gameObject.SetActive(false);
+            background.enabled = title.enabled = false;
 
             EventManager.LoadingScreenSlidOut.Invoke();
         }
+    }
+
+    private void SetTitleToScreenHeight()
+    {
+        float screenHeight = Screen.height / canvas.localScale.y;
+        float widthHeightRatio = title.rectTransform.sizeDelta.x / title.rectTransform.sizeDelta.y;
+        float newWidth = screenHeight * widthHeightRatio;
+        title.rectTransform.sizeDelta = new Vector2(newWidth, screenHeight);
     }
 }

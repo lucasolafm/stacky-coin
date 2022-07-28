@@ -8,8 +8,6 @@ public class Chest : MonoBehaviour
 {
 	[HideInInspector] public ChestManager chestManager;
 	[HideInInspector] public HomeManager homeManager;
-	[HideInInspector] public CoinTubeManager coinTubeManager;
-	[HideInInspector] public MiniCoinManager miniCoinManager;
 	public RectTransform rectTransform;
 	public RectTransform pointer;
 	public Image sprite, pointerSprite, backgroundSprite;
@@ -20,7 +18,7 @@ public class Chest : MonoBehaviour
 	public ChestState state;
 	[HideInInspector] public int position, price, level;
 	[HideInInspector] public int counter;
-	[HideInInspector] public Vector3 pointerOriginalPos, pointerOriginalScale, miniChestOriginalScale;
+	[HideInInspector] public Vector3 pointerOriginalPos, pointerOriginalScale;
 
 	void Awake()
 	{

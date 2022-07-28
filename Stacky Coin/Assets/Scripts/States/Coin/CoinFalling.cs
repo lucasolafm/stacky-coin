@@ -24,7 +24,9 @@ public class CoinFalling : CoinState
 
         EventManager.CoinFalls.Invoke(coin);
     }
-    
+
+    public override bool GetIsFallen() => true;
+
     public override void OnCollideWithCoin(Collision collision)
     {
         base.OnCollideWithCoin(collision);

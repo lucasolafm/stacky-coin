@@ -35,7 +35,7 @@ public class CoinOnPile : CoinState
 
     public override bool GetIsStillOnPile()
     {
-        return Mathf.Abs(coin.rb.velocity.x) <= coin.coinManager.minMoveToScore;
+        return Mathf.Abs(coin.rb.velocity.x) <= coin.coinManager.minMoveToScore/* * 0.6f*/;
     }
 
     public override void Enter()

@@ -15,6 +15,8 @@ public class CoinState : State
 
     public virtual bool GetIsScored() { return false; }
 
+    public virtual bool GetIsFallen() { return false; }
+
     public virtual void GetStabilityOnPile(out bool unstable, out bool falling) { unstable = false; falling = false; }
 
     public virtual bool GetIsStillOnPile() { return true; }

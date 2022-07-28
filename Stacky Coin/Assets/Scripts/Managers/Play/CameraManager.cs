@@ -7,7 +7,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private PlayManager playManager;
 
     [SerializeField] private GameObject cameraHolder;
-    [SerializeField] private Transform shaker;
+    [SerializeField] private Transform shakerTransformCharge, shakerTransformFallOff, shakerTransformCollision;
     [SerializeField] private Transform mainCamera;
     
     [SerializeField] private float shakeFadeIn;
@@ -16,53 +16,88 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float shakeTimeFlip;
     [SerializeField] private float shakeSpeedFlip;
     [SerializeField] private float shakeStrengthFlip;
+    [SerializeField] private float minShakeStrengthFlip;
+    [SerializeField] private float maxShakeStrengthFlip;
     
     [SerializeField] private float shakeTimeCollide;
     [SerializeField] private float shakeSpeedCollide;
     [SerializeField] private float shakeStrengthCollide;
     [SerializeField] private float shakeStrengthCollideHeavy;
 
+    [SerializeField] private float shakeSpeedCharge;
+    [SerializeField] private float shakeStrengthCharge;
+    [SerializeField] private float shakeTimeCharge;
+
     [SerializeField] private float shakeSpeedFallOff;
     [SerializeField] private float shakeStrengthFallOff;
     [SerializeField] private float shakeTimeFallOff;
 
-    private float shakeContinuousStrength;
-    private float shakeContinuousStrengthFloorRatio;
+    private CameraShaker shakerCharge;
+    private CameraShaker shakerFallOff;
+    private bool isCharging;
+    private float chargingTime;
 
     void Start()
     {
+        EventManager.HandCharges.AddListener(OnHandCharges);
+        EventManager.HandStopsCharge.AddListener(OnHandStopsCharge);
         EventManager.CoinFlips.AddListener(OnCoinFlips);
-        EventManager.CoinLandsOnPile.AddListener(OnCoinLandsOnPile);
+        EventManager.CoinTouchesPile.AddListener(OnCoinTouchesPile);
         EventManager.CoinLandsOnFloor.AddListener(OnCoinLandsOnFloor);
         EventManager.GoneGameOver.AddListener(OnGoneGameOver);
         
-        StartCoroutine(ShakeContinuously(shakeSpeedFallOff, shakeTimeFallOff));
+        shakerCharge = new CameraShaker(shakeStrengthCharge, shakeSpeedCharge, shakeTimeCharge, ref shakerTransformCharge, mainCamera.rotation);
+        shakerFallOff = new CameraShaker(shakeStrengthFallOff, shakeSpeedFallOff, shakeTimeFallOff, ref shakerTransformFallOff, mainCamera.rotation);
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (isCharging)
         {
-            //shakeContinuousStrength += shakeStrengthFallOff;
+            chargingTime += Time.deltaTime;
+            if (chargingTime > 0.1f)
+            {
+                if (chargingTime < 4.224f)
+                {
+                    shakerCharge.AddShakeMultiplier();   
+                }
+                else
+                {
+                    shakerCharge.StabilizeShakeMultiplier();
+                }
+            }
         }
 
-        //if (shakeContinuousStrength > 0) print(shakeContinuousStrength);
+        shakerCharge.Tick();
+        shakerFallOff.Tick();
+    }
+    
+    private void OnHandCharges(Coin arg0)
+    {
+        isCharging = true;
+    }
+    
+    private void OnHandStopsCharge()
+    {
+        isCharging = false;
+        chargingTime = 0;
     }
 
     private void OnCoinFlips(Coin coin, float chargeTime)
     {
-        //StartCoroutine(ShakeOnce(shakeTimeFlip, shakeStrengthFlip, shakeSpeedFlip));
+        StartCoroutine(ShakeOnce(shakeTimeFlip, 
+            minShakeStrengthFlip + chargeTime / 4.224f * (maxShakeStrengthFlip - minShakeStrengthFlip), shakeSpeedFlip));
     }
 
-    private void OnCoinLandsOnPile(Coin coin)
+    private void OnCoinTouchesPile(Coin coin)
     {
-        //StartCoroutine(ShakeOnce(shakeTimeCollide, 
-            //coin.type == CoinType.Coin ? shakeStrengthCollide : shakeStrengthCollideHeavy, shakeSpeedCollide));
+        StartCoroutine(ShakeOnce(shakeTimeCollide, 
+            coin.type == CoinType.Coin ? shakeStrengthCollide : shakeStrengthCollideHeavy, shakeSpeedCollide));
     }
 
     private void OnCoinLandsOnFloor(Coin coin)
     {
-        shakeContinuousStrength += shakeStrengthFallOff;
+        shakerFallOff.AddShakeMultiplier();
     }
 
     private void OnGoneGameOver(bool manualGameOver)
@@ -80,51 +115,31 @@ public class CameraManager : MonoBehaviour
             playManager.timeToAscendToNextStage).setEase(LeanTweenType.easeInOutSine);
     }
 
-    private IEnumerator ShakeOnce(float duration, float maxStrength, float speed)
+    private IEnumerator ShakeOnce(float duration, float maxStrength, float maxSpeed)
     {
         float time = 0;
         float t = 0;
+        float shakeMultiplier;
         float strength;
+        float speed;
         
         while (t < 1)
         {
             time += Time.deltaTime;
             t = Mathf.Min(time / duration, 1);
 
-            strength = (t < shakeFadeIn ? Utilities.EaseInQuad(t / shakeFadeIn) :
-                t > shakeFadeOut ? 1 - Utilities.EaseOutQuad((t - shakeFadeOut) / (1 - shakeFadeOut)) : 1) * maxStrength;
+            shakeMultiplier = t < shakeFadeIn ? Utilities.EaseInQuad(t / shakeFadeIn) :
+                t > shakeFadeOut ? 1 - Utilities.EaseOutQuad((t - shakeFadeOut) / (1 - shakeFadeOut)) : 1;
+            
+            strength = shakeMultiplier * maxStrength;
+            speed = shakeMultiplier * maxSpeed;
 
-            shaker.localPosition = GetShakePosition(time, strength, speed);
+            shakerTransformCollision.localPosition = GetShakePosition(time, strength, speed);
             
             yield return null;
         }
 
-        shaker.localPosition = Vector3.zero;
-    }
-
-    private IEnumerator ShakeContinuously(float speed, float duration)
-    {
-        float time = 0;
-        float t = 0;
-        float strength = 0;
-
-        while (true)
-        {
-            time += Time.deltaTime;
-
-            yield return new WaitForEndOfFrame();
-            
-            t = Mathf.Min((shakeContinuousStrength > strength ? 0 : t) + Time.deltaTime / duration, 1);
-
-            shakeContinuousStrength *= 1 - Utilities.EaseOutQuad(t);
-            strength = shakeContinuousStrength;
-            
-            shaker.localPosition = GetShakePosition(time, strength, speed);
-
-            yield return null;
-        }
-
-        shaker.localPosition = Vector3.zero;
+        shakerTransformCollision.localPosition = Vector3.zero;
     }
 
     private Vector3 GetShakePosition(float time, float strength, float speed)

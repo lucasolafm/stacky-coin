@@ -24,6 +24,7 @@ public class CoinManager : MonoBehaviour
 
     public float minMoveToScore;
     public float perfectHitAfterTouchingTime;
+    public float adjustHandMinDistance;
 
     [HideInInspector] public List<Coin> Coins = new List<Coin>();
     [HideInInspector] public int newCoinIndex;
@@ -31,8 +32,15 @@ public class CoinManager : MonoBehaviour
     [HideInInspector] public int spawnedCoinsCount;
     [HideInInspector] public bool spawnNoMoreKeys;
 
+    private float coinPileBasePos = 3.016871f;
+    private int scoredCoinsPrevious;
+    private int scoredCoinsCurrent;
+    private Vector3 pileTopPosition;
     private Coin flippedCoin;
-    private bool flippedCoinLanded;
+    private bool shouldAdjustHorizontally;
+    private bool shouldDescend;
+    private bool handAdjusting;
+    private bool handAdjusted;
     private int perfectHitCombo;
 
     void Awake()
@@ -40,20 +48,39 @@ public class CoinManager : MonoBehaviour
         EventManager.LoadingScreenSlidOut.AddListener(OnLoadingScreenSlidOut);
         EventManager.CoinFlips.AddListener(OnCoinFlips);
         EventManager.CoinTouchesPile.AddListener(OnCoinTouchesPile);
-        EventManager.CoinLandsOnPile.AddListener(OnCoinLandsOnPile);
         EventManager.StageInitialized.AddListener(OnStageInitialized);
         EventManager.GoingGameOver.AddListener(OnGoingGameOver);
         EventManager.GoneGameOver.AddListener(OnGoneGameOver);
     }
-
+    
     void Update()
     {
-        if (flippedCoinLanded && coinPileManager.IsPileStill() && !GameManager.I.isGameOver)
+        if (GameManager.I.isGameOver) return;
+        
+        if (flippedCoin && (flippedCoin.State.GetIsScored() || flippedCoin.State.GetIsFallen() && coinPileManager.IsPileStill()))
         {
-            flippedCoinLanded = false;
-            
-            EventManager.CoinScores.Invoke(flippedCoin);
-            
+            GetCoinPileInfo(out scoredCoinsCurrent, out pileTopPosition);
+            playManager.SetScore(scoredCoinsCurrent);
+
+            shouldAdjustHorizontally = ShouldAdjustXPos();
+            if (!handAdjusting && !handAdjusted && (shouldAdjustHorizontally || ShouldDescendHand()))
+            {
+                handAdjusting = true;
+                handManager.AdjustHandPosition(shouldAdjustHorizontally ? Mathf.Min(pileTopPosition.x, coinPileBasePos) : 0, 
+                    scoredCoinsPrevious - scoredCoinsCurrent, () =>
+                {
+                    handAdjusting = false;
+                    handAdjusted = true;
+                });
+            }
+
+            if (handAdjusting) return;
+
+            if (scoredCoinsCurrent > scoredCoinsPrevious)
+            {
+                EventManager.CoinScores.Invoke(flippedCoin);
+            }
+
             if (playManager.score < playManager.nextStageTarget)
             {
                 SpawnCoin();
@@ -63,6 +90,10 @@ public class CoinManager : MonoBehaviour
                 handManager.AscendHand(flippedCoin.transform.position, SpawnCoin);
                 playManager.SetState(new PlayInitializingNextStage(playManager));
             }
+            
+            flippedCoin = null;
+            handAdjusted = false;
+            scoredCoinsPrevious = scoredCoinsCurrent;
         }
 
         for (int i = 0; i < instantiationManager.instantiateCoinsAmount; i++)
@@ -118,13 +149,6 @@ public class CoinManager : MonoBehaviour
         newCoinIndex = spawnedCoinsCount;
     }
 
-    private void OnCoinLandsOnPile(Coin coin)
-    {
-        if (coin != flippedCoin) return;
-
-        flippedCoinLanded = true;
-    }
-
     private void OnCoinTouchesPile(Coin coin)
     {
         StartCoroutine(WaitForPerfectHit(coin));
@@ -137,7 +161,7 @@ public class CoinManager : MonoBehaviour
 
     private void OnGoingGameOver()
     {
-        GetScoredCoins();
+        GetFinalScoredCoins();
     }
 
     private void OnGoneGameOver(bool manualGameOver)
@@ -169,7 +193,7 @@ public class CoinManager : MonoBehaviour
         SpawnCoin();
     }
 
-    public void SpawnCoin()
+    private void SpawnCoin()
     {
         // If there are no more coins, instantiate new ones
         if (Coins.Count - spawnedCoinsCount == 0)
@@ -183,8 +207,21 @@ public class CoinManager : MonoBehaviour
 
         EventManager.CoinSpawns.Invoke(Coins[newCoinIndex]);
     }
+    
+    private void GetCoinPileInfo(out int amount, out Vector3 topPosition)
+    {
+        amount = 0;
+        topPosition = Coins[0].transform.position;
+        foreach (Coin coin in Coins)
+        {
+            if (!coin.State.GetIsScored()) continue;
+            
+            amount++;
+            topPosition = coin.transform.position.y > topPosition.y ? coin.transform.position : topPosition;
+        }
+    }
 
-    private void GetScoredCoins()
+    private void GetFinalScoredCoins()
     {
         // Count all scored coins
         GameManager.I.scoredCoins.Clear();
@@ -260,4 +297,8 @@ public class CoinManager : MonoBehaviour
         return GameManager.I.GetAvailableChestSlotsAmount() > 0 && 
                 GameManager.I.GetAvailableChestSlotsAmount() - GetScoredKeysAmount() > 0;
     }
+
+    private bool ShouldAdjustXPos() => Mathf.Abs(handManager.hand.position.x - (Mathf.Min(pileTopPosition.x, coinPileBasePos) - 0.8f)) > adjustHandMinDistance;
+
+    private bool ShouldDescendHand() => scoredCoinsCurrent < scoredCoinsPrevious;
 }

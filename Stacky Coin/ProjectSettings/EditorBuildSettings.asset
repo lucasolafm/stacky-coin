@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Home Menu.unity
     guid: 5034151f4c127d64a8f84dc60ccbe6ee
   - enabled: 0
-    path: Assets/Scenes/Minicoin.unity
-    guid: 208791ea18cc0364590f1223524a0139
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/Title.unity
+    guid: cffaf005a67eb0744b4c6522a903b8dc
   m_configObjects: {}

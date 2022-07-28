@@ -44,7 +44,6 @@ public class HandManager : MonoBehaviour
         EventManager.CoinFlipping.AddListener(OnCoinFlipping);
         EventManager.CoinFlips.AddListener(OnCoinFlips);
         EventManager.ReachesNextStageTarget.AddListener(OnReachesNextStageTarget);
-        EventManager.CoinsFallOffPile.AddListener(OnCoinsFallOffPile);
         EventManager.GoneGameOver.AddListener(OnGoneGameOver);
         
         print(coinToMeasure.bounds.size.y);
@@ -125,20 +124,18 @@ public class HandManager : MonoBehaviour
         });
     }
 
-    private void OnCoinsFallOffPile(Coin[] coins)
+    public void AdjustHandPosition(float pileTopPosition, int moveDownCoinAmount, Action completed)
     {
-        if (GameManager.I.isGameOver) return;
-        
-        playManager.SetState(new PlayDescending(playManager));
-        
+        playManager.SetState(new PlayHandAdjusting(playManager));
         EventManager.HandStopsCharge.Invoke();
-        
         StopBobbing();
 
-        LeanTween.moveLocalY(hand.gameObject, hand.position.y - coinToMeasure.bounds.size.y * coins.Length, 
+        LeanTween.moveLocal(hand.gameObject, new Vector3(pileTopPosition != 0 ? pileTopPosition - 0.8f : hand.position.x, 
+                hand.position.y - coinToMeasure.bounds.size.y * Mathf.Max(moveDownCoinAmount, 0), hand.position.z), 
                 moveDownTime).setEase(LeanTweenType.easeInOutSine).setOnComplete(() =>
         {
             playManager.SetState(new PlayDefault(playManager));
+            completed();
         });
     }
 

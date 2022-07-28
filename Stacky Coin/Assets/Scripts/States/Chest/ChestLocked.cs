@@ -23,7 +23,7 @@ public class ChestLocked : ChestState
 
         chest.counterText.gameObject.SetActive(true);
         chest.counterText.fontStyle = TMPro.FontStyles.Normal;
-        chest.counterText.fontSize = 36;
+        chest.counterText.fontSize = 32;
         chest.counterText.color = Color.black;
 
         UpdateCounter();

@@ -230,7 +230,7 @@ public class UnlockSkinManager : MonoBehaviour
             unlockChest.position = chestPayingPosition + (Vector3)UnityEngine.Random.insideUnitCircle * (info.chestShakeSizeMin + 
                                     progress * (info.chestShakeSizeMax - info.chestShakeSizeMin));
 
-            unlockChestChargeEffect.material.color = new Color(1, 1, 1, progress);
+            unlockChestChargeEffect.color = new Color(1, 1, 1, progress);
 
             yield return null;
         }
@@ -284,7 +284,7 @@ public class UnlockSkinManager : MonoBehaviour
         {
             t = Mathf.Min(t + Time.deltaTime / info.chestFadeOutTime, 1);
 
-            unlockChestChargeEffect.material.color = new Color(1, 1, 1, 1 - t);
+            unlockChestChargeEffect.color = new Color(1, 1, 1, 1 - t);
 
             yield return null;
         }

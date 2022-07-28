@@ -19,7 +19,7 @@ public class ChestOpen : ChestState
         chest.pointerSprite.sprite = chest.chestManager.pointerSpriteOpen;
         chest.counterText.text = "OPEN";
         chest.counterText.fontStyle = TMPro.FontStyles.Normal;
-        chest.counterText.fontSize = 24;
+        chest.counterText.fontSize = 21;
         chest.counterText.color = Color.black;
         chest.counterText.gameObject.SetActive(true);
     }
