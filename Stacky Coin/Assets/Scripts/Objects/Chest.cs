@@ -14,6 +14,8 @@ public class Chest : MonoBehaviour
     public TextMeshProUGUI counterText;
 	public PolygonCollider2D polygonCollider;
 	public LineRenderer outline;
+	public TMP_FontAsset counterShaderOpen;
+	public TMP_FontAsset counterShaderLocked;
 
 	public ChestState state;
 	[HideInInspector] public int position, price, level;

@@ -23,21 +23,24 @@ public class UnlockSkinPreviewer
         manager.previewSkinCoin.shadedVisual.gameObject.SetActive(true);
         manager.previewSkinCoin.gameObject.isStatic = false;
         manager.previewSkinCoin.gameObject.SetActive(false);
+        manager.unlockGlow.gameObject.SetActive(false);
     }
 
-    public IEnumerator EnlargePreviewSkinCoin()
+    public IEnumerator EnlargePreviewSkinCoin(bool isDuplicate)
     {
         Vector3 startScale = manager.previewSkinCoin.transform.localScale;
+        Vector3 glowStartScale = manager.unlockGlow.transform.localScale;
         manager.previewSkinCoin.gameObject.SetActive(true);
+        if (!isDuplicate) manager.unlockGlow.gameObject.SetActive(true);
         manager.previewSkinCoin.transform.position = manager.collectionCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f, 10));
         
         float t = 0;
         while (t < 1)
         {
             t = Mathf.Min(t + Time.deltaTime / manager.info.previewCoinEnlargeTime, 1);
-
-            manager.previewSkinCoin.transform.localScale = startScale * ((1 + 2.70158f * Mathf.Pow(t - 1, 3) + 1.70158f * Mathf.Pow(t - 1, 2)) * 
-                                                    manager.info.previewCoinEnlargeSize);
+            
+            manager.previewSkinCoin.transform.localScale = startScale * (Utilities.EaseOutBack(t) * manager.info.previewCoinEnlargeSize);
+            if (!isDuplicate) manager.unlockGlow.transform.localScale = glowStartScale * Utilities.EaseOutSine(Mathf.Min(t * 1.5f, 1));
 
             yield return null;
         }

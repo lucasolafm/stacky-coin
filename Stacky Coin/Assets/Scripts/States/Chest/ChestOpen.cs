@@ -17,10 +17,9 @@ public class ChestOpen : ChestState
     public virtual void SetPointer()
     {
         chest.pointerSprite.sprite = chest.chestManager.pointerSpriteOpen;
-        chest.counterText.text = "OPEN";
-        chest.counterText.fontStyle = TMPro.FontStyles.Normal;
-        chest.counterText.fontSize = 21;
-        chest.counterText.color = Color.black;
+        chest.counterText.text = "GET";
+        chest.counterText.font = chest.counterShaderOpen;
+        chest.counterText.fontSize = 30;
         chest.counterText.gameObject.SetActive(true);
     }
 

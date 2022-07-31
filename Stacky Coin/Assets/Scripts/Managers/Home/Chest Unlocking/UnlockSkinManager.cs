@@ -13,6 +13,7 @@ public class UnlockSkinManager : MonoBehaviour
     [SerializeField] private MiniCoin miniCoinPrefab;
     [SerializeField] private Transform payingCoinsHolder;
     public Transform unlockChest;
+    public SpriteRenderer unlockGlow;
     public SpriteRenderer unlockChestRenderer;
     public SpriteRenderer unlockChestChargeEffect;
     public Sprite[] chestSprites, chestChargeEffectSprites;
@@ -61,7 +62,8 @@ public class UnlockSkinManager : MonoBehaviour
         InstantiatePayingCoins();
 
         chestPayingPosition = camera.ScreenToWorldPoint(new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 5));
-
+        unlockGlow.transform.position = chestPayingPosition;
+        
         payingCoinStartScale = payingCoins[0].transform.localScale;
         payingCoinEndScale = payingCoinStartScale * info.payingCoinEndScalePercent;
 
@@ -162,11 +164,12 @@ public class UnlockSkinManager : MonoBehaviour
         
         StartCoroutine(skinPreviewer.PivotPreviewSkinCoin());
 
-        yield return StartCoroutine(skinPreviewer.EnlargePreviewSkinCoin());
+        yield return StartCoroutine(skinPreviewer.EnlargePreviewSkinCoin(isDuplicateSkin));
 
         yield return new WaitForSeconds(info.previewCoinMoveDelay);
 
         StartCoroutine(chestPreparer.BackgroundFade(false));
+        StartCoroutine(chestPreparer.GlowFade());
 
         homeManager.SetState(new HomeWithdrawingSkin(homeManager));
 

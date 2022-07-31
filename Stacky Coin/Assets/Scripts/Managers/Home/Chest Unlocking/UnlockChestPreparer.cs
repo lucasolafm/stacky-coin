@@ -46,6 +46,22 @@ public class UnlockChestPreparer
         }
     }
 
+    public IEnumerator GlowFade()
+    {
+        float t = 0;
+        while (t < 1)
+        {
+            t = Mathf.Min(t + Time.deltaTime / manager.info.backgroundFadeTimeOut, 1);
+
+            manager.unlockGlow.color = new Color(255, 255, 255, 1 - t);
+
+            yield return null;
+        }
+
+        manager.unlockGlow.color = new Color(255, 255, 255, 1);
+        manager.unlockGlow.gameObject.SetActive(false);
+    }
+
     private void SetchestSprites(int level)
     {
         manager.unlockChestRenderer.sprite = manager.chestSprites[level - 1];
