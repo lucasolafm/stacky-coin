@@ -8,6 +8,7 @@ public class CollectionManager : MonoBehaviour
     [SerializeField] private HomeManager homeManager;
     public GameObject collectionHolder;
     public GameObject collectionLights;
+    [SerializeField] private Transform title;
     [SerializeField] private Transform skinHolder;
     [SerializeField] private new Camera camera;
     [SerializeField] private Button backButton;
@@ -19,6 +20,7 @@ public class CollectionManager : MonoBehaviour
     private CollectionState state;
     [HideInInspector] public Skin[] skins;
     private Vector3[] skinsStartPositions;
+    private Vector3 titleStartPosition;
     private int[] tempIntArray;
     private Transform unseenSkinBubble;
     private float shiftProgress, shiftAmount;
@@ -36,7 +38,6 @@ public class CollectionManager : MonoBehaviour
         EventManager.EnteredCollection.AddListener(OnEnteredCollection);
         EventManager.EnteringHome.AddListener(OnEnteringHome);
         EventManager.UnlockedNewCoinSkin.AddListener(OnUnlockedNewCoinSkin);
-        EventManager.SwipesScreen.AddListener(OnSwipesScreen);
         backButton.onClick.AddListener(PressBackButton);
 
         skinSpinDelayWait = new WaitForSeconds(skinSpinDelay);
@@ -53,6 +54,7 @@ public class CollectionManager : MonoBehaviour
         {
             skinsStartPositions[i] = skins[i].transform.position - skins[i].visuals.TransformDirection(Vector3.back * screenWorldWidth);
         }
+        titleStartPosition = title.position - skins[0].visuals.TransformDirection(Vector3.back * screenWorldWidth);
 
         InstantiateSkinVisuals();
 
@@ -118,11 +120,6 @@ public class CollectionManager : MonoBehaviour
     private void PressBackButton()
     {
         SetState(new CollectionEnteringHome(this));
-    }
-
-    private void OnSwipesScreen(bool rightOrLeft)
-    {
-        state.SwipeScreen(rightOrLeft);
     }
 
     public void SetState(CollectionState state)
@@ -240,6 +237,8 @@ public class CollectionManager : MonoBehaviour
     private IEnumerator ShiftSkinsSideways(bool inOrOut)
     {
         shiftProgress = 0;
+        Vector3 totalMove = skins[0].visuals.TransformDirection(Vector3.back * screenWorldWidth);
+        
         while (shiftProgress < 1)
         {
             shiftProgress = Mathf.Min(shiftProgress + Time.deltaTime / GameManager.I.collectionHomeTransitionTime, 1);
@@ -247,9 +246,10 @@ public class CollectionManager : MonoBehaviour
 
             for (int i = 0; i < skins.Length; i++)
             {
-                skins[i].transform.position = skinsStartPositions[i] + skins[i].visuals.TransformDirection(Vector3.back * 
-                                                (screenWorldWidth * (inOrOut == true ? shiftAmount : 1 - shiftAmount)));
+                skins[i].transform.position = skinsStartPositions[i] + totalMove * (inOrOut ? shiftAmount : 1 - shiftAmount)/*))*/;
             }
+
+            title.position = titleStartPosition + totalMove * (inOrOut ? shiftAmount : 1 - shiftAmount);
             
             yield return null;
         }
