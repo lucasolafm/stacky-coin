@@ -104,21 +104,6 @@ public class ChestManager : MonoBehaviour
         }
     }
 
-    private void SetChestOutlines()
-    {
-        foreach (Chest chest in chests)
-        {
-            outlinePositions = new Vector3[chest.polygonCollider.points.Length];
-            for (int i = 0; i < outlinePositions.Length; i++)
-            {
-                outlinePositions[i] = chest.polygonCollider.points[i];
-            }
-
-            chest.outline.positionCount = outlinePositions.Length;
-            chest.outline.SetPositions(outlinePositions); 
-        }
-    }
-
     public void AddNewChest(int level, int price, int position)
     {
         PrepareChest(chests[position], level, price, position);

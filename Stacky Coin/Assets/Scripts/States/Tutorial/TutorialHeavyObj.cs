@@ -10,9 +10,4 @@ public class TutorialHeavyObj : TutorialState
     {
         TutorialManager.SetState(new TutorialGem(TutorialManager));
     }
-
-    public override void DisplayTextBox()
-    {
-        return;
-    }
 }

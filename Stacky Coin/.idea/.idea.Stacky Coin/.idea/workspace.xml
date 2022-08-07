@@ -88,6 +88,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Editor/TMP_SubMeshUI_Editor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/Home/HomeDefault.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Editor/TMP_FontAsset_CreationMenu.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.6/Editor/Utilities/TrackResourceCache.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.purchasing@2.1.0/Runtime/managed/Purchasing/IInternalStoreListener.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/UIManagerHome.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/All/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -276,6 +277,7 @@
       <workItem from="1659078255988" duration="3372000" />
       <workItem from="1659273778490" duration="2834000" />
       <workItem from="1659791237251" duration="2007000" />
+      <workItem from="1659858283790" duration="4744000" />
     </task>
     <servers />
   </component>

@@ -56,22 +56,8 @@ public class CoinTubeManager : MonoBehaviour
     {
         state.Update();
 
-        if (visualAttachedCamera)
-        {
-            visualTransform.position = new Vector3(visualTransform.position.x,
-                camera.transform.position.y + visualOffsetCamera, visualTransform.position.z);
-        }
-        else if (bottomRightOfScreen.y > topOfFloor)
-        {
-            visualAttachedCamera = true;
-            visualOffsetCamera = visualTransform.position.y - camera.transform.position.y;
-        }
-
-        if (coinTubeVisual.transform.position.y < visualMinHeight)
-        {
-            visualTransform.position = new Vector3(visualTransform.position.x, visualMinHeight, visualTransform.position.z);
-            visualAttachedCamera = false;
-        }
+        visualTransform.position = new Vector3(visualTransform.position.x,
+            Mathf.Max(camera.transform.position.y, visualMinHeight), visualTransform.position.z);
     }
 
     private void OnSpawningNewMiniCoins()
@@ -121,7 +107,6 @@ public class CoinTubeManager : MonoBehaviour
         SetState(new CoinTubeDefault(this));
         
         SetCoinTubeStartPosition();
-        visualMinHeight = coinTubeVisual.transform.position.y;
         visualTransform = coinTubeVisual.transform;
         topOfFloor = coinTubeFloorFront.transform.position.y + coinTubeFloorFront.bounds.size.y / 2;
 
@@ -145,7 +130,7 @@ public class CoinTubeManager : MonoBehaviour
 
         InitializeCounterPointer();
     }
-
+    
     private void SetCoinTubeStartPosition()
     {
         Vector3 tubeMin = coinTubeVisual.bounds.min;
@@ -164,9 +149,11 @@ public class CoinTubeManager : MonoBehaviour
                 (floorMax.y - floorMin.y) / 2 - 0.005f, coinTubeVisual.transform.position.z);
 
         coinTubeFloorBack.position = coinTubeFloorFront.transform.position + new Vector3(0, 0, 1);
+        
+        visualMinHeight = coinTubeFloorFront.transform.position.y + (floorMax.y - floorMin.y) / 2 + (tubeMax.y - tubeMin.y) / 2;
 
         coinTubeVisual.transform.position = new Vector3(worldPositionX, 
-            coinTubeFloorFront.transform.position.y + (floorMax.y - floorMin.y) / 2 + (tubeMax.y - tubeMin.y) / 2,
+            Mathf.Max(camera.transform.position.y, visualMinHeight),
             coinTubeVisual.transform.position.z);
     }
 

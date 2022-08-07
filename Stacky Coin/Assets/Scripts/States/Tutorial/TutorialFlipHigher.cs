@@ -8,6 +8,13 @@ public class TutorialFlipHigher : TutorialState
 
     public TutorialFlipHigher(TutorialManager t) : base (t) {}
 
+    public override void Enter()
+    {
+        base.Enter();
+        
+        TutorialManager.tutorialText.text = TutorialManager.tutorialLevels[TutorialManager.currentLevelNr].text + " (0/3)";
+    }
+
     public override void OnFlip(float HandChargesTime)
     {
         if (HandChargesTime > 0.25f)
@@ -27,7 +34,7 @@ public class TutorialFlipHigher : TutorialState
     {
         if (flippedCorrectlyCount == 3)
         {
-            TutorialManager.SetState(new TutorialHeavyObj(TutorialManager));
+            TutorialManager.StartCoroutine(NextTutorialLevel());
         }
         else
         {
@@ -35,5 +42,12 @@ public class TutorialFlipHigher : TutorialState
 
             TutorialManager.InsertNextNewObjects(new Coin[]{coin});
         }
+    }
+
+    private IEnumerator NextTutorialLevel()
+    {
+        yield return new WaitForSeconds(1);
+        
+        TutorialManager.SetState(new TutorialHeavyObj(TutorialManager));
     }
 }

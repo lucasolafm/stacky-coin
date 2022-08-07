@@ -6,13 +6,6 @@ public class TutorialPause : TutorialState
 {
     public TutorialPause(TutorialManager TutorialManager) : base (TutorialManager) {}
 
-    public override void Enter()
-    {
-        base.Enter();
-
-        TutorialManager.panel.localScale = Vector3.zero;
-    }
-
     public override void OnSufficientFlips()
     {
         TutorialManager.SetState(new TutorialPause2(TutorialManager));

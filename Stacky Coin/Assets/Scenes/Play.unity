@@ -9179,7 +9179,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 278, y: 89.7}
+  m_SizeDelta: {x: 306.11, y: 89.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &781419365
 MonoBehaviour:
@@ -15808,25 +15808,25 @@ MonoBehaviour:
   tutorialActive: 0
   tutorialObjectsSpawned: 0
   tutorialLevels:
-  - text: <b>Tap</b> to flip a coin.
+  - text: <b>Tap the screen</b> to flip a coin.
     coins: []
-  - text: Good! <b>Tap</b> to flip one more.
+  - text: Good! <b>Tap</b> again to flip another coin.
     coins: []
-  - text: <b>Tap</b> and <b>hold</b> to flip it higher.
+  - text: <b>Press and hold</b> to flip the coin <b>higher</b>.
     coins: []
-  - text: 
+  - text: Nice! Continue.
     coins: []
-  - text: Gems are <b>heavy</b>! Try holding down <b>longer</b>.
+  - text: <b>Gems</b> are <b>heavy</b>! Try pressing down <b>longer</b>.
     coins: []
-  - text: Well done! Keep going.
+  - text: Well done! <b>Gems</b> are worth more than coins!
     coins: []
-  - text: 
+  - text: Keep going.
     coins: []
-  - text: Keys are <b>heavy</b> as well.
+  - text: ' Here''s a <b>key</b>. They''re <b>heavy</b> as well.'
     coins: []
-  - text: Collect keys to <b>unlock</b> new coins & gems!
+  - text: You can open <b>chests</b> by collecting <b>keys</b>!
     coins: []
-  - text: Stack your riches as high as you can! Good luck!
+  - text: Nicely done! Stack your riches as high as you can! Good luck!
     coins: []
   currentLevelNr: 0
 --- !u!1 &1110844400
@@ -15855,7 +15855,7 @@ RectTransform:
   m_GameObject: {fileID: 1110844400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.66652024, y: 0.66652024, z: 0.66652024}
+  m_LocalScale: {x: 0.7281067, y: 0.7281067, z: 0.7281067}
   m_Children:
   - {fileID: 7967628}
   - {fileID: 781419364}
@@ -15864,7 +15864,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -84.1}
+  m_AnchoredPosition: {x: 0, y: -77.6}
   m_SizeDelta: {x: 321.3, y: 74.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1110844403
