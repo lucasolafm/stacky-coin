@@ -18168,6 +18168,7 @@ MonoBehaviour:
   shakerTransformFallOff: {fileID: 1730087470}
   shakerTransformCollision: {fileID: 358205613}
   mainCamera: {fileID: 1052016549}
+  hand: {fileID: 163045163}
   shakeFadeIn: 0.2
   shakeFadeOut: 0.4
   shakeTimeFlip: 0.3

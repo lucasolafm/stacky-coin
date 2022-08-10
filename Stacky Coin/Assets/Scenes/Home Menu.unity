@@ -15426,7 +15426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f5076596b8f5a048aeb088d4cc8ed75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testGetCoins: 1
+  testGetCoins: 0
   instantiationManager: {fileID: 2113530048}
   miniCoinManager: {fileID: 1953187665}
   coinTubeManager: {fileID: 374992544}

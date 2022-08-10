@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.Timeline;
 
 public class CameraManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private GameObject cameraHolder;
     [SerializeField] private Transform shakerTransformCharge, shakerTransformFallOff, shakerTransformCollision;
     [SerializeField] private Transform mainCamera;
+    [SerializeField] private Transform hand;
     
     [SerializeField] private float shakeFadeIn;
     [SerializeField] private float shakeFadeOut;
@@ -31,9 +33,11 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float shakeSpeedFallOff;
     [SerializeField] private float shakeStrengthFallOff;
     [SerializeField] private float shakeTimeFallOff;
-
+    
     private CameraShaker shakerCharge;
     private CameraShaker shakerFallOff;
+    private float minHeight;
+    private float offsetHand;
     private bool isCharging;
     private float chargingTime;
 
@@ -45,13 +49,20 @@ public class CameraManager : MonoBehaviour
         EventManager.CoinTouchesPile.AddListener(OnCoinTouchesPile);
         EventManager.CoinLandsOnFloor.AddListener(OnCoinLandsOnFloor);
         EventManager.GoneGameOver.AddListener(OnGoneGameOver);
-        
+
+        minHeight = cameraHolder.transform.position.y;
+        offsetHand = cameraHolder.transform.position.y - hand.position.y;
         shakerCharge = new CameraShaker(shakeStrengthCharge, shakeSpeedCharge, shakeTimeCharge, ref shakerTransformCharge, mainCamera.rotation);
         shakerFallOff = new CameraShaker(shakeStrengthFallOff, shakeSpeedFallOff, shakeTimeFallOff, ref shakerTransformFallOff, mainCamera.rotation);
     }
 
     void Update()
     {
+        if (GameManager.I.isGameOver) return;
+        
+        cameraHolder.transform.position = new Vector3(cameraHolder.transform.position.x, Mathf.Max(hand.position.y + offsetHand, minHeight),
+            cameraHolder.transform.position.z);
+        
         if (isCharging)
         {
             chargingTime += Time.deltaTime;
@@ -110,6 +121,7 @@ public class CameraManager : MonoBehaviour
 
     public void AscendCamera(float handHeight)
     {
+        return;
         LeanTween.moveY(cameraHolder.gameObject, 
             handHeight + 1.212f,
             playManager.timeToAscendToNextStage).setEase(LeanTweenType.easeInOutSine);
