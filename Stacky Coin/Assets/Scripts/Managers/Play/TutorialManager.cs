@@ -15,6 +15,7 @@ public class TutorialManager : MonoBehaviour
         [HideInInspector] public Coin[] coins;
     }
 
+    [SerializeField] private bool testDisableTutorial;
     public CoinManager coinManager;
     public InstantiationManagerPlay instantiationManager;
     public RectTransform panel;
@@ -28,6 +29,8 @@ public class TutorialManager : MonoBehaviour
 
     void Awake()
     {
+        if (testDisableTutorial) return;
+        
         EventManager.CoinFlips.AddListener(OnFlip);
 
         endScale = panel.localScale;
@@ -42,6 +45,8 @@ public class TutorialManager : MonoBehaviour
 
     public void Initialize()
     {
+        if (testDisableTutorial) return;
+        
         currentLevelNr = Data.tutorialLevel;
 
         if (currentLevelNr >= tutorialLevels.Length) return;

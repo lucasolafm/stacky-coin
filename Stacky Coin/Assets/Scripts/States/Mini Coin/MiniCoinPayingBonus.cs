@@ -78,7 +78,7 @@ public class MiniCoinPayingBonus : MiniCoinState
                 miniCoin.homeManager.newMiniCoins[z].transform.Translate(Vector3.up * miniCoin.miniCoinManager.inTubeSpacing, Space.World);
             }
 
-            EventManager.MiniCoinAddedToTube.Invoke();
+            EventManager.MiniCoinAddedToTube.Invoke(CoinType.Coin);
         }
 
         miniCoin.SetState(new MiniCoinInTube(miniCoin));

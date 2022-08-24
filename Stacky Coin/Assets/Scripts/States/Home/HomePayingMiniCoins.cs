@@ -7,6 +7,7 @@ using System.Linq;
 public class HomePayingMiniCoins : HomeState
 {
     private Chest chest;
+    private int payAmount;
     private int totalPaidCount, newPaidCount;
     private float leftOverTime;
     private int payCurrentFrameAmount;
@@ -33,21 +34,49 @@ public class HomePayingMiniCoins : HomeState
     {
         base.Enter();
 
+        Debug.Log("chest price: " + chest.price);
+        newCoinsCount = manager.newMiniCoins.Count;
+        int coinValue = 0;
+        for (int i = newCoinsCount - 1; i >= 0; i--)
+        {
+            coinValue += manager.newMiniCoins[i].GetCoinType() == CoinType.Gem ? GameManager.I.gemBonusAmount : 1;
+            
+            if (coinValue < chest.price) continue;
+
+            payAmount = newCoinsCount - i;
+            break;
+        }
+
+        if (coinValue < chest.price)
+        {
+            int oldCoinsCount = manager.oldMiniCoins.Count;
+            for (int i = oldCoinsCount - 1; i >= 0; i--)
+            {
+                coinValue += manager.oldMiniCoins[i].GetCoinType() == CoinType.Gem ? GameManager.I.gemBonusAmount : 1;
+                
+                if (coinValue < chest.price) continue;
+
+                payAmount = newCoinsCount + (oldCoinsCount - i);
+                break;
+            }
+        }
+
+        Debug.Log("pay amount: " + payAmount);
+
         float totalTime = 0;
-        for (int i = 0; i < chest.price; i++)
+        for (int i = 0; i < payAmount; i++)
         {
             totalTime += Mathf.Max(manager.miniCoinManager.payTime - manager.miniCoinManager.payTimePerCoin * i,
                     manager.miniCoinManager.payTimeMin);
         }
-        totalTime += 0.27f - 0.0005f * chest.price;
+        totalTime += 0.27f - 0.0005f * payAmount;
         HomeManager.chestUnlockTime = totalTime;
-
-        newCoinsCount = manager.newMiniCoins.Count;
+        
         originalMiniCoins = Data.miniCoins;
 
         cameraStartPosition = manager.coinTubeManager.cameraTransform.position.y;
         
-        Data.RemoveMiniCoins(chest.price);
+        Data.RemoveMiniCoins(payAmount);
 
         EventManager.PaidForChest.Invoke(chest);
 
@@ -126,7 +155,7 @@ public class HomePayingMiniCoins : HomeState
             }         
 
             totalPaidCount++;
-            if (totalPaidCount < chest.price) continue;
+            if (totalPaidCount < payAmount) continue;
 
             manager.SetState(new HomePreviewingSkin(manager));
             break;

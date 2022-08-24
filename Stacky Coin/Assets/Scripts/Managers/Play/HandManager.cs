@@ -106,6 +106,7 @@ public class HandManager : MonoBehaviour
 
     private void OnHandCharges(Coin coin)
     {
+        if (ScreenshotTool.PauseOnRelease) return;
         Shake();
     }
 

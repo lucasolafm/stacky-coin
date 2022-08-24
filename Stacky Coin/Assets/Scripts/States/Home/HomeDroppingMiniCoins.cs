@@ -98,12 +98,12 @@ public class HomeDroppingMiniCoins : HomeState
 
                 InstantiateMiniCoin(i, z);
 
-                GetNextGemIndex(i, z);
+                //GetNextGemIndex(i, z);
 
-                SaveCurrentGemIndex(z);   
+                //SaveCurrentGemIndex(z);   
 
                 // Get the index for spawning and falling
-                spawnIndex = z - gemCount * GameManager.I.gemBonusAmount;   
+                spawnIndex = z/* - gemCount * GameManager.I.gemBonusAmount*/;   
 
                 GetInTubeIndex(z);
 
@@ -111,8 +111,8 @@ public class HomeDroppingMiniCoins : HomeState
 
                 GetInTubeHeight(z);
 
-                if (z >= nextGemIndex)
-                {
+                // if (z >= nextGemIndex)
+                // {
                     if (!manager.loadingScreenSlidOut)
                     {
                         // Set the start en end heights of the dropping coin
@@ -122,12 +122,12 @@ public class HomeDroppingMiniCoins : HomeState
                     {
                         miniCoin.SetState(new MiniCoinDropping(miniCoin, spawnPos, inTubeHeight));   
                     }
-                } 
-                else
-                {
-                    // If this is a gem's bonus coin, place it directly in the tube as inactive
-                    miniCoin.SetState(new MiniCoinGemBonus(miniCoin, new Vector3(spawnPos.x, inTubeHeight, spawnPos.z)));
-                }  
+                // } 
+                // else
+                // {
+                //     // If this is a gem's bonus coin, place it directly in the tube as inactive
+                //     miniCoin.SetState(new MiniCoinGemBonus(miniCoin, new Vector3(spawnPos.x, inTubeHeight, spawnPos.z)));
+                // }  
 
                 CountKeys(i, z);
             }    
@@ -233,13 +233,13 @@ public class HomeDroppingMiniCoins : HomeState
     private void GetInTubeIndex(int z)
     {
         inTubeIndex = z - keyCount; 
-        foreach (int gemIndex in previousGemIndexes)
-        {
-            // Move up for each gem based on the distance to that gem
-            inTubeIndex -= Mathf.Clamp(GameManager.I.gemBonusAmount - 
-                                        (spawnIndex - gemIndex - ((z >= nextGemIndex ? GameManager.I.gemBonusCoinDelay : 0) - 1)), 
-                                        0, GameManager.I.gemBonusAmount);
-        }
+        // foreach (int gemIndex in previousGemIndexes)
+        // {
+        //     // Move up for each gem based on the distance to that gem
+        //     inTubeIndex -= Mathf.Clamp(GameManager.I.gemBonusAmount - 
+        //                                 (spawnIndex - gemIndex - ((z >= nextGemIndex ? GameManager.I.gemBonusCoinDelay : 0) - 1)), 
+        //                                 0, GameManager.I.gemBonusAmount);
+        // }
     }
 
     private void GetSpawnPos(int z)

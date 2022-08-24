@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MiniCoin : MonoBehaviour
 {
+    [SerializeField] private CoinType type;
     public new GameObject gameObject;
     public new Transform transform;
     public new Renderer renderer;
@@ -26,7 +27,9 @@ public class MiniCoin : MonoBehaviour
         State.OnBecameVisible();
     }
 
-    public virtual CoinType GetCoinType() { return CoinType.Coin; }
+    public CoinType GetCoinType() => type;
+
+    public void SetCoinType(CoinType newType) => type = newType;
 
     public virtual int GetId() { return 0; }
 

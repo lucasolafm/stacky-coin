@@ -40,10 +40,10 @@ public class MiniKey : MiniCoin
         miniCoinManager.chestManager.AddNewChest(level, chestPrice, chestPosition);
     }
 
-    public override CoinType GetCoinType()
-    {
-        return CoinType.Key;
-    }
+    // public override CoinType GetCoinType()
+    // {
+    //     return CoinType.Key;
+    // }
 
     public override int GetId()
     {

@@ -28,15 +28,15 @@ public class ChestLocked : ChestState
         UpdateCounter();
     }
 
-    public override void OnMiniCoinAddedToTube()
+    public override void OnMiniCoinAddedToTube(CoinType type)
     {
-        chest.counter--;
+        chest.counter -= type == CoinType.Gem ? GameManager.I.gemBonusAmount : 1;
 		UpdateCounter();
     }
 
-    public override void OnMiniCoinRemovedFromTube()
+    public override void OnMiniCoinRemovedFromTube(CoinType type)
     {
-        chest.counter++;
+        chest.counter += type == CoinType.Gem ? GameManager.I.gemBonusAmount : 1;
         UpdateCounter();
     }
 

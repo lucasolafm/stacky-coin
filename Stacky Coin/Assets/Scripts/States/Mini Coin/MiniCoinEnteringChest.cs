@@ -38,8 +38,7 @@ public class MiniCoinEnteringChest : MiniCoinState
 
         if (t == 1)
         {
-            //EventManager.MiniCoinEntersChest.Invoke();
-            miniCoin.unlockSkinManager.OnMiniCoinEntersChest();
+            miniCoin.unlockSkinManager.OnMiniCoinEntersChest(miniCoin.GetCoinType());
 
             miniCoin.SetState(new MiniCoinInactive(miniCoin));
         }

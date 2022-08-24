@@ -17,6 +17,7 @@ public class UnlockMiniCoinPayer
     {
         payingCoin = GetAvailableMiniCoin();
 
+        payingCoin.SetCoinType(miniCoin.GetCoinType());
         payingCoin.renderer.material = miniCoin.renderer.material;
 
         payingCoin.SetState(new MiniCoinEnteringChest(payingCoin, miniCoin.miniCoinManager.keyCamera.transform.position + 

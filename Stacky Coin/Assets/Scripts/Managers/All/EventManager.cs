@@ -52,7 +52,7 @@ public static class EventManager
 	public static UnityEvent NewHighScore = new UnityEvent();
 	public static UnityEvent PlayingAgain = new UnityEvent();
 	public static UnityEvent SpawningNewMiniCoins = new UnityEvent();
-	public static UnityEvent MiniCoinAddedToTube = new UnityEvent();
+	public static UnityEvent<CoinType> MiniCoinAddedToTube = new UnityEvent<CoinType>();
 	public static MiniCoinIntFloatEvent MiniCoinRemovedFromTube = new MiniCoinIntFloatEvent();
 	public static UnityEvent LastCoinOnScreenPaid = new UnityEvent();
 	public static UnityEvent CoinTubeCameraRepositioned = new UnityEvent();
@@ -64,7 +64,7 @@ public static class EventManager
 	public static UnityEvent EnteredHome = new UnityEvent();
 	public static ChestBoolEvent BuysChest = new ChestBoolEvent();
 	public static ChestEvent BuysChestWithAd = new ChestEvent();
-	public static UnityEvent MiniCoinEntersChest = new UnityEvent();
+	public static UnityEvent<MiniCoin> MiniCoinEntersChest = new UnityEvent<MiniCoin>();
 	public static ChestBoolEvent ChestArrivesAtPayingPosition = new ChestBoolEvent();
 	public static IntEvent UnlockedNewCoinSkin = new IntEvent();
 	public static UnityEvent SkinPreviewEntersCollectionButton = new UnityEvent();

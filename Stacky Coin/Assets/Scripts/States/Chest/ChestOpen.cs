@@ -78,15 +78,15 @@ public class ChestOpen : ChestState
         }
     }
 
-    public override void OnMiniCoinAddedToTube()
+    public override void OnMiniCoinAddedToTube(CoinType type)
     {
-        chest.counter--;
+        chest.counter -= type == CoinType.Gem ? GameManager.I.gemBonusAmount : 1;
     }
 
-    public override void OnMiniCoinRemovedFromTube()
+    public override void OnMiniCoinRemovedFromTube(CoinType type)
     {
-        chest.counter++;
-        if (chest.counter > 0)
+        chest.counter += type == CoinType.Gem ? GameManager.I.gemBonusAmount : 1;
+    if (chest.counter > 0)
         {
             chest.SetState(new ChestLocked(chest));
         }

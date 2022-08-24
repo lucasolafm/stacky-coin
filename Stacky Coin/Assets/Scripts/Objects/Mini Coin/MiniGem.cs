@@ -9,18 +9,18 @@ public class MiniGem : MiniCoin
         InstantiateBonusCoinEffects();
     }
 
-    public override CoinType GetCoinType()
-    {
-        return CoinType.Gem;
-    }
+    // public override CoinType GetCoinType()
+    // {
+    //     return CoinType.Gem;
+    // }
     
     public override void Land()
     {
         base.Land();
 
-        EventManager.MiniCoinAddedToTube.Invoke();
+        EventManager.MiniCoinAddedToTube.Invoke(GetCoinType());
 
-        SetState(new MiniCoinPayingBonus(this));
+        //SetState(new MiniCoinPayingBonus(this));
     }
 
     private void InstantiateBonusCoinEffects()

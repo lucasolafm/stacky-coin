@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MiniCoinGhost : MiniCoin
 {
-    public override CoinType GetCoinType()
-    {
-        return CoinType.GhostCoin;
-    }
+    // public override CoinType GetCoinType()
+    // {
+    //     return CoinType.GhostCoin;
+    // }
 
     public override void Land() 
     {

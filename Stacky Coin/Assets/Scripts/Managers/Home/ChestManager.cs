@@ -88,11 +88,11 @@ public class ChestManager : MonoBehaviour
         chests[position].state.PressChest();
     }
 
-    private void OnMiniCoinAddedToTube()
+    private void OnMiniCoinAddedToTube(CoinType type)
     {
         foreach (Chest chest in chests)
         {
-            chest.state.OnMiniCoinAddedToTube();
+            chest.state.OnMiniCoinAddedToTube(type);
         }
     }
 
@@ -100,7 +100,7 @@ public class ChestManager : MonoBehaviour
     {
         foreach (Chest chest in chests)
         {
-            chest.state.OnMiniCoinRemovedFromTube();
+            chest.state.OnMiniCoinRemovedFromTube(miniCoin.GetCoinType());
         }
     }
 

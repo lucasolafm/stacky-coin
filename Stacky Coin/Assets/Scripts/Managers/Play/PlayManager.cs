@@ -56,8 +56,9 @@ public class PlayManager : MonoBehaviour
             State.PressDownBlank();
         }
         
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && !IsPointerOverGameObject())
         {
+            if (ScreenshotTool.PauseOnRelease) return;
             State.PressUp();
         }
     }
@@ -149,6 +150,8 @@ public class PlayManager : MonoBehaviour
 
     private bool IsPointerOverGameObject()
     {
+        return EventSystem.current.currentSelectedGameObject != null;
+        
         // Check mouse
         if (EventSystem.current.IsPointerOverGameObject()) return true;
             

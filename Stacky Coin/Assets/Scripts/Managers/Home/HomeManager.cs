@@ -57,7 +57,7 @@ public class HomeManager : MonoBehaviour
         collectionButton.onClick.AddListener(OnPressCollectionButton);
         bonusCoinsButton.onClick.AddListener(PressBonusCoinsButton);
 
-        //GameManager.I.scoredCoins = new List<int>(new int[50] { 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0,} /*new int[10000]*/);
+        //GameManager.I.scoredCoins = new List<int>(new int[] { 0,0,0,0,0,0,0,39,39,39,39,39,39,39,0,0,0,0,0,0,0,0 ,39,39,39,39,39,39,39,39,39,39,39,39,0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0,} /*new int[10000]*/);
 
         if (testGetCoins)
         {
@@ -96,8 +96,8 @@ public class HomeManager : MonoBehaviour
     {
         if (GameManager.I.scoredCoins.Count == 0 || GameManager.I.previousScene == -1) return;
 
-        GameManager.I.AddMiniCoinGhosts();
-        GameManager.I.AddGemBonusMiniCoins();
+        //GameManager.I.AddMiniCoinGhosts();
+        //GameManager.I.AddGemBonusMiniCoins();
 
         // Drop scored coins
         SetState(new HomeDroppingMiniCoins(this, GameManager.I.scoredCoins, true));

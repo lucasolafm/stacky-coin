@@ -67,6 +67,8 @@ public class CloudTrailController : MonoBehaviour
         while (spawnCount < particlesLength)
         {
             yield return waitForFixedUpdate;
+            
+            if (ScreenshotTool.IsPaused) continue;
 
             waypoints.Add(coin.position);
 
@@ -112,6 +114,8 @@ public class CloudTrailController : MonoBehaviour
         while (true)
         {
             yield return null;
+            
+            if (ScreenshotTool.IsPaused) continue;
 
             timeAlive += Time.deltaTime;
 

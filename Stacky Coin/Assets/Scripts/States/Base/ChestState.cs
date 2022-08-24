@@ -17,7 +17,7 @@ public class ChestState : State
 
     public virtual void StartOpeningProcess() {}
 
-    public virtual void OnMiniCoinAddedToTube() {}
+    public virtual void OnMiniCoinAddedToTube(CoinType type) {}
 
-    public virtual void OnMiniCoinRemovedFromTube() {}
+    public virtual void OnMiniCoinRemovedFromTube(CoinType type) {}
 }

@@ -28,6 +28,6 @@ public class ChestAd : ChestOpen
         chest.SetState(new ChestInactive(chest));  
     }
 
-    public override void OnMiniCoinAddedToTube() {}
-    public override void OnMiniCoinRemovedFromTube() {}
+    public override void OnMiniCoinAddedToTube(CoinType type) {}
+    public override void OnMiniCoinRemovedFromTube(CoinType type) {}
 }

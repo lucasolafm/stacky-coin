@@ -30,7 +30,6 @@ public class AdTripleRewardMulti : Ad
 
     public override bool PassesCondition()
     {
-        return true;
         return GameManager.I.scoredCoins.Count >= minimumScoredCoins && Data.tripleAdRewardUsed >= 2;
     }
 

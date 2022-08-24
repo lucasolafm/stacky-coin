@@ -37,7 +37,7 @@ public class UnlockSkinManager : MonoBehaviour
     [HideInInspector] public MiniCoin[] payingCoins;
     [HideInInspector] public Vector3 payingCoinStartScale, payingCoinEndScale;
     private int currentChestPrice;
-    private float currentCoinsEnteredChestCount;
+    private float amountPaid;
     [HideInInspector] public Vector3 chestStartScale;
     private Vector3 expandingStartScale;
     private bool isChargingChest;
@@ -56,7 +56,6 @@ public class UnlockSkinManager : MonoBehaviour
 
         EventManager.BuysChest.AddListener(OnBuysChest);
         EventManager.MiniCoinRemovedFromTube.AddListener(OnMiniCoinRemovedFromTube);
-        EventManager.MiniCoinEntersChest.AddListener(OnMiniCoinEntersChest);
         EventManager.PaidForChest.AddListener(OnPaidForChest);
 
         InstantiatePayingCoins();
@@ -73,7 +72,7 @@ public class UnlockSkinManager : MonoBehaviour
     private void OnBuysChest(Chest boughtChest, bool chestIsPaidByAd)
     {
         currentChestPrice = boughtChest.price;
-        currentCoinsEnteredChestCount = 0;
+        amountPaid = 0;
 
         StartCoroutine(chestPreparer.PrepareChest(boughtChest, chestIsPaidByAd));
 
@@ -92,9 +91,10 @@ public class UnlockSkinManager : MonoBehaviour
         miniCoinPayer.CoinEnteringChest(miniCoin, paidCount, percentageOfPaidThisFrame);
     }
 
-    public void OnMiniCoinEntersChest()
+    public void OnMiniCoinEntersChest(CoinType type)
     {
-        currentCoinsEnteredChestCount++;
+        amountPaid += type == CoinType.Gem ? GameManager.I.gemBonusAmount : 1;
+        //print(type);
 
         if (!isChargingChest)
         {
@@ -201,9 +201,9 @@ public class UnlockSkinManager : MonoBehaviour
 
         while (true)
         {
-            scalingProgress = (currentCoinsEnteredChestCount / currentChestPrice) * (currentCoinsEnteredChestCount / currentChestPrice);
-
-            if (scalingProgress == 1) break;
+            scalingProgress = amountPaid / currentChestPrice * (amountPaid / currentChestPrice);
+            //print(scalingProgress);
+            if (scalingProgress >= 1) break;
 
             expandingStartScale = chestStartScale * (1 + (info.chestScaleMin + scalingProgress * (info.chestScaleMax - info.chestScaleMin)));
 
@@ -226,9 +226,9 @@ public class UnlockSkinManager : MonoBehaviour
     {
         float progress;
 
-        while (currentCoinsEnteredChestCount < currentChestPrice)
+        while (amountPaid < currentChestPrice)
         {
-            progress = currentCoinsEnteredChestCount / currentChestPrice;
+            progress = amountPaid / currentChestPrice;
 
             unlockChest.position = chestPayingPosition + (Vector3)UnityEngine.Random.insideUnitCircle * (info.chestShakeSizeMin + 
                                     progress * (info.chestShakeSizeMax - info.chestShakeSizeMin));
@@ -246,13 +246,13 @@ public class UnlockSkinManager : MonoBehaviour
         float pivotTime;
         float pivotLength;
 
-        while (currentCoinsEnteredChestCount < currentChestPrice)
+        while (amountPaid < currentChestPrice)
         {
             pivotingTime = 0;
             leftOrRight = !leftOrRight;
 
-            pivotTime = info.chestPivotTimeMin + currentCoinsEnteredChestCount / currentChestPrice * (info.chestPivotTimeMax - info.chestPivotTimeMin);
-            pivotLength = info.chestPivotLengthMin + currentCoinsEnteredChestCount / currentChestPrice * (info.chestPivotLengthMax - info.chestPivotLengthMin);
+            pivotTime = info.chestPivotTimeMin + amountPaid / currentChestPrice * (info.chestPivotTimeMax - info.chestPivotTimeMin);
+            pivotLength = info.chestPivotLengthMin + amountPaid / currentChestPrice * (info.chestPivotLengthMax - info.chestPivotLengthMin);
 
             while (pivotingTime < 1)
             {

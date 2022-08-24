@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9134569083451548143}
   - component: {fileID: 9125173120725629923}
   - component: {fileID: 9116992237037334813}
-  - component: {fileID: 1498482945123889002}
+  - component: {fileID: -4242209908378243668}
   m_Layer: 19
   m_Name: 02_Trillant
   m_TagString: Untagged
@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.0036, y: -5.0522842, z: 2.94104}
   m_LocalScale: {x: 0.13676076, y: 0.093245976, z: 0.08476907}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -52,6 +53,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -82,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1498482945123889002
+--- !u!114 &-4242209908378243668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,9 +93,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9137876180170405935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e13d8727ed5d34c87888265131cbec, type: 3}
+  m_Script: {fileID: 11500000, guid: 167887965ae3ecf4e9a4709ec1980ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   gameObject: {fileID: 9137876180170405935}
   transform: {fileID: 9134569083451548143}
   renderer: {fileID: 9116992237037334813}

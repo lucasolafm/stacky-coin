@@ -125,11 +125,11 @@ public class MiniCoinManager : MonoBehaviour
     public int GetNextNewMiniCoinIndex(int index)
     {
         index++;
-        if (homeManager.newMiniCoinsCount > index + GameManager.I.gemBonusAmount && 
-            homeManager.newMiniCoins[index + GameManager.I.gemBonusAmount].GetCoinType() == CoinType.Gem)
-        {
-            index += GameManager.I.gemBonusAmount;
-        }
+        // if (homeManager.newMiniCoinsCount > index + GameManager.I.gemBonusAmount && 
+        //     homeManager.newMiniCoins[index + GameManager.I.gemBonusAmount].GetCoinType() == CoinType.Gem)
+        // {
+        //     index += GameManager.I.gemBonusAmount;
+        // }
 
         return index;
     }
