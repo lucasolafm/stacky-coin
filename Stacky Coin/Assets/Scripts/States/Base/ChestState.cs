@@ -13,7 +13,7 @@ public class ChestState : State
 
     public virtual bool GetIsActive() { return false; }
 
-    public virtual void PressChest() {}
+    public virtual void PressChest() {Debug.Log("press");}
 
     public virtual void StartOpeningProcess() {}
 

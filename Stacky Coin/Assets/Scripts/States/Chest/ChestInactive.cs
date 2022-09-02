@@ -15,8 +15,6 @@ public class ChestInactive : ChestState
     {
         base.Enter();
 
-        chest.backgroundSprite.color = chest.chestManager.backgroundColorLocked;
-
         chest.gameObject.SetActive(false);
     }
 }

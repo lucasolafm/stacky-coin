@@ -8,8 +8,9 @@ public class ChestAd : ChestOpen
 
     public override void SetPointer()
     {
-        chest.pointerSprite.sprite = chest.chestManager.pointerSpriteAd;
-        chest.counterText.gameObject.SetActive(false);
+        // chest.pointerSprite.sprite = chest.chestManager.pointerSpriteAd;
+        // chest.counterText.gameObject.SetActive(false);
+        chest.SetPointerAd();
     }
 
     public override void PressChest()

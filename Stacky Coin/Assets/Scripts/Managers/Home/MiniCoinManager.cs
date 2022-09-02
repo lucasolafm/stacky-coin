@@ -9,6 +9,7 @@ public class MiniCoinManager : MonoBehaviour
     [SerializeField] private InstantiationManagerHome instantiationManager;
     public ChestManager chestManager;
     public Camera mainCamera, keyCamera;
+    [SerializeField] private Camera playAgainCoinCamera;
     
     public Material[] gemMaterials;
     public Material coinMaterial;
@@ -132,5 +133,11 @@ public class MiniCoinManager : MonoBehaviour
         // }
 
         return index;
+    }
+    
+    public Vector3 GetChestPositionOnScreenKey(Chest chest)
+    {
+        Vector2 screenPosOtherCam = playAgainCoinCamera.WorldToScreenPoint(chest.transform.position);
+        return keyCamera.ScreenToWorldPoint(screenPosOtherCam);
     }
 }

@@ -10,14 +10,9 @@ public class ChestManager : MonoBehaviour
     [SerializeField] private bool testGetLvl3Chest;
     
     [SerializeField] private HomeManager homeManager;
-    [SerializeField] private CoinTubeManager coinTubeManager;
-    [SerializeField] private MiniCoinManager miniCoinManager;
     public Chest[] chests;
-    [SerializeField] private Button[] buttons;
 
     public Sprite[] spritesLocked, spritesOpen;
-    public Sprite pointerSpriteLocked, pointerSpriteOpen, pointerSpriteAd;
-    public Color backgroundColorLocked, backgroundColorOpen;
     public float lockedTransparency;
     public int priceRange;
     public int[] priceMinimums;
@@ -25,7 +20,7 @@ public class ChestManager : MonoBehaviour
     [SerializeField] private float spawnTime, spawnSize;
 
     private int[] chestsInData;
-    private Vector3 spriteStartScale, pointerStartScale;
+    private Vector3 spriteStartScale;
     private Vector3[] outlinePositions;
 
     public void Initialize()
@@ -34,17 +29,11 @@ public class ChestManager : MonoBehaviour
         EventManager.MiniCoinRemovedFromTube.AddListener(OnMiniCoinRemovedFromTube);
 
         spriteStartScale = chests[0].sprite.transform.localScale;
-        pointerStartScale = chests[0].pointer.transform.localScale;
-
-        //SetChestOutlines();
-
+        
         // Add chests from data
         chestsInData = Data.chests;
         for (int i = 0; i < chests.Length; i++)
         {
-            int position = i;
-            buttons[i].onClick.AddListener(() => PressChest(position));
-
             PrepareChest(chests[i], GetChestLevel(chestsInData[i]), chestsInData[i], i);
 
             if (chestsInData[i] == 0)
@@ -82,8 +71,8 @@ public class ChestManager : MonoBehaviour
             EnableChest(2);
         }
     }
-
-    private void PressChest(int position)
+    
+    public void PressChest(int position)
     {
         chests[position].state.PressChest();
     }
@@ -142,7 +131,6 @@ public class ChestManager : MonoBehaviour
             progress = 1 - (1 + 2.70158f * Mathf.Pow(t - 1, 3) + 1.70158f * Mathf.Pow(t - 1, 2));
 
             chests[index].sprite.transform.localScale = spriteStartScale * (1 + progress * spawnSize);
-            chests[index].pointer.transform.localScale = pointerStartScale * (1 + progress * spawnSize);
 
             yield return null;
         }

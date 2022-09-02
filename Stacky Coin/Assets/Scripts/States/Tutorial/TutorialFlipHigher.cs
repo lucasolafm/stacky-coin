@@ -27,6 +27,13 @@ public class TutorialFlipHigher : TutorialState
             TutorialManager.tutorialText.text = TutorialManager.tutorialLevels[TutorialManager.currentLevelNr].text + " (" + flippedCorrectlyCount + "/3)";
         }
 
+        if (flippedCorrectlyCount < 3)
+        {
+            Coin coin = TutorialManager.instantiationManager.InstantiateObject(CoinType.Coin, 5);
+
+            TutorialManager.InsertNextNewObjects(new Coin[]{coin});
+        }
+
         base.OnFlip(HandChargesTime);
     }
 
@@ -35,12 +42,6 @@ public class TutorialFlipHigher : TutorialState
         if (flippedCorrectlyCount == 3)
         {
             TutorialManager.StartCoroutine(NextTutorialLevel());
-        }
-        else
-        {
-            Coin coin = TutorialManager.instantiationManager.InstantiateObject(CoinType.Coin, 5);
-
-            TutorialManager.InsertNextNewObjects(new Coin[]{coin});
         }
     }
 

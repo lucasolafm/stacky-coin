@@ -134,13 +134,13 @@ public class CoinManager : MonoBehaviour
 
         if (GameManager.I.previousScene == -1)
         {
-            PrepareForNewStage();      
+            PrepareForNewStage(false);      
         }
     }
 
     private void OnLoadingScreenSlidOut()
     {
-        PrepareForNewStage();
+        PrepareForNewStage(true);
     }
 
     private void OnCoinFlips(Coin coin, float chargeTime)
@@ -156,7 +156,7 @@ public class CoinManager : MonoBehaviour
 
     private void OnStageInitialized()
     {		
-        PrepareForNewStage();
+        PrepareForNewStage(true);
     }
 
     private void OnGoingGameOver()
@@ -180,7 +180,7 @@ public class CoinManager : MonoBehaviour
         EventManager.CoinDespawns.Invoke(Coins[newCoinIndex]);
     }
 
-    private void PrepareForNewStage()
+    private void PrepareForNewStage(bool spawnNow)
     {
         if (!spawnNoMoreKeys && !GetCanSpawnKeys())
         {
@@ -189,11 +189,13 @@ public class CoinManager : MonoBehaviour
         }
         
         instantiationManager.InstantiateCoins(Mathf.Max(20 - (Coins.Count - spawnedCoinsCount), 0));
+
+        if (!spawnNow) return;
         
         SpawnCoin();
     }
 
-    private void SpawnCoin()
+    public void SpawnCoin()
     {
         // If there are no more coins, instantiate new ones
         if (Coins.Count - spawnedCoinsCount == 0)
@@ -201,6 +203,7 @@ public class CoinManager : MonoBehaviour
             instantiationManager.InstantiateCoins(5);
         }
 
+        print("spawn");
         spawnedCoinsCount++;
 
         Coins[newCoinIndex].SetState(new CoinSpawned(Coins[newCoinIndex]));

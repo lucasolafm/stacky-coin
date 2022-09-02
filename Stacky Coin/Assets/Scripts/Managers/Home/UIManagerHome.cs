@@ -42,16 +42,6 @@ public class UIManagerHome : MonoBehaviour
 
             uiElementsCount++;
         }
-        for (int i = 0; i < dynamicCanvas.childCount; i++)
-        {
-            if (dynamicCanvas.GetChild(i).parent != dynamicCanvas) continue;
-
-            uiElements.Add(dynamicCanvas.GetChild(i).GetComponent<RectTransform>());
-
-            uiElementsStartPositions.Add(dynamicCanvas.GetChild(i).localPosition);
-
-            uiElementsCount++;
-        }
     }
 
     private void OnNewHighScore()

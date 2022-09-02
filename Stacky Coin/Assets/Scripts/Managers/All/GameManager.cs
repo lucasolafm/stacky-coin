@@ -193,38 +193,6 @@ public class GameManager : MonoBehaviour
         Data.highPileHeight = finalPileHeight;
     }
 
-    public void AddMiniCoinGhosts()
-    {
-        miniCoinsCount = scoredCoins.Count;
-        for (int i = miniCoinsCount - 1; i >= 0; i--)
-        {
-            if (scoredCoins[i] >= coinSkinAmount)
-            {
-                int ghostCount = Mathf.Max(gemBonusAmount + gemBonusCoinDelay - (miniCoinsCount - 1 - i), 0);
-
-                for (int z = 0; z < ghostCount; z++)
-                {
-                    scoredCoins.Add(-1);
-                }
-            } 
-        }
-    } 
-
-    public void AddGemBonusMiniCoins()
-    {
-        miniCoinsCount = scoredCoins.Count;
-        for (int i = miniCoinsCount - 1; i >= 0; i--)
-        {
-            if (scoredCoins[i] >= coinSkinAmount)
-            {
-                for (int z = 0; z < gemBonusAmount; z++)
-                {
-                    scoredCoins.Insert(i, 0);
-                }
-            }
-        }
-    }  
-
     public void RemoveMiniKeysAndGhostCoins(List<int> identifiers)
     {
         miniCoinsCount = identifiers.Count;

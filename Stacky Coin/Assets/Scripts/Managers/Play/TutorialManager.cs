@@ -90,6 +90,7 @@ public class TutorialManager : MonoBehaviour
         {
             coinManager.Coins.Remove(objects[i]);
             coinManager.Coins[coinManager.spawnedCoinsCount + i] = objects[i];
+            print(coinManager.spawnedCoinsCount);
             objects[i].SetState(new CoinInactive(objects[i]));
         }
     }
@@ -111,43 +112,32 @@ public class TutorialManager : MonoBehaviour
     private void SpawnTutorialObjects()
     {
         Coin obj1 = null;
-        Coin obj2 = null;
-        Coin obj3 = null;
 
         // Flip
         obj1 = instantiationManager.InstantiateObject(CoinType.Coin);
         obj1.SetState(new CoinInactive(obj1));
         tutorialLevels[0].coins = new Coin[1] { obj1 };
         
-
         // Flip again
         obj1 =  instantiationManager.InstantiateObject(CoinType.Coin);
         obj1.SetState(new CoinInactive(obj1));
         tutorialLevels[1].coins = new Coin[1] { obj1 };
-        
 
         // Flip higher
         obj1 = instantiationManager.InstantiateObject(CoinType.Coin);
-        obj2 = instantiationManager.InstantiateObject(CoinType.Coin);
-        obj3 = instantiationManager.InstantiateObject(CoinType.Coin); 
         obj1.SetState(new CoinInactive(obj1));
-        obj2.SetState(new CoinInactive(obj2));
-        obj3.SetState(new CoinInactive(obj3));
-        tutorialLevels[2].coins = new Coin[3] { obj1, obj2, obj3 };
-        
+        tutorialLevels[2].coins = new Coin[1] { obj1 };
 
         // Heavy objects
         obj1 = instantiationManager.InstantiateObject(CoinType.Gem);
         obj1.SetState(new CoinInactive(obj1));
         tutorialLevels[3].coins = new Coin[1] { obj1 };
         
-
         // Gems
         obj1 = instantiationManager.InstantiateObject(CoinType.Gem, -1, 1);
         obj1.SetState(new CoinInactive(obj1));
         tutorialLevels[4].coins = new Coin[1] { obj1 };
         
-
         // Pause
         obj1 = instantiationManager.InstantiateObject(CoinType.Coin);
         obj1.SetState(new CoinInactive(obj1));

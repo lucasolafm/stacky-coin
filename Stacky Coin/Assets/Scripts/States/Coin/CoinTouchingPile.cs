@@ -24,6 +24,7 @@ public class CoinTouchingPile : CoinState
         coin.rb.drag = coin.coinPileManager.coinDrag;
         coin.collider.material.dynamicFriction = 9;
         coin.collider.material.staticFriction = 9;
+        coin.gameObject.layer = 11;
 
         // Disable trail
         coin.StartCoroutine(DisableTrailsAfterDelay());

@@ -9,7 +9,8 @@ public class UnlockSkinManager : MonoBehaviour
     [SerializeField] private HomeManager homeManager;
     [SerializeField] private CollectionManager collectionManager;
     public new Camera camera;
-    public Camera collectionCamera, cameraMain;
+    public Camera collectionCamera;
+    [SerializeField] private Camera playAgainCoinCamera;
     [SerializeField] private MiniCoin miniCoinPrefab;
     [SerializeField] private Transform payingCoinsHolder;
     public Transform unlockChest;
@@ -22,7 +23,6 @@ public class UnlockSkinManager : MonoBehaviour
 
     public ChestChargeUpInfo info;
     public Renderer background;     
-    public Transform collectionSkinCoins;
     public RectTransform skinPreviewExit;
     public RectTransform collectionButton;
     public GameObject collectionLightsFull, collectionLightsGreyscale;
@@ -111,6 +111,12 @@ public class UnlockSkinManager : MonoBehaviour
         if (isDuplicateSkin) return;
 
         EventManager.UnlockedNewCoinSkin.Invoke(unlockedSkinId);
+    }
+
+    public Vector3 GetChestPositionOnScreen(Chest chest)
+    {
+        Vector2 screenPosOtherCam = playAgainCoinCamera.WorldToScreenPoint(chest.transform.position);
+        return camera.ScreenToWorldPoint(screenPosOtherCam);
     }
 
     private IEnumerator ChargeToOpenChest()

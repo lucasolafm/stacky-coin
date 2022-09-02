@@ -20,7 +20,8 @@ public class UnlockChestPreparer
 
         manager.StartCoroutine(BackgroundFade(true));
 
-        yield return manager.StartCoroutine(MoveChestToPayingPosition(boughtChest.transform.position));
+        Vector3 startPosition = manager.GetChestPositionOnScreen(boughtChest);
+        yield return manager.StartCoroutine(MoveChestToPayingPosition(startPosition));
 
         EventManager.ChestArrivesAtPayingPosition.Invoke(boughtChest, chestIsPaidByAd);
     }

@@ -27,7 +27,7 @@ public class HomeManager : MonoBehaviour
     public AudioClip unlockClip;
     public static float chestUnlockTime;
 
-    [SerializeField] private Button playAgainButton, collectionButton, bonusCoinsButton;
+    [SerializeField] private Button collectionButton;
 
     public List<int> bonusCoins = new List<int>();
 
@@ -53,9 +53,7 @@ public class HomeManager : MonoBehaviour
         EventManager.BuysChest.AddListener(OnBuysChest);
         EventManager.ChestArrivesAtPayingPosition.AddListener(OnChestArrivesAtPayingPosition);
         EventManager.SwipesScreen.AddListener(OnSwipesScreen);
-        playAgainButton.onClick.AddListener(PressPlayAgainButton);
         collectionButton.onClick.AddListener(OnPressCollectionButton);
-        bonusCoinsButton.onClick.AddListener(PressBonusCoinsButton);
 
         //GameManager.I.scoredCoins = new List<int>(new int[] { 0,0,0,0,0,0,0,39,39,39,39,39,39,39,0,0,0,0,0,0,0,0 ,39,39,39,39,39,39,39,39,39,39,39,39,0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0,} /*new int[10000]*/);
 
@@ -64,7 +62,7 @@ public class HomeManager : MonoBehaviour
             GameManager.I.scoredCoins = new List<int>(new int[9900]);
         }
 
-        screenWorldWidth = (camera.ScreenToWorldPoint(Vector3.zero) - camera.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0))).magnitude;
+        screenWorldWidth = camera.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x - camera.ScreenToWorldPoint(Vector3.zero).x;
 
         startOriginalMiniCoins = Data.miniCoins;
         
@@ -135,7 +133,7 @@ public class HomeManager : MonoBehaviour
         SetState(new HomePayingMiniCoins(this, chest));
     }
 
-    private void PressPlayAgainButton()
+    public void PressPlayAgainButton()
     {
         State.PressPlayAgainButton();
     }
@@ -150,7 +148,7 @@ public class HomeManager : MonoBehaviour
         State.SwipeScreen(rightOrLeft);
     }
 
-    private void PressBonusCoinsButton()
+    public void PressBonusCoinsButton()
     {
         EventManager.PressedBonusCoinsButton.Invoke();
     }

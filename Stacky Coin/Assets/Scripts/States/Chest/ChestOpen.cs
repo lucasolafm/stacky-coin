@@ -16,11 +16,12 @@ public class ChestOpen : ChestState
 
     public virtual void SetPointer()
     {
-        chest.pointerSprite.sprite = chest.chestManager.pointerSpriteOpen;
-        chest.counterText.text = "GET";
-        chest.counterText.font = chest.counterShaderOpen;
-        chest.counterText.fontSize = 30;
-        chest.counterText.gameObject.SetActive(true);
+        // chest.pointerSprite.sprite = chest.chestManager.pointerSpriteOpen;
+        // chest.counterText.text = "GET";
+        // chest.counterText.font = chest.counterShaderOpen;
+        // chest.counterText.fontSize = 30;
+        // chest.counterText.gameObject.SetActive(true);
+        chest.SetPointerOpen();
     }
 
     public override bool GetIsActive()
@@ -34,7 +35,6 @@ public class ChestOpen : ChestState
 
         chest.sprite.sprite = chest.chestManager.spritesOpen[chest.level - 1];
         chest.sprite.color = new Color(chest.sprite.color.r, chest.sprite.color.g, chest.sprite.color.b, 1);
-        chest.backgroundSprite.color = chest.chestManager.backgroundColorOpen;
         SetPointer();
     }
 
@@ -45,7 +45,7 @@ public class ChestOpen : ChestState
 
         hoverProgress = -(Mathf.Cos(Mathf.PI * Mathf.Min(hoverTime, 1)) - 1) / 2;
 
-        chest.pointer.localPosition = (firstMove ? chest.pointerOriginalPos : chest.pointerOriginalPos + 
+        chest.pointerOpen.transform.localPosition = (firstMove ? chest.pointerOpenOriginalPos : chest.pointerOpenOriginalPos + 
                                         new Vector3(0, chest.chestManager.pointerHoverDistance * 0.5f * (upOrDown ? -1 : 1), 0)) + 
                                         new Vector3(0, chest.chestManager.pointerHoverDistance * (firstMove ? 0.5f : 1) * hoverProgress, 0) * (upOrDown ? 1 : -1);
 
@@ -63,7 +63,7 @@ public class ChestOpen : ChestState
 
             expandProgress = -(Mathf.Cos(Mathf.PI * Mathf.Min(expandTime, 1)) - 1) / 2;
 
-            chest.pointer.localScale = chest.pointerOriginalScale * (1 + (inOrOut ? 1 - expandProgress : expandProgress) * chest.chestManager.pointerExpandSize);
+            chest.pointerOpen.transform.localScale = chest.pointerOpenOriginalScale * (1 + (inOrOut ? 1 - expandProgress : expandProgress) * chest.chestManager.pointerExpandSize);
 
             if (expandTime >= 1)
             {
@@ -94,6 +94,7 @@ public class ChestOpen : ChestState
 
     public override void PressChest()
     {
+        Debug.Log("press chest");
         if (!chest.homeManager.State.CanBuyChest()) return;
 
         StartOpeningProcess();

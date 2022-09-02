@@ -7,10 +7,11 @@ public class MoveCamUpPerScreenHeight : MonoBehaviour
     public Vector3 targetPosBottomScreen;
     public Vector3 camVerticleOffset;
     public bool inCollection;
-    public bool isCoinTube;
-
+    
     public void MoveUp()
     {
+        //targetPosBottomScreen = GetComponent<Camera>().ScreenToWorldPoint(Vector3.zero);
+        //return;
         Camera _camera = GetComponent<Camera>();
 
         camVerticleOffset = targetPosBottomScreen - _camera.ScreenToWorldPoint(Vector3.zero);

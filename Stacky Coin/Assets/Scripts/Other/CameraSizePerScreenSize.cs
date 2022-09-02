@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,12 +9,10 @@ public class CameraSizePerScreenSize : MonoBehaviour
 {
     public float sceneWidth;
     public MoveCamUpPerScreenHeight moveScript;
-    public RectTransform scrollbar;
-
     Camera _camera;
 
-    void Awake() 
-    {        
+    void Awake()
+    {
         _camera = GetComponent<Camera>();
 
         float unitsPerPixel = sceneWidth / Screen.width;
@@ -21,8 +20,6 @@ public class CameraSizePerScreenSize : MonoBehaviour
         float desiredHalfHeight = 0.5f * unitsPerPixel * Screen.height;
 
         _camera.orthographicSize = desiredHalfHeight;
-
-        //if (scrollbar) scrollbar.sizeDelta = new Vector2(scrollbar.sizeDelta.x, Screen.height);
 
         if (moveScript) moveScript.MoveUp();
     }

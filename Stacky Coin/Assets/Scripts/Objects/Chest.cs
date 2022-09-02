@@ -6,26 +6,25 @@ using TMPro;
 
 public class Chest : MonoBehaviour
 {
+	public int id;
+	[SerializeField] private GameObject pointerLocked;
+	public GameObject pointerOpen;
+	[SerializeField] private GameObject pointerAd;
+	public TextMeshPro pointerLockedText;
+	
 	[HideInInspector] public ChestManager chestManager;
 	[HideInInspector] public HomeManager homeManager;
-	public RectTransform rectTransform;
-	public RectTransform pointer;
-	public Image sprite, pointerSprite, backgroundSprite;
-    public TextMeshProUGUI counterText;
-	public PolygonCollider2D polygonCollider;
-	public LineRenderer outline;
-	public TMP_FontAsset counterShaderOpen;
-	public TMP_FontAsset counterShaderLocked;
+	public SpriteRenderer sprite;
 
-	public ChestState state;
+    public ChestState state;
 	[HideInInspector] public int position, price, level;
 	[HideInInspector] public int counter;
-	[HideInInspector] public Vector3 pointerOriginalPos, pointerOriginalScale;
+	[HideInInspector] public Vector3 pointerOpenOriginalPos, pointerOpenOriginalScale;
 
 	void Awake()
 	{
-		pointerOriginalPos = pointer.localPosition;
-		pointerOriginalScale = pointer.localScale;
+		pointerOpenOriginalPos = pointerOpen.transform.localPosition;
+		pointerOpenOriginalScale = pointerOpen.transform.localScale;
 	}
 
 	void Update()
@@ -36,7 +35,7 @@ public class Chest : MonoBehaviour
 	public void SetCounter()
 	{
 		counter = price - homeManager.startOriginalMiniCoins.Length;
-		counterText.text = counter.ToString();
+		pointerLockedText.text = counter.ToString();
 	}
 
 	public void SetState(ChestState state)
@@ -44,5 +43,23 @@ public class Chest : MonoBehaviour
 		if (this.state != null) this.state.Exit();
 		this.state = state;
 		this.state.Enter();
+	}
+
+	public void SetPointerLocked()
+	{
+		pointerLocked.SetActive(true);
+		pointerOpen.SetActive(false);
+	}
+
+	public void SetPointerOpen()
+	{
+		pointerLocked.SetActive(false);
+		pointerOpen.SetActive(true);
+	}
+
+	public void SetPointerAd()
+	{
+		pointerLocked.SetActive(false);
+		pointerAd.SetActive(true);
 	}
 }

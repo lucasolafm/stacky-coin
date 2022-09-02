@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BonusCoinsController : MonoBehaviour
 {
     [SerializeField] private HomeManager homeManager;
-    [SerializeField] private Button bonusCoinsButton;
+    [SerializeField] private SpriteRenderer bonusCoinsButton;
     [SerializeField] private Transform mainCamera, coinTubeCamera;
     [SerializeField] private ParticleSystem coinsEffect;
     [SerializeField] private AudioClip coinsGetClip;
@@ -37,9 +37,9 @@ public class BonusCoinsController : MonoBehaviour
 
         homeManager.State.DropMiniCoins(bonusCoins);
 
-        bonusCoinsButton.interactable = false;
+        bonusCoinsButton.GetComponent<Collider>().enabled = false;
 
-        StartCoroutine(ButtonPressedAnimation(bonusCoinsButton.transform, particleAmount));
+        StartCoroutine(ButtonPressedAnimation(bonusCoinsButton, particleAmount));
         
         GameManager.I.audioSource.PlayOneShot(coinsGetClip, 1);
 
@@ -48,7 +48,7 @@ public class BonusCoinsController : MonoBehaviour
 
     private void EnableBonusCoinsButton()
     {
-        bonusCoinsButton.gameObject.SetActive(true);
+        bonusCoinsButton.enabled = true;
 
         StartCoroutine(ShakeButton());
     }
@@ -71,12 +71,13 @@ public class BonusCoinsController : MonoBehaviour
     private IEnumerator ShakeButton()
     {
         float t;
-        float startRotation;
+        Quaternion startRotation;
         float rotationValue;
         float shakeRatio;
         float angle;
         bool firstShake;
         bool lastShake;
+        float lastShakeAngle = 0;
         Transform buttonTransform = bonusCoinsButton.transform;
 
         while (true)
@@ -86,9 +87,10 @@ public class BonusCoinsController : MonoBehaviour
             for (int i = 0; i < _shakeSettings.ShakeAmount; i++)
             {
                 t = 0;
-                startRotation = buttonTransform.eulerAngles.z;
+                startRotation = buttonTransform.rotation;
                 firstShake = i == 0;
                 lastShake = i == _shakeSettings.ShakeAmount - 1;
+                if (lastShake) lastShakeAngle = buttonTransform.eulerAngles.z;
                 shakeRatio = (_shakeSettings.ShakeAmount - i) / _shakeSettings.ShakeAmount;
 
                 while (t < 1)
@@ -97,11 +99,11 @@ public class BonusCoinsController : MonoBehaviour
 
                     angle = _shakeSettings.AngleValue * shakeRatio;
 
-                    rotationValue = (lastShake ? startRotation : angle * (firstShake ? 0.5f : 1)) *
+                    rotationValue = (lastShake ? lastShakeAngle : angle * (firstShake ? 0.5f : 1)) *
                                     (i % 2 == 0 ? 1 : -1) *
                                     Utilities.EaseInOutSine(t);
 
-                    buttonTransform.rotation = Quaternion.Euler(0, 0, startRotation + rotationValue);
+                    buttonTransform.rotation = startRotation * Quaternion.Euler(0, 0, rotationValue);
 
                     yield return null;
                 }
@@ -111,30 +113,30 @@ public class BonusCoinsController : MonoBehaviour
         }
     }
 
-    public IEnumerator ButtonPressedAnimation(Transform button, int particleAmount)
+    public IEnumerator ButtonPressedAnimation(SpriteRenderer button, int particleAmount)
     {
-        PrepareCoinsEffect(button.position, particleAmount);
+        PrepareCoinsEffect(button.transform.position, particleAmount);
 
         coinsEffect.Play();
 
         float t = 0;
-        Vector3 startScale = button.localScale;
+        Vector3 startScale = button.transform.localScale;
 
         while (t < 1)
         {
             t = Mathf.Min(t + Time.deltaTime / pressAnimationTime, 1);
 
-            button.localScale = startScale * (1 - (2.70158f * t * t * t - 1.70158f * t * t));
+            button.transform.localScale = startScale * (1 - (2.70158f * t * t * t - 1.70158f * t * t));
 
             yield return null;
         }
 
-        button.gameObject.SetActive(false);
+        button.enabled = false;
     }
 
     private void PrepareCoinsEffect(Vector3 buttonPosition, int particleAmount)
     {
-        coinsEffect.transform.position = buttonPosition + new Vector3(0, 0, -10);/* - mainCamera.position + coinTubeCamera.position*/;
+        coinsEffect.transform.position = buttonPosition;
 
         ParticleSystem.EmissionModule emissionModule = coinsEffect.emission;
         emissionModule.SetBurst(0, new ParticleSystem.Burst(0, particleAmount));

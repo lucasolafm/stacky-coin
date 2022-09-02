@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class AdManager : MonoBehaviour
+public class  AdManager : MonoBehaviour
 {
     [SerializeField] private GameObject noInternetPopup;
     public GameObject loadingSpinnerAnimator;
@@ -89,7 +89,6 @@ public class AdManager : MonoBehaviour
 
     private void InitializeTimers()
     {
-        print("initialize");
         ResetPlayAdTimer();
 
         float[] tempTimers = new float[ads.Length];

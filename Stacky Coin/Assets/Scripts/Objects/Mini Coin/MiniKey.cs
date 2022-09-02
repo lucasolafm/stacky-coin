@@ -153,8 +153,8 @@ public class MiniKey : MiniCoin
     {
         float t = 0;
         float progress;
-        Vector3 target = miniCoinManager.chestManager.chests[chestPosition].rectTransform.TransformPoint(
-                            miniCoinManager.chestManager.chests[chestPosition].rectTransform.position);
+        Vector3 target =
+            miniCoinManager.GetChestPositionOnScreenKey(miniCoinManager.chestManager.chests[chestPosition]);
 
         while (t < 1)
         {

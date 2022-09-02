@@ -28,6 +28,7 @@ public class PlayAgainCoinController : MonoBehaviour
     private void OnLoadedHomeScene()
     {
         startPosition = playAgainCoin.position;
+        print(startPosition);
         
         Invoke(nameof(PlayEnterSound), enterClipDelay);
 

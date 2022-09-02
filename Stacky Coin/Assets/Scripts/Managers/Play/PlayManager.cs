@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class PlayManager : MonoBehaviour
 {
+    [SerializeField] private bool testStartAsReset;
     public CoinManager coinManager;
     public HandManager handManager;
     [SerializeField] private TutorialManager tutorialManager;
@@ -41,6 +42,7 @@ public class PlayManager : MonoBehaviour
 
         coinManager.Initialize();
         tutorialManager.Initialize();
+        if (tutorialManager.tutorialActive || GameManager.I.previousScene == -1) coinManager.SpawnCoin();
 
         nextStageTarget = 10;
 
