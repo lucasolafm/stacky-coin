@@ -184,8 +184,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1858122}
   - component: {fileID: 1858125}
-  - component: {fileID: 1858124}
   - component: {fileID: 1858123}
+  - component: {fileID: 1858127}
+  - component: {fileID: 1858126}
   m_Layer: 0
   m_Name: Camera Bonus Coins Effect
   m_TagString: Untagged
@@ -221,14 +222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1858125}
---- !u!124 &1858124
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858121}
-  m_Enabled: 1
 --- !u!20 &1858125
 Camera:
   m_ObjectHideFlags: 0
@@ -272,6 +265,35 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1858126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d36e9645f8af74f9858a5476296d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosBottomScreen: {x: -2.8597305, y: -2.2249997, z: -2.3989868}
+  camVerticleOffset: {x: 0, y: 0, z: 0}
+  inCollection: 0
+--- !u!114 &1858127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec3e4e5323984f47a50d4adc9073c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneWidth: 1.18228
+  moveScript: {fileID: 458458857}
 --- !u!1 &3959683
 GameObject:
   m_ObjectHideFlags: 0
@@ -2534,7 +2556,7 @@ Transform:
   m_GameObject: {fileID: 259192059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.33, y: -1.17, z: 4.16}
-  m_LocalScale: {x: 0.17158419, y: 0.17158419, z: 0.17158419}
+  m_LocalScale: {x: 0.14883555, y: 0.14883555, z: 0.14883555}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1545434474}
@@ -2582,7 +2604,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d36b78755838d994cb667d733ff1e795, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.574, b: 0.980414, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5314,8 +5336,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1289879507}
   m_HandleRect: {fileID: 1289879506}
   m_Direction: 2
-  m_Value: 0.99997866
-  m_Size: 0.39734647
+  m_Value: 1.0000001
+  m_Size: 0.42124912
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5889,7 +5911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec3e4e5323984f47a50d4adc9073c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneWidth: 1.17982
+  sceneWidth: 1.18228
   moveScript: {fileID: 492746118}
 --- !u!124 &492746120
 Behaviour:
@@ -15577,8 +15599,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1014966494}
   - component: {fileID: 1014966497}
-  - component: {fileID: 1014966496}
   - component: {fileID: 1014966495}
+  - component: {fileID: 1014966499}
+  - component: {fileID: 1014966498}
   m_Layer: 0
   m_Name: Camera Keys
   m_TagString: Untagged
@@ -15614,14 +15637,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1014966497}
---- !u!124 &1014966496
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1014966493}
-  m_Enabled: 1
 --- !u!20 &1014966497
 Camera:
   m_ObjectHideFlags: 0
@@ -15665,6 +15680,35 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1014966498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014966493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d36e9645f8af74f9858a5476296d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosBottomScreen: {x: -2.8597305, y: -2.2249997, z: -2.3989868}
+  camVerticleOffset: {x: 0, y: 0, z: 0}
+  inCollection: 0
+--- !u!114 &1014966499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014966493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec3e4e5323984f47a50d4adc9073c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneWidth: 1.18228
+  moveScript: {fileID: 458458857}
 --- !u!1 &1023313976
 GameObject:
   m_ObjectHideFlags: 0
@@ -16330,7 +16374,7 @@ MonoBehaviour:
   coinsEffect: {fileID: 941741762}
   coinsGetClip: {fileID: 8300000, guid: ad93b609bbdbd2a488d4dfd70dc64967, type: 3}
   bonusCoins: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  timerTime: 0
+  timerTime: 90
   pressAnimationTime: 0.3
   particleAmount: 30
   _shakeSettings: {fileID: 11400000, guid: d931bd510bd2fcb418b4f52b8f93903d, type: 2}
@@ -16499,7 +16543,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1140576728}
   - component: {fileID: 1140576729}
-  - component: {fileID: 1140576730}
   - component: {fileID: 1140576731}
   - component: {fileID: 1140576732}
   - component: {fileID: 1140576733}
@@ -16544,6 +16587,7 @@ MonoBehaviour:
   coinTubeManager: {fileID: 374992544}
   chestManager: {fileID: 543803923}
   adManager: {fileID: 1265742265}
+  bonusCoinsController: {fileID: 1124657749}
   homeHolder: {fileID: 1376358570}
   camera: {fileID: 1721218557}
   effectGemBonusCoinPrefab: {fileID: 8205014510153938859, guid: 66f778cc17a9350429b032fab007b134,
@@ -16576,35 +16620,6 @@ MonoBehaviour:
   miniCoinsToWaitForBeforeDropping: []
   droppingMiniCoinsInQueue: 0
   totalSpawnedMiniCoins: 0
---- !u!114 &1140576730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140576727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 13
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1140576729}
-          m_TargetAssemblyTypeName: HomeManager, Assembly-CSharp
-          m_MethodName: SwipeScreen
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!81 &1140576731
 AudioListener:
   m_ObjectHideFlags: 0
@@ -17530,7 +17545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec3e4e5323984f47a50d4adc9073c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneWidth: 1.17982
+  sceneWidth: 1.18228
   moveScript: {fileID: 1189554921}
 --- !u!124 &1189554923
 Behaviour:
@@ -18587,8 +18602,8 @@ RectTransform:
   m_Father: {fileID: 842663181}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.6026407}
-  m_AnchorMax: {x: 1, y: 0.9999871}
+  m_AnchorMin: {x: 0, y: 0.57875085}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -24275,8 +24290,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1350053320}
   - component: {fileID: 1350053323}
-  - component: {fileID: 1350053322}
   - component: {fileID: 1350053321}
+  - component: {fileID: 1350053325}
+  - component: {fileID: 1350053324}
   m_Layer: 0
   m_Name: Camera Unlocking
   m_TagString: Untagged
@@ -24313,14 +24329,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1350053323}
---- !u!124 &1350053322
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350053319}
-  m_Enabled: 1
 --- !u!20 &1350053323
 Camera:
   m_ObjectHideFlags: 0
@@ -24364,6 +24372,35 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1350053324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350053319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d36e9645f8af74f9858a5476296d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosBottomScreen: {x: -2.8597305, y: -2.2249997, z: -2.3989868}
+  camVerticleOffset: {x: 0, y: 0, z: 0}
+  inCollection: 0
+--- !u!114 &1350053325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350053319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec3e4e5323984f47a50d4adc9073c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneWidth: 1.18228
+  moveScript: {fileID: 458458857}
 --- !u!1 &1355238533
 GameObject:
   m_ObjectHideFlags: 0
@@ -25871,8 +25908,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1504236882}
   - component: {fileID: 1504236885}
-  - component: {fileID: 1504236884}
   - component: {fileID: 1504236883}
+  - component: {fileID: 1504236887}
+  - component: {fileID: 1504236886}
   m_Layer: 0
   m_Name: Camera Dark Screen
   m_TagString: Untagged
@@ -25908,14 +25946,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1504236885}
---- !u!124 &1504236884
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504236881}
-  m_Enabled: 1
 --- !u!20 &1504236885
 Camera:
   m_ObjectHideFlags: 0
@@ -25959,6 +25989,35 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1504236886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504236881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d36e9645f8af74f9858a5476296d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosBottomScreen: {x: -2.8597305, y: -2.2249997, z: -2.3989868}
+  camVerticleOffset: {x: 0, y: 0, z: 0}
+  inCollection: 0
+--- !u!114 &1504236887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504236881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec3e4e5323984f47a50d4adc9073c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneWidth: 1.18228
+  moveScript: {fileID: 458458857}
 --- !u!1 &1507353459
 GameObject:
   m_ObjectHideFlags: 0
@@ -32903,20 +32962,26 @@ MonoBehaviour:
   duplicateBonusCoinsPercent: 0.3
   info: {fileID: 11400000, guid: 910da415014202040af0d358013b1b82, type: 2}
   background: {fileID: 305797325}
-  skinPreviewExit: {fileID: 612903742}
   collectionButton: {fileID: 1463699467}
+  collectionUICamera: {fileID: 1189554924}
+  mainCamera: {fileID: 1721218557}
   collectionLightsFull: {fileID: 257306727}
   collectionLightsGreyscale: {fileID: 799522066}
   duplicateScreen: {fileID: 394520012}
   duplicateBonusCoinsText: {fileID: 1675274510}
   duplicateCoinMaterial: {fileID: 2100000, guid: 6d889aa72a2aa4a4ca23eab8b9dcd6e6,
     type: 2}
+  glowColors:
+  - {r: 0.57, g: 1, b: 0.57741386, a: 1}
+  - {r: 0.57, g: 0.9456322, b: 1, a: 1}
+  - {r: 1, g: 0.57, b: 0.98023003, a: 1}
   chestPayingPosition: {x: 0, y: 0, z: 0}
   payingCoins: []
   payingCoinStartScale: {x: 0, y: 0, z: 0}
   payingCoinEndScale: {x: 0, y: 0, z: 0}
   chestStartScale: {x: 0, y: 0, z: 0}
   previewSkinCoin: {fileID: 0}
+  boughtChest: {fileID: 0}
 --- !u!1 &1785807496
 GameObject:
   m_ObjectHideFlags: 0
@@ -35034,7 +35099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -428.8}
+  m_AnchoredPosition: {x: 0, y: -411.81042}
   m_SizeDelta: {x: 318, y: 1423.1005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033460392

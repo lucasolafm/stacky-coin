@@ -34,7 +34,6 @@ public class HomePayingMiniCoins : HomeState
     {
         base.Enter();
 
-        Debug.Log("chest price: " + chest.price);
         newCoinsCount = manager.newMiniCoins.Count;
         int coinValue = 0;
         for (int i = newCoinsCount - 1; i >= 0; i--)
@@ -60,8 +59,6 @@ public class HomePayingMiniCoins : HomeState
                 break;
             }
         }
-
-        Debug.Log("pay amount: " + payAmount);
 
         float totalTime = 0;
         for (int i = 0; i < payAmount; i++)

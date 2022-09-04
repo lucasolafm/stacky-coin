@@ -106,6 +106,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Scriptable Objects/ButtonShakeSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Materials/Shaders/CoinGold.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/CameraSizePerScreenSize.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Tests/Editor/TMP_EditorTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Collection/UIManagerCollection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/Data.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -278,6 +279,9 @@
       <workItem from="1661858699452" duration="3871000" />
       <workItem from="1662038515987" duration="4475000" />
       <workItem from="1662126858881" duration="7232000" />
+      <workItem from="1662204242504" duration="1970000" />
+      <workItem from="1662213489255" duration="4086000" />
+      <workItem from="1662285548736" duration="3000" />
     </task>
     <servers />
   </component>

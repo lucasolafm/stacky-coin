@@ -194,7 +194,7 @@ public class CoinTubeManager : MonoBehaviour
 
             coinTube.transform.position = 
                 coinTubeStartPosition + coinTube.transform.TransformDirection(Vector3.right * 
-                                                                              (homeManager.screenWorldWidth * (inOrOut == true ? 1 - shiftAmount : shiftAmount)));
+                                                                              (1.18228f * (inOrOut == true ? 1 - shiftAmount : shiftAmount)));
 
             yield return null;
         }

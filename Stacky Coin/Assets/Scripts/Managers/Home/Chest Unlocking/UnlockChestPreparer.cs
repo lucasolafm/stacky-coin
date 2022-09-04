@@ -50,16 +50,17 @@ public class UnlockChestPreparer
     public IEnumerator GlowFade()
     {
         float t = 0;
+        Color color = manager.glowColors[manager.boughtChest.level - 1];
         while (t < 1)
         {
             t = Mathf.Min(t + Time.deltaTime / manager.info.backgroundFadeTimeOut, 1);
 
-            manager.unlockGlow.color = new Color(255, 255, 255, 1 - t);
+            manager.unlockGlow.color = new Color(color.r, color.g, color.b, 1 - t);
 
             yield return null;
         }
 
-        manager.unlockGlow.color = new Color(255, 255, 255, 1);
+        manager.unlockGlow.color = color;
         manager.unlockGlow.gameObject.SetActive(false);
     }
 

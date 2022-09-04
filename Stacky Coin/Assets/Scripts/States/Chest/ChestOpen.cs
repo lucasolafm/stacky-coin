@@ -94,7 +94,6 @@ public class ChestOpen : ChestState
 
     public override void PressChest()
     {
-        Debug.Log("press chest");
         if (!chest.homeManager.State.CanBuyChest()) return;
 
         StartOpeningProcess();

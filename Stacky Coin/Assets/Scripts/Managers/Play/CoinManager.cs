@@ -203,7 +203,6 @@ public class CoinManager : MonoBehaviour
             instantiationManager.InstantiateCoins(5);
         }
 
-        print("spawn");
         spawnedCoinsCount++;
 
         Coins[newCoinIndex].SetState(new CoinSpawned(Coins[newCoinIndex]));

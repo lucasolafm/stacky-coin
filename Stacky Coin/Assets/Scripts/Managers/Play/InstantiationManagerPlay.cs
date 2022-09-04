@@ -34,8 +34,6 @@ public class InstantiationManagerPlay : MonoBehaviour
     {
         ownedCoins = Data.ownedCoins;
         ownedGems = Data.ownedGems;
-        enabledCoinSkins = Data.enabledCoinSkins;
-        enabledGemSkins = Data.enabledGemSkins;
         chests = Data.chests;
     }
 

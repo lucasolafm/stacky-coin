@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.65882355}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12007,7 +12007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e9d18bdaff0064f9f3ad52616792a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testStartAsReset: 1
+  testStartAsReset: 0
   coinManager: {fileID: 1320579295}
   handManager: {fileID: 1324134722}
   tutorialManager: {fileID: 1106228960}
@@ -18342,7 +18342,7 @@ MonoBehaviour:
     coins: []
   - text: <b>Gems</b> are <b>heavy</b>! Try pressing down <b>longer</b>.
     coins: []
-  - text: Well done! <b>Gems</b> are worth more than coins!
+  - text: Well done! <b>Gems</b> are more valuable than coins!
     coins: []
   - text: Keep going.
     coins: []

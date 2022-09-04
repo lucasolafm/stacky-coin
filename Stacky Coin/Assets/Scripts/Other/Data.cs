@@ -14,8 +14,6 @@ public class Data
     public static int[] ownedCoins { get { return PlayerPrefsX.GetIntArray("ownedCoins"); } set { PlayerPrefsX.SetIntArray("ownedCoins", value); } }
     public static int[] ownedGems { get { return PlayerPrefsX.GetIntArray("ownedGems"); } set { PlayerPrefsX.SetIntArray("ownedGems", value); } }
     public static int[] unseenNewSkins { get { return PlayerPrefsX.GetIntArray("unseenNewSkins"); } set { PlayerPrefsX.SetIntArray("unseenNewSkins", value); } }
-    public static int[] enabledCoinSkins { get { return PlayerPrefsX.GetIntArray("enabledCoinSkins"); } set { PlayerPrefsX.SetIntArray("enabledCoinSkins", value); } }
-    public static int[] enabledGemSkins { get { return PlayerPrefsX.GetIntArray("enabledGemSkins"); } set { PlayerPrefsX.SetIntArray("enabledGemSkins", value); } }
     public static int[] miniCoins { get { return PlayerPrefsX.GetIntArray("miniCoins"); } set { PlayerPrefsX.SetIntArray("miniCoins", value); } }
     public static int[] chests { get { return PlayerPrefsX.GetIntArray("chests"); } set { PlayerPrefsX.SetIntArray("chests", value); } }
     public static float playAdTimer { get { return PlayerPrefs.GetFloat("playAdTimer"); } set { PlayerPrefs.SetFloat("playAdTimer", value); } }
@@ -32,10 +30,8 @@ public class Data
         miniCoins = new int[0];
         chests = new int[3] {0, 0, 0};
         ownedCoins = new int[1] {0};
-        ownedGems = new int[1] {390};
+        ownedGems = new int[] {390, 400, 420};
         unseenNewSkins = new int[0];
-        enabledCoinSkins = new int[1] {0};
-        enabledGemSkins = new int[1] {0};
         playAdTimer = 0;
         bonusCoinsTimer = 0;
         tutorialLevel = 0;

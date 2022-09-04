@@ -10,7 +10,7 @@ public class BonusCoinsController : MonoBehaviour
     [SerializeField] private Transform mainCamera, coinTubeCamera;
     [SerializeField] private ParticleSystem coinsEffect;
     [SerializeField] private AudioClip coinsGetClip;
-    [SerializeField] private List<int> bonusCoins = new List<int>();
+    public List<int> bonusCoins = new List<int>();
     [SerializeField] private float timerTime;
     [SerializeField] private float pressAnimationTime;
     [SerializeField] private int particleAmount;

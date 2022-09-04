@@ -12,6 +12,7 @@ public class HomeManager : MonoBehaviour
     public CoinTubeManager coinTubeManager;
     [SerializeField] private ChestManager chestManager;
     [SerializeField] private AdManager adManager;
+    public BonusCoinsController bonusCoinsController;
     public GameObject homeHolder;
     public new Camera camera;
     public ParticleSystem effectGemBonusCoinPrefab;

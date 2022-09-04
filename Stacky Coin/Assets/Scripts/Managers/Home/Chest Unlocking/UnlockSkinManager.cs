@@ -22,13 +22,15 @@ public class UnlockSkinManager : MonoBehaviour
     [SerializeField] private float duplicateBonusCoinsPercent;
 
     public ChestChargeUpInfo info;
-    public Renderer background;     
-    public RectTransform skinPreviewExit;
+    public Renderer background;
     public RectTransform collectionButton;
+    public Camera collectionUICamera;
+    public Camera mainCamera;
     public GameObject collectionLightsFull, collectionLightsGreyscale;
     public Transform duplicateScreen;
     public TextMeshPro duplicateBonusCoinsText;
     public Material duplicateCoinMaterial;
+    public Color[] glowColors;
     
     private UnlockChestPreparer chestPreparer;
     private UnlockMiniCoinPayer miniCoinPayer;
@@ -47,6 +49,7 @@ public class UnlockSkinManager : MonoBehaviour
     private int unlockedSkinId;
     private bool isDuplicateSkin;
     private float timeUntilClipClimax = 2.313f;
+    public Chest boughtChest;
 
     void Start()
     {
@@ -71,6 +74,7 @@ public class UnlockSkinManager : MonoBehaviour
 
     private void OnBuysChest(Chest boughtChest, bool chestIsPaidByAd)
     {
+        this.boughtChest = boughtChest;
         currentChestPrice = boughtChest.price;
         amountPaid = 0;
 

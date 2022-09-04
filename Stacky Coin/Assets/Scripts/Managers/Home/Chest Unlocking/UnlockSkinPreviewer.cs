@@ -23,6 +23,8 @@ public class UnlockSkinPreviewer
         manager.previewSkinCoin.shadedVisual.gameObject.SetActive(true);
         manager.previewSkinCoin.gameObject.isStatic = false;
         manager.previewSkinCoin.gameObject.SetActive(false);
+
+        manager.unlockGlow.color = manager.glowColors[manager.boughtChest.level - 1];
         manager.unlockGlow.gameObject.SetActive(false);
     }
 
@@ -103,6 +105,9 @@ public class UnlockSkinPreviewer
     {
         Vector3 startPos = manager.previewSkinCoin.transform.position;
         Vector3 startScale = manager.previewSkinCoin.transform.localScale;
+        Vector3 exitPos =
+            manager.collectionUICamera.ScreenToWorldPoint(
+                manager.mainCamera.WorldToScreenPoint(manager.collectionButton.position));
         float progress;
 
         float t = 0;
@@ -112,7 +117,7 @@ public class UnlockSkinPreviewer
 
             progress = Mathf.Sin((t * Mathf.PI) / 2);
 
-            manager.previewSkinCoin.transform.position = Vector3.Lerp(startPos, manager.skinPreviewExit.position, progress);
+            manager.previewSkinCoin.transform.position = Vector3.Lerp(startPos, exitPos, progress);
 
             manager.previewSkinCoin.transform.localScale = startScale * (1 - t);
 

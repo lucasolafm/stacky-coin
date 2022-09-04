@@ -90,7 +90,6 @@ public class TutorialManager : MonoBehaviour
         {
             coinManager.Coins.Remove(objects[i]);
             coinManager.Coins[coinManager.spawnedCoinsCount + i] = objects[i];
-            print(coinManager.spawnedCoinsCount);
             objects[i].SetState(new CoinInactive(objects[i]));
         }
     }

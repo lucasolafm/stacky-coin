@@ -10,7 +10,6 @@ public class MoveCamUpPerScreenHeight : MonoBehaviour
     
     public void MoveUp()
     {
-        //targetPosBottomScreen = GetComponent<Camera>().ScreenToWorldPoint(Vector3.zero);
         //return;
         Camera _camera = GetComponent<Camera>();
 

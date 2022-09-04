@@ -52,15 +52,15 @@ public class CollectionManager : MonoBehaviour
         skinsStartPositions = new Vector3[skins.Length];
         for (int i = 0; i < skins.Length; i++)
         {
-            skinsStartPositions[i] = skins[i].transform.position - skins[i].visuals.TransformDirection(Vector3.back * screenWorldWidth);
+            skinsStartPositions[i] = skins[i].transform.position - skins[i].visuals.TransformDirection(Vector3.back * 1.18228f);
         }
-        titleStartPosition = title.position - skins[0].visuals.TransformDirection(Vector3.back * screenWorldWidth);
+        titleStartPosition = title.position - skins[0].visuals.TransformDirection(Vector3.back * 1.18228f);
 
         InstantiateSkinVisuals();
 
         foreach (Skin skin in skins)
         {
-            skin.transform.position -= skin.visuals.TransformDirection(Vector3.back * screenWorldWidth);
+            skin.transform.position -= skin.visuals.TransformDirection(Vector3.back * 1.18228f);
         }
 
         if (!GameManager.I.testEnableAllSkins)
@@ -237,7 +237,7 @@ public class CollectionManager : MonoBehaviour
     private IEnumerator ShiftSkinsSideways(bool inOrOut)
     {
         shiftProgress = 0;
-        Vector3 totalMove = skins[0].visuals.TransformDirection(Vector3.back * screenWorldWidth);
+        Vector3 totalMove = skins[0].visuals.TransformDirection(Vector3.back * 1.18228f);
         
         while (shiftProgress < 1)
         {

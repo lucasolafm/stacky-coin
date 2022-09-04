@@ -28,7 +28,6 @@ public class PlayAgainCoinController : MonoBehaviour
     private void OnLoadedHomeScene()
     {
         startPosition = playAgainCoin.position;
-        print(startPosition);
         
         Invoke(nameof(PlayEnterSound), enterClipDelay);
 
@@ -93,7 +92,7 @@ public class PlayAgainCoinController : MonoBehaviour
 
             playAgainCoin.localPosition = 
                 startPosition - playAgainCoin.TransformDirection(Vector3.right * 
-                (homeManager.screenWorldWidth * (inOrOut ? 1 - shiftAmount : shiftAmount)));
+                (1.18228f * (inOrOut ? 1 - shiftAmount : shiftAmount)));
 
             yield return null;
         }

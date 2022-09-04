@@ -71,7 +71,7 @@ public class Ad : MonoBehaviour
     protected void GetCurrentPotentialMiniCoinsAmount()
     {
         currentPotentialMiniCoinsAmount = homeManager.startOriginalMiniCoins.Length + scoredCoinsValue + 
-                                            (homeManager.bonusCoinsIsAvailable ? homeManager.bonusCoins.Count : 0);
+                                            (homeManager.bonusCoinsIsAvailable ? homeManager.bonusCoinsController.bonusCoins.Count : 0);
     }
 
     protected IEnumerator WaitUntilRewardedAdIsLoaded(RewardedAd ad, Action completed, bool isFinalAd = true)
