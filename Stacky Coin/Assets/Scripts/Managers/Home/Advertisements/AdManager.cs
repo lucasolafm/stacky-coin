@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 public class  AdManager : MonoBehaviour
 {
+    [SerializeField] private int testAdNumber;
     [SerializeField] private GameObject noInternetPopup;
     public GameObject loadingSpinnerAnimator;
     public Ad[] ads;
@@ -33,6 +34,13 @@ public class  AdManager : MonoBehaviour
     {
         RecordTimePlayed();
 
+        if (testAdNumber != -1)
+        {
+            currentAd = ads[testAdNumber];
+            currentAd.Initialize();
+            return;
+        }
+        
         if (IsTimeForAd() && GetAvailableAds() > 0)
         {
             currentAd = GetAd();

@@ -171,13 +171,14 @@ public class CoinManager : MonoBehaviour
             // Make all coins fall
             for (int i = 0; i < spawnedCoinsCount; i++)
             {
+                if (!Coins[i].gameObject.activeSelf) continue;
+                
                 Coins[i].SetState(new CoinFalling(Coins[i]));
             }
         }
 
         // Despawn the coin not yet flipped
         Coins[newCoinIndex].SetState(new CoinInactive(Coins[newCoinIndex]));
-        EventManager.CoinDespawns.Invoke(Coins[newCoinIndex]);
     }
 
     private void PrepareForNewStage(bool spawnNow)

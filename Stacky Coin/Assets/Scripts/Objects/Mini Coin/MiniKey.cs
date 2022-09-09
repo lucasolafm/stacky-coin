@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class MiniKey : MiniCoin
 {
+    public static int ActiveMiniKeys;
+    
     public int level;
     [SerializeField] private PolygonCollider2D polygonCollider;
     [SerializeField] private LineRenderer[] outlines;
@@ -40,11 +42,6 @@ public class MiniKey : MiniCoin
         miniCoinManager.chestManager.AddNewChest(level, chestPrice, chestPosition);
     }
 
-    // public override CoinType GetCoinType()
-    // {
-    //     return CoinType.Key;
-    // }
-
     public override int GetId()
     {
         return level;
@@ -53,6 +50,8 @@ public class MiniKey : MiniCoin
     public override void Land()
     {
         base.Land();
+
+        ActiveMiniKeys++;
         
         GameManager.I.audioSource.PlayOneShot(homeManager.tubeKeyDropClip);
 
@@ -172,6 +171,7 @@ public class MiniKey : MiniCoin
         GameManager.I.audioSource.PlayOneShot(homeManager.tubeGemBonusClip, 0.4f);
 
         // Enable the chest
+        ActiveMiniKeys--;
         miniCoinManager.chestManager.EnableChest(chestPosition);
         gameObject.SetActive(false);
     }

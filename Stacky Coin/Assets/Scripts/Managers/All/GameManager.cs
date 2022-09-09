@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public Gem[] gemPrefabs;
     [HideInInspector] public Key[] keyPrefabs;
     [HideInInspector] public MiniCoinCoin miniCoinPrefab;
-    [HideInInspector] public MiniCoinGhost miniCoinGhostPrefab;
     [HideInInspector] public MiniCoin[] miniGemsPrefabs;
     [HideInInspector] public MiniKey[] miniKeysPrefabs;
     public int coinSkinAmount, commonSkinAmount, rareSkinAmount, epicSkinAmount;
@@ -68,7 +67,6 @@ public class GameManager : MonoBehaviour
         keyPrefabs = Resources.LoadAll<Key>("Prefabs/Play/Keys");
 
         miniCoinPrefab = Resources.Load<MiniCoinCoin>("Prefabs/Home/Mini Coin");
-        miniCoinGhostPrefab = Resources.Load<MiniCoinGhost>("Prefabs/Home/Mini Coin Ghost");
         miniGemsPrefabs = Resources.LoadAll<MiniCoin>("Prefabs/Home/Gems");
         miniKeysPrefabs = Resources.LoadAll<MiniKey>("Prefabs/Home/Keys");
 

@@ -31,7 +31,7 @@ public class PlayGameOver : PlayState
         EventManager.CoinLandsOnFloor.RemoveListener(OnCoinLandsOnFloor);
 
         if (!GameManager.I.isGameOver || manualGameOver) return;
-        
+
         if (GameManager.I.scoredCoins.Count <= manager.pileCollapseSizes[0])
         {
             GameManager.I.audioSource.PlayOneShot(manager.pileCollapseClips[0]);

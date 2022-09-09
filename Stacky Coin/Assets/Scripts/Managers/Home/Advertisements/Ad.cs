@@ -70,7 +70,7 @@ public class Ad : MonoBehaviour
 
     protected void GetCurrentPotentialMiniCoinsAmount()
     {
-        currentPotentialMiniCoinsAmount = homeManager.startOriginalMiniCoins.Length + scoredCoinsValue + 
+        currentPotentialMiniCoinsAmount = homeManager.startOriginalMiniCoinsValue + scoredCoinsValue + 
                                             (homeManager.bonusCoinsIsAvailable ? homeManager.bonusCoinsController.bonusCoins.Count : 0);
     }
 

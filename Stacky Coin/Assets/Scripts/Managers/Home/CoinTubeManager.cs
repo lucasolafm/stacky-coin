@@ -202,13 +202,7 @@ public class CoinTubeManager : MonoBehaviour
 
     private int GetInitialValueInTube()
     {
-        int value = 0;
-        for (int i = 0; i < homeManager.startOriginalMiniCoins.Length; i++)
-        {
-            value += homeManager.startOriginalMiniCoins[i] > 0 ? GameManager.I.gemBonusAmount : 1;
-        }
-
-        return value;
+        return homeManager.startOriginalMiniCoinsValue;
     }
     
     public void GetCameraWorldBoundaries()

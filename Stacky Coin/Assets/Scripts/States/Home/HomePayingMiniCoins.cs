@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Dynamic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Events;
 
 public class HomePayingMiniCoins : HomeState
 {
+    public static UnityEvent DonePayingMiniCoins = new UnityEvent();
+    
     private Chest chest;
     private int payAmount;
     private int totalPaidCount, newPaidCount;
@@ -24,6 +27,8 @@ public class HomePayingMiniCoins : HomeState
     private bool topMiniCoinInCenter;
     private float moveDownToCenterDistance;
     private float cameraMoveToCenterProgress;
+    private float totalTime;
+    private float timePassed;
 
     public HomePayingMiniCoins(HomeManager homeManager, Chest chest) : base(homeManager) 
     {
@@ -35,32 +40,27 @@ public class HomePayingMiniCoins : HomeState
         base.Enter();
 
         newCoinsCount = manager.newMiniCoins.Count;
+        
+        int[] miniCoinsInTube = Data.miniCoins;
+        payAmount = 0;
         int coinValue = 0;
-        for (int i = newCoinsCount - 1; i >= 0; i--)
+        for (int i = miniCoinsInTube.Length - 1; i >= 0; i--)
         {
-            coinValue += manager.newMiniCoins[i].GetCoinType() == CoinType.Gem ? GameManager.I.gemBonusAmount : 1;
+            if (coinValue >= chest.price) break;
             
-            if (coinValue < chest.price) continue;
-
-            payAmount = newCoinsCount - i;
-            break;
+            coinValue += miniCoinsInTube[i] > 0 ? GameManager.I.gemBonusAmount : 1;
+            payAmount++;
         }
+        
+        // for (int i = oldMiniCoins.Length - 1; i >= 0; i--)
+        // {
+        //     if (coinValue >= chest.price) break;
+        //     
+        //     coinValue += oldMiniCoins[i] > 0 ? GameManager.I.gemBonusAmount : 1;
+        //     payAmount++;
+        // }
 
-        if (coinValue < chest.price)
-        {
-            int oldCoinsCount = manager.oldMiniCoins.Count;
-            for (int i = oldCoinsCount - 1; i >= 0; i--)
-            {
-                coinValue += manager.oldMiniCoins[i].GetCoinType() == CoinType.Gem ? GameManager.I.gemBonusAmount : 1;
-                
-                if (coinValue < chest.price) continue;
-
-                payAmount = newCoinsCount + (oldCoinsCount - i);
-                break;
-            }
-        }
-
-        float totalTime = 0;
+        totalTime = 0;
         for (int i = 0; i < payAmount; i++)
         {
             totalTime += Mathf.Max(manager.miniCoinManager.payTime - manager.miniCoinManager.payTimePerCoin * i,
@@ -152,17 +152,24 @@ public class HomePayingMiniCoins : HomeState
             }         
 
             totalPaidCount++;
-            if (totalPaidCount < payAmount) continue;
-
-            manager.SetState(new HomePreviewingSkin(manager));
-            break;
+            //Debug.Log("To pay: " + (payAmount - totalPaidCount).ToString());
+            // if (totalPaidCount < payAmount) continue;
+            //
+            // manager.SetState(new HomePreviewingSkin(manager));
+            // break;
         }
+
+        timePassed += Time.deltaTime;
+        if (timePassed < totalTime) return;
+        
+        DonePayingMiniCoins.Invoke();
+        manager.SetState(new HomePreviewingSkin(manager));
     }
 
     private void GetCoinAmountToPayThisFrame()
     {
         payTime = Mathf.Max(manager.miniCoinManager.payTime - manager.miniCoinManager.payTimePerCoin * totalPaidCount, manager.miniCoinManager.payTimeMin);
-        payCurrentFrameAmount = Mathf.FloorToInt((leftOverTime + Time.deltaTime) / payTime);
+        payCurrentFrameAmount = Mathf.Min(Mathf.FloorToInt((leftOverTime + Time.deltaTime) / payTime), payAmount - totalPaidCount);
         leftOverTime += Time.deltaTime - payCurrentFrameAmount * payTime;
     }
 
@@ -184,6 +191,8 @@ public class HomePayingMiniCoins : HomeState
         manager.oldMiniCoins[manager.miniCoinManager.indexFirstOldCoinInList].SetState(new MiniCoinInTube(manager.oldMiniCoins[manager.miniCoinManager.indexFirstOldCoinInList]));                                              
     
         manager.oldMiniCoins[manager.miniCoinManager.indexFirstOldCoinInList].renderer.material = GetMaterial(manager.miniCoinManager.indexFirstOldCoinInTube);
+        
+        manager.oldMiniCoins[manager.miniCoinManager.indexFirstOldCoinInList].SetCoinType(GetCoinType(manager.miniCoinManager.indexFirstOldCoinInTube));
     }   
 
     private Material GetMaterial(int indexInTube)
@@ -194,6 +203,11 @@ public class HomePayingMiniCoins : HomeState
         }
         
         return manager.miniCoinManager.gemMaterials[originalMiniCoins[indexInTube] - GameManager.I.coinSkinAmount];
+    }
+
+    private CoinType GetCoinType(int indexInTube)
+    {
+        return originalMiniCoins[indexInTube] > 0 ? CoinType.Gem : CoinType.Coin;
     }
 
     private void MoveCameraDown()

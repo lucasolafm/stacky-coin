@@ -9,6 +9,7 @@ public class AdBonusCoins : Ad
 {
     [SerializeField] private BonusCoinsController bonusCoinsController;
     [SerializeField] private SpriteRenderer bonusCoinsButton;
+    [SerializeField] private Collider buttonCollider;
     [SerializeField] private AudioClip coinExplosionClip;
     [SerializeField] private List<int> bonusCoins = new List<int>();
     [SerializeField] private float chanceToPassConditionAnyways;
@@ -36,9 +37,8 @@ public class AdBonusCoins : Ad
     public override void Initialize()
     {
         bonusCoinsButton.enabled = true;
+        buttonCollider.enabled = true;
         StartCoroutine(ShakeButton());
-
-        //bonusCoinsButton.onClick.AddListener(PressBonusCoinsButton);
 
         ResetTimer();
 
@@ -72,6 +72,7 @@ public class AdBonusCoins : Ad
     private void HandleAdClosed(object sender, EventArgs args)
     {
         adClosed = true;
+        buttonCollider.enabled = false;
     }
 
     public void PressBonusCoinsButton()

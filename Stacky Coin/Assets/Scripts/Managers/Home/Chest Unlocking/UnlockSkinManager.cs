@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.PlayerLoop;
 
 public class UnlockSkinManager : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class UnlockSkinManager : MonoBehaviour
     private bool isDuplicateSkin;
     private float timeUntilClipClimax = 2.313f;
     public Chest boughtChest;
+    private bool donePayingMiniCoins;
 
     void Start()
     {
@@ -60,6 +62,7 @@ public class UnlockSkinManager : MonoBehaviour
         EventManager.BuysChest.AddListener(OnBuysChest);
         EventManager.MiniCoinRemovedFromTube.AddListener(OnMiniCoinRemovedFromTube);
         EventManager.PaidForChest.AddListener(OnPaidForChest);
+        HomePayingMiniCoins.DonePayingMiniCoins.AddListener(OnDonePayingMiniCoins);
 
         InstantiatePayingCoins();
 
@@ -71,12 +74,14 @@ public class UnlockSkinManager : MonoBehaviour
 
         chestStartScale = unlockChest.localScale;
     }
-
+    
     private void OnBuysChest(Chest boughtChest, bool chestIsPaidByAd)
     {
         this.boughtChest = boughtChest;
         currentChestPrice = boughtChest.price;
         amountPaid = 0;
+        donePayingMiniCoins = false;
+        isChargingChest = false;
 
         StartCoroutine(chestPreparer.PrepareChest(boughtChest, chestIsPaidByAd));
 
@@ -98,7 +103,6 @@ public class UnlockSkinManager : MonoBehaviour
     public void OnMiniCoinEntersChest(CoinType type)
     {
         amountPaid += type == CoinType.Gem ? GameManager.I.gemBonusAmount : 1;
-        //print(type);
 
         if (!isChargingChest)
         {
@@ -106,6 +110,12 @@ public class UnlockSkinManager : MonoBehaviour
             
             StartCoroutine(ChargeToOpenChest());
         }
+    }
+    
+    private void OnDonePayingMiniCoins()
+    {
+        donePayingMiniCoins = true;
+        OpenChest(false);
     }
 
     public void UnlockSkin(Chest boughtChest)
@@ -127,7 +137,7 @@ public class UnlockSkinManager : MonoBehaviour
     {
         yield return StartCoroutine(ChargingChest(() => 
         {
-            OpenChest();
+            //OpenChest(false);
         }));
     }
 
@@ -144,13 +154,20 @@ public class UnlockSkinManager : MonoBehaviour
         StopCoroutine(pivotingChestRoutine);
         unlockChest.eulerAngles = Vector3.zero;
 
-        isChargingChest = false;
-
         completed();
     }
 
-    public void OpenChest()
+    public void OpenChest(bool chestIsPaidByAd)
     {
+        if (chestIsPaidByAd)
+        {
+            homeManager.chestOpenAudioSource.Stop();
+            homeManager.chestOpenAudioSource.clip = homeManager.chestOpenAdClip;
+            homeManager.chestOpenAudioSource.time = 0;
+            homeManager.chestOpenAudioSource.volume = 1f;
+            homeManager.chestOpenAudioSource.Play();
+        }
+
         unlockChestRenderer.enabled = false;
 
         StartCoroutine(ExplodingChest());
@@ -209,10 +226,10 @@ public class UnlockSkinManager : MonoBehaviour
         float expandScale;
         float t;
 
-        while (true)
+        while (!donePayingMiniCoins)
         {
             scalingProgress = amountPaid / currentChestPrice * (amountPaid / currentChestPrice);
-            //print(scalingProgress);
+
             if (scalingProgress >= 1) break;
 
             expandingStartScale = chestStartScale * (1 + (info.chestScaleMin + scalingProgress * (info.chestScaleMax - info.chestScaleMin)));
@@ -221,7 +238,7 @@ public class UnlockSkinManager : MonoBehaviour
             expandScale = info.chestExpandScaleMin + scalingProgress * (info.chestExpandScaleMax - info.chestExpandScaleMin);
 
             t = 0;
-            while (t < 1)
+            while (t < 1 && !donePayingMiniCoins)
             {
                 t = Mathf.Min(t + Time.deltaTime / expandTime, 1);
 
@@ -236,7 +253,7 @@ public class UnlockSkinManager : MonoBehaviour
     {
         float progress;
 
-        while (amountPaid < currentChestPrice)
+        while (amountPaid < currentChestPrice && !donePayingMiniCoins)
         {
             progress = amountPaid / currentChestPrice;
 
@@ -256,7 +273,7 @@ public class UnlockSkinManager : MonoBehaviour
         float pivotTime;
         float pivotLength;
 
-        while (amountPaid < currentChestPrice)
+        while (amountPaid < currentChestPrice && !donePayingMiniCoins)
         {
             pivotingTime = 0;
             leftOrRight = !leftOrRight;
@@ -264,7 +281,7 @@ public class UnlockSkinManager : MonoBehaviour
             pivotTime = info.chestPivotTimeMin + amountPaid / currentChestPrice * (info.chestPivotTimeMax - info.chestPivotTimeMin);
             pivotLength = info.chestPivotLengthMin + amountPaid / currentChestPrice * (info.chestPivotLengthMax - info.chestPivotLengthMin);
 
-            while (pivotingTime < 1)
+            while (pivotingTime < 1 && !donePayingMiniCoins)
             {
                 pivotingTime = Mathf.Min(pivotingTime + Time.deltaTime / pivotTime, 1);
 
@@ -323,6 +340,7 @@ public class UnlockSkinManager : MonoBehaviour
         float latency = (float) bufferLength / AudioSettings.outputSampleRate;
 
         float clipStartTime = Mathf.Max(-Mathf.Min(HomeManager.chestUnlockTime - (timeUntilClipClimax + latency), 0), 0);
+        print(clipStartTime);
         
         homeManager.chestOpenAudioSource.Stop();
         homeManager.chestOpenAudioSource.clip = homeManager.chestOpenClip;

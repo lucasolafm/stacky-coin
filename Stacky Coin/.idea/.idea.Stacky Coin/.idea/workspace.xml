@@ -28,6 +28,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Home/ChestManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/Play/AudioManagerPlay.cs" root0="FORCE_HIGHLIGHTING" />
@@ -282,6 +290,17 @@
       <workItem from="1662204242504" duration="1970000" />
       <workItem from="1662213489255" duration="4086000" />
       <workItem from="1662285548736" duration="3000" />
+      <workItem from="1662372318631" duration="160000" />
+      <workItem from="1662372919437" duration="5933000" />
+      <workItem from="1662380743353" duration="4689000" />
+      <workItem from="1662391426939" duration="3044000" />
+      <workItem from="1662481770876" duration="642000" />
+      <workItem from="1662542257368" duration="5665000" />
+      <workItem from="1662574627463" duration="1813000" />
+      <workItem from="1662638177373" duration="9450000" />
+      <workItem from="1662660175013" duration="1794000" />
+      <workItem from="1662666593833" duration="1022000" />
+      <workItem from="1662713102991" duration="10065000" />
     </task>
     <servers />
   </component>

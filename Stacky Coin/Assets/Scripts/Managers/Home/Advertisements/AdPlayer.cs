@@ -10,6 +10,7 @@ using UnityEngine.Events;
 public class AdPlayer : MonoBehaviour
 {
     public static UnityEvent<bool> AdClosed = new UnityEvent<bool>();
+    public static bool IsLoadingAd;
 
     [SerializeField] private bool testMode = true;
     [SerializeField] private GraphicRaycaster[] graphicRaycasters;
@@ -77,6 +78,7 @@ public class AdPlayer : MonoBehaviour
     
     private void ToggleGraphicRaycasters(bool onOrOff)
     {
+        IsLoadingAd = !onOrOff;
         foreach (GraphicRaycaster graphicRaycaster in graphicRaycasters)
         {
             graphicRaycaster.enabled = onOrOff;

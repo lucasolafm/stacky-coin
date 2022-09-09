@@ -9,8 +9,9 @@ public class Chest : MonoBehaviour
 	public int id;
 	[SerializeField] private GameObject pointerLocked;
 	public GameObject pointerOpen;
-	[SerializeField] private GameObject pointerAd;
+	public GameObject pointerAd;
 	public TextMeshPro pointerLockedText;
+	public Collider collider;
 	
 	[HideInInspector] public ChestManager chestManager;
 	[HideInInspector] public HomeManager homeManager;
@@ -34,7 +35,7 @@ public class Chest : MonoBehaviour
 
 	public void SetCounter()
 	{
-		counter = price - homeManager.startOriginalMiniCoins.Length;
+		counter = price - homeManager.startOriginalMiniCoinsValue;
 		pointerLockedText.text = counter.ToString();
 	}
 
@@ -60,6 +61,7 @@ public class Chest : MonoBehaviour
 	public void SetPointerAd()
 	{
 		pointerLocked.SetActive(false);
+		pointerOpen.SetActive(false);
 		pointerAd.SetActive(true);
 	}
 }

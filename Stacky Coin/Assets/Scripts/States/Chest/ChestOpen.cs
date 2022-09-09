@@ -8,6 +8,7 @@ public class ChestOpen : ChestState
     private bool fromLocked;
     private float hoverTime, hoverProgress, expandTime, expandProgress;
     private bool firstMove = true, upOrDown, inOrOut, doneExpanding;
+    protected GameObject pointer;
 
     public ChestOpen(Chest chest, bool fromLocked = false) : base(chest) 
     {
@@ -16,11 +17,6 @@ public class ChestOpen : ChestState
 
     public virtual void SetPointer()
     {
-        // chest.pointerSprite.sprite = chest.chestManager.pointerSpriteOpen;
-        // chest.counterText.text = "GET";
-        // chest.counterText.font = chest.counterShaderOpen;
-        // chest.counterText.fontSize = 30;
-        // chest.counterText.gameObject.SetActive(true);
         chest.SetPointerOpen();
     }
 
@@ -35,6 +31,7 @@ public class ChestOpen : ChestState
 
         chest.sprite.sprite = chest.chestManager.spritesOpen[chest.level - 1];
         chest.sprite.color = new Color(chest.sprite.color.r, chest.sprite.color.g, chest.sprite.color.b, 1);
+        pointer = chest.pointerOpen;
         SetPointer();
     }
 
@@ -45,9 +42,9 @@ public class ChestOpen : ChestState
 
         hoverProgress = -(Mathf.Cos(Mathf.PI * Mathf.Min(hoverTime, 1)) - 1) / 2;
 
-        chest.pointerOpen.transform.localPosition = (firstMove ? chest.pointerOpenOriginalPos : chest.pointerOpenOriginalPos + 
-                                        new Vector3(0, chest.chestManager.pointerHoverDistance * 0.5f * (upOrDown ? -1 : 1), 0)) + 
-                                        new Vector3(0, chest.chestManager.pointerHoverDistance * (firstMove ? 0.5f : 1) * hoverProgress, 0) * (upOrDown ? 1 : -1);
+        pointer.transform.localPosition = (firstMove ? chest.pointerOpenOriginalPos : chest.pointerOpenOriginalPos + 
+                                              new Vector3(0, chest.chestManager.pointerHoverDistance * 0.5f * (upOrDown ? -1 : 1), 0)) + 
+                                          new Vector3(0, chest.chestManager.pointerHoverDistance * (firstMove ? 0.5f : 1) * hoverProgress, 0) * (upOrDown ? 1 : -1);
 
         if (hoverTime >= 1)
         {

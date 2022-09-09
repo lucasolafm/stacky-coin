@@ -58,28 +58,30 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.I.isGameOver) return;
-        
-        cameraHolder.transform.position = new Vector3(cameraHolder.transform.position.x, Mathf.Max(hand.position.y + offsetHand, minHeight),
-            cameraHolder.transform.position.z);
-        
-        if (isCharging)
+        if (!GameManager.I.isGameOver)
         {
-            chargingTime += Time.deltaTime;
-            if (chargingTime > 0.1f)
+            cameraHolder.transform.position = new Vector3(cameraHolder.transform.position.x, Mathf.Max(hand.position.y + offsetHand, minHeight),
+                cameraHolder.transform.position.z);
+        
+            if (isCharging)
             {
-                if (chargingTime < 4.224f)
+                chargingTime += Time.deltaTime;
+                if (chargingTime > 0.1f)
                 {
-                    shakerCharge.AddShakeMultiplier();   
-                }
-                else
-                {
-                    shakerCharge.StabilizeShakeMultiplier();
+                    if (chargingTime < 4.224f)
+                    {
+                        shakerCharge.AddShakeMultiplier();   
+                    }
+                    else
+                    {
+                        shakerCharge.StabilizeShakeMultiplier();
+                    }
                 }
             }
+
+            shakerCharge.Tick();
         }
 
-        shakerCharge.Tick();
         shakerFallOff.Tick();
     }
     
@@ -117,14 +119,6 @@ public class CameraManager : MonoBehaviour
 
         LeanTween.moveY(cameraHolder.gameObject, 0, 
                         0.4f).setEase(LeanTweenType.easeInOutQuad);
-    }
-
-    public void AscendCamera(float handHeight)
-    {
-        return;
-        LeanTween.moveY(cameraHolder.gameObject, 
-            handHeight + 1.212f,
-            playManager.timeToAscendToNextStage).setEase(LeanTweenType.easeInOutSine);
     }
 
     private IEnumerator ShakeOnce(float duration, float maxStrength, float maxSpeed)

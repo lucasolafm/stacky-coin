@@ -5,24 +5,39 @@ using System.Linq;
 
 public class HomeSprites : MonoBehaviour
 {
-    [SerializeField] private HomeManager homeManager;
     [SerializeField] private Camera camera;
+    [SerializeField] private Camera cameraCoinTube;
+    [SerializeField] private SpriteRenderer coinTubeSprite;
+    [SerializeField] private SpriteRenderer[] chestSlots;
     
     private Transform[] sprites;
     private Vector3[] startPositions;
-    private float cameraWidth;
 
     void Awake()
     {
         sprites = transform.GetComponentsInChildren<Transform>().Where(t => t.parent == transform).ToArray();
         startPositions = sprites.Select(t => t.position).ToArray();
-        cameraWidth = camera.ScreenToWorldPoint(new Vector3(Screen.width, 0)).x -
-                      camera.ScreenToWorldPoint(Vector3.zero).x;
 
         EventManager.EnteringCollection.AddListener(OnEnteringCollection);
         EventManager.EnteringHome.AddListener(OnEnteringHome);
     }
-    
+
+    public void Initialize()
+    {
+        float coinTubeWidth = coinTubeSprite.bounds.size.x;
+        float slotWidth = chestSlots[0].bounds.size.x;
+        float spacing = (1.182324f - coinTubeWidth - slotWidth * chestSlots.Length) / (chestSlots.Length + 1);
+        Vector3 edgeOfScreen = camera.ScreenToWorldPoint(new Vector3(0, 0, 10));
+
+        for (int i = 0; i < chestSlots.Length; i++)
+        {
+            chestSlots[i].transform.position = edgeOfScreen + chestSlots[i].transform.right *
+                (slotWidth * (i + 0.5f) +
+                spacing * (i + 1)) +
+                chestSlots[i].transform.up * (spacing + chestSlots[i].bounds.size.z / 2);
+        }
+    }
+
     private void OnEnteringCollection()
     {
         StartCoroutine(ShiftSideways(false));
@@ -51,4 +66,5 @@ public class HomeSprites : MonoBehaviour
             yield return null;
         }
     }
+
 }

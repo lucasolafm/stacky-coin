@@ -36,6 +36,11 @@ public class HandManager : MonoBehaviour
     private bool shaking;
     private float shakeStartTime, shakeSize;
 
+    private Coroutine ascendHandRoutine;
+    private Coroutine descendHandRoutine;
+    private int adjustPositionID;
+    private int ascendID;
+
     void Start()
     {
         EventManager.CoinLandsOnHand.AddListener(OnCoinLandsOnHand);
@@ -115,12 +120,12 @@ public class HandManager : MonoBehaviour
 
     private void OnReachesNextStageTarget(Coin scoredCoin, float handHeight)
     {
-        LeanTween.moveLocal(hand.gameObject, 
+        ascendID = LeanTween.moveLocal(hand.gameObject, 
                             new Vector3(Mathf.Clamp(scoredCoin.transform.position.x - 0.8f, 2.108f, 2.216f), handHeight, hand.position.z), 
                             playManager.timeToAscendToNextStage).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() => 
         {
             EventManager.HandAscendedCoinPile.Invoke();
-        });
+        }).id;
     }
 
     public void AdjustHandPosition(float pileTopPosition, int moveDownCoinAmount, Action completed)
@@ -129,13 +134,13 @@ public class HandManager : MonoBehaviour
         EventManager.HandStopsCharge.Invoke();
         StopBobbing();
 
-        LeanTween.moveLocal(hand.gameObject, new Vector3(pileTopPosition != 0 ? pileTopPosition - 0.8f : hand.position.x, 
+        adjustPositionID = LeanTween.moveLocal(hand.gameObject, new Vector3(pileTopPosition != 0 ? pileTopPosition - 0.8f : hand.position.x, 
                 hand.position.y - coinToMeasure.bounds.size.y * Mathf.Max(moveDownCoinAmount, 0), hand.position.z), 
                 moveDownTime).setEase(LeanTweenType.easeInOutSine).setOnComplete(() =>
         {
             playManager.SetState(new PlayDefault(playManager));
             completed();
-        });
+        }).id;
     }
 
     private void OnGoneGameOver(bool manualGameOver)
@@ -169,8 +174,6 @@ public class HandManager : MonoBehaviour
         Vector3 startPos = hand.position;
         Vector3 endPos = new Vector3(Mathf.Clamp(topCoinPos.x - 0.8f, 2.108f, 2.216f), 
             height, hand.position.z);
-        
-        cameraManager.AscendCamera(height);
 
         while (t < 1)
         {

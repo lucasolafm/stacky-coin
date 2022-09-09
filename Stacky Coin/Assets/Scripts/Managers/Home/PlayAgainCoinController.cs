@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class PlayAgainCoinController : MonoBehaviour
 {
-    [SerializeField] private HomeManager homeManager;
+    public static bool EnteringScreen;
+    
     [SerializeField] private Transform playAgainCoin;
     [SerializeField] private Transform visual;
-    [SerializeField] private Image shadow;
+    [SerializeField] private Collider collider;
     [SerializeField] private AudioClip enterClip;
     [SerializeField] private AudioClip playAgainClip;
     [SerializeField] private float enterClipDelay;
@@ -31,11 +32,14 @@ public class PlayAgainCoinController : MonoBehaviour
         
         Invoke(nameof(PlayEnterSound), enterClipDelay);
 
+        EnteringScreen = true;
         StartCoroutine(EnterAnimation());
     }
 
     private void OnPlayingAgain()
     {
+        collider.enabled = false;
+        
         GameManager.I.audioSource.PlayOneShot(playAgainClip, 0.5f);
 
         StartCoroutine(ExitAnimation());
@@ -60,7 +64,11 @@ public class PlayAgainCoinController : MonoBehaviour
         // Move up
         LeanTween.move(playAgainCoin.gameObject, 
                         startPosition, 
-                        0.7f).setEase (LeanTweenType.easeOutBack);
+                        0.7f).setEase (LeanTweenType.easeOutBack).setOnComplete(() =>
+        {
+            collider.enabled = true;
+            EnteringScreen = false;
+        });
 
         // Spin
         LeanTween.rotateAroundLocal(visual.gameObject, 

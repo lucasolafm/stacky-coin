@@ -13,6 +13,7 @@ public class InstantiationManagerPlay : MonoBehaviour
     public int instantiateCoinsAmount;
     [SerializeField] private float gemChance;
     [SerializeField] private int keyCoinRatio;
+    [SerializeField] private float keyRatioMultNoChests;
 
 	private TreasurePileCoin[] treasurePileCoins;
 	private CombineInstance[] combine;
@@ -25,16 +26,12 @@ public class InstantiationManagerPlay : MonoBehaviour
     private int nextKeyIndex;
     private int indexToInstatiate;
 
-    void Awake()
-    {
-        nextKeyIndex = Random.Range(0, keyCoinRatio);
-    }
-
     public void GetCoinSkinData()
     {
         ownedCoins = Data.ownedCoins;
         ownedGems = Data.ownedGems;
         chests = Data.chests;
+        nextKeyIndex = Random.Range(0, GetKeyCoinRatio());
     }
 
     public void InitializeStartingCoinStack()
@@ -93,7 +90,7 @@ public class InstantiationManagerPlay : MonoBehaviour
 
             coin.SetState(new CoinInactive(coin));
 
-            nextKeyIndex += 10 + Random.Range(0, keyCoinRatio - 10);
+            nextKeyIndex += 5 + Random.Range(0, GetKeyCoinRatio() - 5);
         }
     }
 
@@ -222,5 +219,15 @@ public class InstantiationManagerPlay : MonoBehaviour
         {
             return CoinType.Coin;
         }
+    }
+
+    private int GetKeyCoinRatio()
+    {
+        foreach (int chest in chests)
+        {
+            if (chest > 0) return keyCoinRatio;
+        }
+
+        return Mathf.RoundToInt(keyCoinRatio * keyRatioMultNoChests);
     }
 }

@@ -49,6 +49,7 @@ public class BonusCoinsController : MonoBehaviour
     private void EnableBonusCoinsButton()
     {
         bonusCoinsButton.enabled = true;
+        bonusCoinsButton.GetComponent<Collider>().enabled = true;
 
         StartCoroutine(ShakeButton());
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,12 @@ public class MoveCamUpPerScreenHeight : MonoBehaviour
     public Vector3 targetPosBottomScreen;
     public Vector3 camVerticleOffset;
     public bool inCollection;
-    
+
+    private void Awake()
+    {
+        //targetPosBottomScreen = GetComponent<Camera>().ScreenToWorldPoint(Vector3.zero);
+    }
+
     public void MoveUp()
     {
         //return;

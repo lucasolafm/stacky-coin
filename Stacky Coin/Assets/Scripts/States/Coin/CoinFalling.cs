@@ -38,7 +38,7 @@ public class CoinFalling : CoinState
     {
         if (landedOnFloor) return;
         landedOnFloor = true;
-        
+
         EventManager.CoinLandsOnFloor.Invoke(coin);
     }
 }

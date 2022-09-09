@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class HomeManager : MonoBehaviour
 {
     [SerializeField] private bool testGetCoins;
+    [SerializeField] private bool testGetCoinsAndGems;
     
     public InstantiationManagerHome instantiationManager;
     public MiniCoinManager miniCoinManager;
     public CoinTubeManager coinTubeManager;
     [SerializeField] private ChestManager chestManager;
     [SerializeField] private AdManager adManager;
+    [SerializeField] private HomeSprites homeSprites;
     public BonusCoinsController bonusCoinsController;
     public GameObject homeHolder;
     public new Camera camera;
@@ -25,16 +27,16 @@ public class HomeManager : MonoBehaviour
     public AudioClip tubeGemBonusClip;
     public AudioClip tubeKeyDropClip;
     public AudioClip chestOpenClip;
+    public AudioClip chestOpenAdClip;
     public AudioClip unlockClip;
     public static float chestUnlockTime;
 
     [SerializeField] private Button collectionButton;
 
-    public List<int> bonusCoins = new List<int>();
-
     public HomeState State;
     [HideInInspector] public float screenWorldWidth;
     [HideInInspector] public int[] startOriginalMiniCoins;
+    [HideInInspector] public int startOriginalMiniCoinsValue;
     [HideInInspector] public List<MiniCoin> oldMiniCoins, oldMiniGems, newMiniCoins = new List<MiniCoin>();
     [HideInInspector] public int newMiniCoinsCount;
     [HideInInspector] public float offSetBottomCoinTube, offSetSideCoinTube;
@@ -56,8 +58,11 @@ public class HomeManager : MonoBehaviour
         EventManager.SwipesScreen.AddListener(OnSwipesScreen);
         collectionButton.onClick.AddListener(OnPressCollectionButton);
 
-        //GameManager.I.scoredCoins = new List<int>(new int[] { 0,0,0,0,0,0,0,39,39,39,39,39,39,39,0,0,0,0,0,0,0,0 ,39,39,39,39,39,39,39,39,39,39,39,39,0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0,} /*new int[10000]*/);
-
+        if (testGetCoinsAndGems)
+        {
+            GameManager.I.scoredCoins = new List<int>(new int[] { 0,0,0,0,0,0,0,39,39,39,39,39,39,39,0,0,0,0,0,0,0,0 ,39,39,39,39,39,39,39,39,39,39,39,39,0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0, 0, 39, 0, 0, 0, 41, 0, 0, 39, 0,} /*new int[10000]*/);
+        }
+        
         if (testGetCoins)
         {
             GameManager.I.scoredCoins = new List<int>(new int[9900]);
@@ -66,6 +71,11 @@ public class HomeManager : MonoBehaviour
         screenWorldWidth = camera.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x - camera.ScreenToWorldPoint(Vector3.zero).x;
 
         startOriginalMiniCoins = Data.miniCoins;
+        startOriginalMiniCoinsValue = 0;
+        foreach (int coinId in startOriginalMiniCoins)
+        {
+            startOriginalMiniCoinsValue += coinId > 0 ? GameManager.I.gemBonusAmount : 1;
+        }
         
         coinTubeManager.GetCameraWorldBoundaries();
         MeasureMiniCoin();
@@ -75,6 +85,7 @@ public class HomeManager : MonoBehaviour
         coinTubeManager.Initialize();
         miniCoinManager.SpawnOldMiniCoins();
         chestManager.Initialize();
+        homeSprites.Initialize();
         adManager.Initialize();
 
         State.OnHomeSceneLoaded();
@@ -141,6 +152,8 @@ public class HomeManager : MonoBehaviour
 
     private void OnPressCollectionButton()
     {
+        if (MiniKey.ActiveMiniKeys > 0 || PlayAgainCoinController.EnteringScreen) return;
+        
         State.PressCollectionButton();
     }
 

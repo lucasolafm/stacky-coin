@@ -73,6 +73,7 @@ public class AdFreeChest : Ad
     public void HandleAdClosed(object sender, EventArgs args)
     {
         adClosed = true;
+        chestWithAd.collider.enabled = false;
     }
 
     private void OnEnabledNewChest(Chest chest)
@@ -104,6 +105,6 @@ public class AdFreeChest : Ad
     {
         EventManager.PaidForChest.Invoke(chestWithAd);
 
-        unlockSkinManager.OpenChest();
+        unlockSkinManager.OpenChest(true);
     }
 }

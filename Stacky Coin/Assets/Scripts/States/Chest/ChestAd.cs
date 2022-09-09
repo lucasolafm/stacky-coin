@@ -6,10 +6,15 @@ public class ChestAd : ChestOpen
 {
     public ChestAd(Chest chest, bool fromLocked = false) : base(chest, fromLocked) {}
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        pointer = chest.pointerAd;
+    }
+
     public override void SetPointer()
     {
-        // chest.pointerSprite.sprite = chest.chestManager.pointerSpriteAd;
-        // chest.counterText.gameObject.SetActive(false);
         chest.SetPointerAd();
     }
 

@@ -66,13 +66,6 @@ public class HomeDroppingMiniCoins : HomeState
         manager.SetState(new HomeEnteringPlay(manager));
     }
 
-    public override void PressCollectionButton()
-    {
-        base.PressCollectionButton();
-
-        manager.SetState(new HomeEnteringCollection(manager));
-    }
-
     public override void SwipeScreen(bool rightOrLeft)
     {
         if (rightOrLeft == false) return;

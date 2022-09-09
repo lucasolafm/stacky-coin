@@ -26,10 +26,6 @@ public class InstantiationManagerHome : MonoBehaviour
         {
             miniCoin = Instantiate(GameManager.I.miniKeysPrefabs[identifier - 1], miniCoinHolder);
         }
-        else
-        {
-            miniCoin = Instantiate(GameManager.I.miniCoinGhostPrefab, miniCoinHolder);
-        }
 
         miniCoin.homeManager = homeManager;
         miniCoin.miniCoinManager = miniCoinManager;   
