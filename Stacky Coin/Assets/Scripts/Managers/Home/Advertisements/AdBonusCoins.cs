@@ -49,12 +49,19 @@ public class AdBonusCoins : Ad
 
     public override void Tick()
     {
-        if (!adClosed || !rewardEarned) return;
+        if (!adClosed) return;
 
         timeAfterClosingAd += Time.deltaTime;
         if (timeAfterClosingAd < adManager.delayAfterClosingAd) return;
 
-        OnFinishAd();
+        if (rewardEarned)
+        {
+            OnFinishAd();
+        }
+        else
+        {
+            bonusCoinsButton.enabled = false;
+        }
 
         adClosed = false;
     }

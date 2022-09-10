@@ -43,20 +43,24 @@ public class AdFreeChest : Ad
 
     public override void Tick()
     {
-        if (adOpened)
-        {
-            chestWithAd.state.StartOpeningProcess();
+        // if (adOpened)
+        // {
+        //     chestWithAd.state.StartOpeningProcess();
+        //
+        //     adOpened = false;
+        // }
 
-            adOpened = false;
-        }
-
-        if (!adClosed || !rewardEarned) return;
+        if (!adClosed) return;
 
         timeAfterClosingAd += Time.deltaTime;
         if (timeAfterClosingAd < adManager.delayAfterClosingAd) return;
 
-        OpenChest();
-
+        if (rewardEarned)
+        {
+            chestWithAd.state.StartOpeningProcess();
+            OpenChest();
+        }
+        
         adClosed = false;
     }
 

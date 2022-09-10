@@ -16,6 +16,7 @@ public class UnlockSkinManager : MonoBehaviour
     [SerializeField] private Transform payingCoinsHolder;
     public Transform unlockChest;
     public SpriteRenderer unlockGlow;
+    public Transform textNew;
     public SpriteRenderer unlockChestRenderer;
     public SpriteRenderer unlockChestChargeEffect;
     public Sprite[] chestSprites, chestChargeEffectSprites;
@@ -52,6 +53,7 @@ public class UnlockSkinManager : MonoBehaviour
     private float timeUntilClipClimax = 2.313f;
     public Chest boughtChest;
     private bool donePayingMiniCoins;
+    private bool chestPreparedForOpening;
 
     void Start()
     {
@@ -68,6 +70,7 @@ public class UnlockSkinManager : MonoBehaviour
 
         chestPayingPosition = camera.ScreenToWorldPoint(new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 5));
         unlockGlow.transform.position = chestPayingPosition;
+        textNew.position = new Vector3(chestPayingPosition.x, chestPayingPosition.y - 0.35f, textNew.position.z);
         
         payingCoinStartScale = payingCoins[0].transform.localScale;
         payingCoinEndScale = payingCoinStartScale * info.payingCoinEndScalePercent;
@@ -82,8 +85,12 @@ public class UnlockSkinManager : MonoBehaviour
         amountPaid = 0;
         donePayingMiniCoins = false;
         isChargingChest = false;
+        chestPreparedForOpening = false;
 
-        StartCoroutine(chestPreparer.PrepareChest(boughtChest, chestIsPaidByAd));
+        StartCoroutine(chestPreparer.PrepareChest(boughtChest, chestIsPaidByAd, () =>
+        {
+            chestPreparedForOpening = true;
+        }));
 
         unlockedSkinId = (!chestIsPaidByAd ? GetRandomSkin(boughtChest.level) : GetRandomUnownedSkin(boughtChest.level));
 
@@ -159,21 +166,31 @@ public class UnlockSkinManager : MonoBehaviour
 
     public void OpenChest(bool chestIsPaidByAd)
     {
-        if (chestIsPaidByAd)
+        StartCoroutine(WaitForChestPreparation(() =>
         {
-            homeManager.chestOpenAudioSource.Stop();
-            homeManager.chestOpenAudioSource.clip = homeManager.chestOpenAdClip;
-            homeManager.chestOpenAudioSource.time = 0;
-            homeManager.chestOpenAudioSource.volume = 1f;
-            homeManager.chestOpenAudioSource.Play();
-        }
+            if (chestIsPaidByAd)
+            {
+                homeManager.chestOpenAudioSource.Stop();
+                homeManager.chestOpenAudioSource.clip = homeManager.chestOpenAdClip;
+                homeManager.chestOpenAudioSource.time = 0;
+                homeManager.chestOpenAudioSource.volume = 1f;
+                homeManager.chestOpenAudioSource.Play();
+            }
 
-        unlockChestRenderer.enabled = false;
+            unlockChestRenderer.enabled = false;
 
-        StartCoroutine(ExplodingChest());
-        StartCoroutine(ChestFadingOut());
+            StartCoroutine(ExplodingChest());
+            StartCoroutine(ChestFadingOut());
 
-        StartCoroutine(PreviewingSkinCoin());
+            StartCoroutine(PreviewingSkinCoin());
+        }));
+    }
+
+    private IEnumerator WaitForChestPreparation(Action completed)
+    {
+        while (!chestPreparedForOpening) yield return null;
+
+        completed();
     }
 
     private IEnumerator PreviewingSkinCoin()

@@ -30,7 +30,7 @@ public class Data
         miniCoins = new int[0];
         chests = new int[3] {0, 0, 0};
         ownedCoins = new int[1] {0};
-        ownedGems = new int[] {390/*, 400, 420*/};
+        ownedGems = new int[] {390, 400, 420};
         unseenNewSkins = new int[0];
         playAdTimer = 0;
         bonusCoinsTimer = 0;

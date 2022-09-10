@@ -31,9 +31,14 @@ public class UnlockSkinPreviewer
     public IEnumerator EnlargePreviewSkinCoin(bool isDuplicate)
     {
         Vector3 startScale = manager.previewSkinCoin.transform.localScale;
+        Vector3 textStartScale = manager.textNew.localScale;
         Vector3 glowStartScale = manager.unlockGlow.transform.localScale;
         manager.previewSkinCoin.gameObject.SetActive(true);
-        if (!isDuplicate) manager.unlockGlow.gameObject.SetActive(true);
+        if (!isDuplicate)
+        {
+            manager.unlockGlow.gameObject.SetActive(true);
+            manager.textNew.gameObject.SetActive(true);
+        }
         manager.previewSkinCoin.transform.position = manager.collectionCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f, 10));
         
         float t = 0;
@@ -42,7 +47,11 @@ public class UnlockSkinPreviewer
             t = Mathf.Min(t + Time.deltaTime / manager.info.previewCoinEnlargeTime, 1);
             
             manager.previewSkinCoin.transform.localScale = startScale * (Utilities.EaseOutBack(t) * manager.info.previewCoinEnlargeSize);
-            if (!isDuplicate) manager.unlockGlow.transform.localScale = glowStartScale * Utilities.EaseOutSine(Mathf.Min(t * 1.5f, 1));
+            if (!isDuplicate)
+            {
+                manager.unlockGlow.transform.localScale = glowStartScale * Utilities.EaseOutSine(Mathf.Min(t * 1.5f, 1));
+                manager.textNew.transform.localScale = textStartScale * Utilities.EaseOutBack(t);
+            }
 
             yield return null;
         }

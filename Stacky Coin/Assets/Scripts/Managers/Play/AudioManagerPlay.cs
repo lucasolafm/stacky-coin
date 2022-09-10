@@ -70,6 +70,6 @@ public class AudioManagerPlay : MonoBehaviour
 
     private void OnPerfectHit(Coin coin, int combo)
     {
-        soundSource.PlayOneShot(perfectHitClips[combo - combo / perfectHitClips.Length * perfectHitClips.Length], perfectHitVolume);
+        soundSource.PlayOneShot(perfectHitClips[Mathf.Min(combo, perfectHitClips.Length - 1) /*combo - combo / perfectHitClips.Length * perfectHitClips.Length*/], perfectHitVolume);
     }
 }

@@ -68,6 +68,7 @@ public class AdTripleRewardMulti : Ad
             Complete();
             ReturnToDefaultHome();
             adClosed = false;
+            GameManager.I.loadingSpinner.SetActive(false);
         }
         else 
         {
@@ -75,6 +76,7 @@ public class AdTripleRewardMulti : Ad
             {
                 PlayAd();
                 adClosed = false;
+                earnedReward = false;
             }
             else
             {

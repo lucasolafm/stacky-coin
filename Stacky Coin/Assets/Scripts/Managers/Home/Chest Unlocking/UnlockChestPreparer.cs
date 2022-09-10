@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ public class UnlockChestPreparer
         this.manager = manager;
     }
 
-    public IEnumerator PrepareChest(Chest boughtChest, bool chestIsPaidByAd)
+    public IEnumerator PrepareChest(Chest boughtChest, bool chestIsPaidByAd, Action completed)
     {
         manager.unlockChest.gameObject.SetActive(true);
         manager.unlockChestRenderer.enabled = true;
@@ -24,6 +25,8 @@ public class UnlockChestPreparer
         yield return manager.StartCoroutine(MoveChestToPayingPosition(startPosition));
 
         EventManager.ChestArrivesAtPayingPosition.Invoke(boughtChest, chestIsPaidByAd);
+
+        completed();
     }
 
     public IEnumerator BackgroundFade(bool inOrOut)
@@ -51,17 +54,21 @@ public class UnlockChestPreparer
     {
         float t = 0;
         Color color = manager.glowColors[manager.boughtChest.level - 1];
+        Vector3 textStartScale = manager.textNew.localScale;
         while (t < 1)
         {
             t = Mathf.Min(t + Time.deltaTime / manager.info.backgroundFadeTimeOut, 1);
 
             manager.unlockGlow.color = new Color(color.r, color.g, color.b, 1 - t);
+            manager.textNew.localScale = textStartScale * (1 - t);
 
             yield return null;
         }
 
         manager.unlockGlow.color = color;
         manager.unlockGlow.gameObject.SetActive(false);
+        manager.textNew.localScale = textStartScale;
+        manager.textNew.gameObject.SetActive(false);
     }
 
     private void SetchestSprites(int level)

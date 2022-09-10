@@ -75,6 +75,7 @@ public class AdTripleReward : Ad
         if (!rewardEarned)
         {
             ReturnToDefaultHome();
+            adClosed = false;
             return;
         }
 
