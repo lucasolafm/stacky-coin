@@ -74,6 +74,8 @@ public class ChestManager : MonoBehaviour
     
     public void PressChest(int position)
     {
+        return;
+    
         chests[position].state.PressChest();
     }
 
